@@ -641,7 +641,7 @@ Je mesure 1.75 m
 &#x20;
 
 {% hint style="info" %}
-**Lire au clavier** (avec `Scanner`) et **mettre en forme** l'affichage (avec `printf`) sont traités au chapitre [7. String et entrées/sorties](../07-string-entrees-sorties/README.md).
+**Lire au clavier** (avec `Scanner`) et **mettre en forme** l'affichage (avec `printf`) sont traités au chapitre [7. String et entrées/sorties](07-string-entrees-sorties.md).
 {% endhint %}
 
 &#x20;
@@ -797,4 +797,4 @@ public class CarteEtudiant {
 
 &#x20;
 
-<mark style="color:green;">**→ Suite :**</mark> [2. Expressions et opérateurs](../02-expressions-operateurs/README.md)
+<mark style="color:green;">**→ Suite :**</mark> [2. Expressions et opérateurs](02-expressions-operateurs.md)

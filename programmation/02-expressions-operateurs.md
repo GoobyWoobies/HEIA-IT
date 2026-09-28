@@ -381,7 +381,7 @@ String statut = (note >= 4.0) ? "réussi" : "échoué";
 &#x20;
 
 {% hint style="warning" %}
-Pratique pour un choix simple. Dès que ça se complique, un vrai `if/else` ([chapitre 3](../03-instructions-controle-flux/README.md)) est plus lisible.
+Pratique pour un choix simple. Dès que ça se complique, un vrai `if/else` ([chapitre 3](03-instructions-controle-flux.md)) est plus lisible.
 {% endhint %}
 
 &#x20;
@@ -747,4 +747,4 @@ La première est la plus sûre : la seconde ne marche que parce que `celsius * 9
 
 &#x20;
 
-<mark style="color:green;">**→ Suite :**</mark> [3. Instructions et contrôle de flux](../03-instructions-controle-flux/README.md)
+<mark style="color:green;">**→ Suite :**</mark> [3. Instructions et contrôle de flux](03-instructions-controle-flux.md)

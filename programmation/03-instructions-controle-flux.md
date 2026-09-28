@@ -427,7 +427,7 @@ flowchart TD
 &#x20;
 
 {% hint style="info" %}
-Il existe aussi la boucle **`for-each`** (`for (int note : notes)`), qui parcourt tous les éléments d'un tableau. Elle est présentée au chapitre [5. Tableaux](../05-tableaux/README.md).
+Il existe aussi la boucle **`for-each`** (`for (int note : notes)`), qui parcourt tous les éléments d'un tableau. Elle est présentée au chapitre [5. Tableaux](05-tableaux.md).
 {% endhint %}
 
 &#x20;
@@ -824,4 +824,4 @@ public class FizzBuzz {
 
 &#x20;
 
-<mark style="color:green;">**→ Suite :**</mark> [4. Méthodes](../04-methodes/README.md)
+<mark style="color:green;">**→ Suite :**</mark> [4. Méthodes](04-methodes.md)
