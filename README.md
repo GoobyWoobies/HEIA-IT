@@ -39,6 +39,7 @@ flowchart LR
     H --> M["Méthodologie<br/>et Sécurité IT"]
     M --> L["Linux & Shell"]
     M --> D["Docker"]
+    H --> E["Économie<br/>et Droit IT"]
 
     style H fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style T fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
@@ -47,6 +48,7 @@ flowchart LR
     style M fill:#dcfce7,stroke:#22c55e,color:#14532d
     style L fill:#f0fdf4,stroke:#22c55e,color:#14532d
     style D fill:#f0fdf4,stroke:#22c55e,color:#14532d
+    style E fill:#ffedd5,stroke:#f97316,color:#7c2d12
 ```
 
 &#x20;
@@ -62,6 +64,12 @@ Réseaux, protocoles et communication de données.
 ### [Programmation](programmation/README.md)
 
 Langages, algorithmes et bonnes pratiques.
+
+&#x20;
+
+### [Économie et Droit IT](economie-droit-it/README.md)
+
+Économie d'entreprise et droit appliqué à l'informatique.
 {% endcolumn %}
 
 {% column %}
@@ -90,9 +98,10 @@ Outils du quotidien (Linux, Docker…) et sécurité informatique.
 | Matière                        | Statut                                                      |
 | ------------------------------ | ----------------------------------------------------------- |
 | Téléinformatique            | À venir                                                  |
-| Programmation               | À venir                                                  |
+| Programmation               | <mark style="color:green;">Chapitres 1 à 3 sur 15</mark> |
 | Technique Numérique         | À venir                                                  |
 | Méthodologie et Sécurité IT | <mark style="color:green;">Linux & Shell, Docker</mark>  |
+| Économie et Droit IT        | À venir                                                  |
 
 &#x20;
 
@@ -166,9 +175,10 @@ Les couleurs ont toujours un sens :
 ├── teleinformatique/
 ├── programmation/
 ├── technique-numerique/
-└── methodologie-securite-it/
-    ├── linux/
-    └── docker/
+├── methodologie-securite-it/
+│   ├── linux/
+│   └── docker/
+└── economie-droit-it/
 ```
 
 &#x20;
