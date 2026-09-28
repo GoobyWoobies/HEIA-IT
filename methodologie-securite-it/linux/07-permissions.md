@@ -1,38 +1,97 @@
 ---
 description: Utilisateurs, groupes, permissions rwx, chmod, chown et le principe du moindre privilège.
+icon: user-lock
+cover: https://placehold.co/1600x500/0f172a/4ade80?text=Linux+%C2%B7+Permissions
+coverY: 0
 ---
 
-# 7. Utilisateurs, groupes et permissions
+# 7. Utilisateurs et permissions
 
-Linux est un système **multi-utilisateur** depuis toujours : plusieurs personnes peuvent utiliser la même machine. Il faut donc décider **qui a le droit de faire quoi** sur chaque fichier.
+<mark style="color:blue;">**Qui a le droit de faire quoi, sur quel fichier.**</mark>
 
-## Utilisateurs et groupes
+&#x20;
 
-* Chaque personne (ou service) a un **compte utilisateur** : `alice`, `bob`, `www-data`…
-* Les utilisateurs peuvent appartenir à des **groupes** : `devs`, `docker`, `sudo`… Donner un droit à un groupe, c'est le donner à tous ses membres.
-* **`root`** est le **super-administrateur** : il a **tous les droits**, sur tout.
+{% hint style="info" %}
+**En bref**
+
+Chaque fichier a un **propriétaire**, un **groupe**, et trois séries de droits (**r**ead, **w**rite, e**x**ecute) pour le propriétaire, le groupe et les autres. `chmod` change les droits, `chown` change le propriétaire. Et on donne toujours **le minimum nécessaire**.
+{% endhint %}
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">01</mark> · Utilisateurs et groupes
+
+&#x20;
+
+Linux est **multi-utilisateur** depuis toujours : plusieurs personnes (ou services) partagent la même machine.
+
+&#x20;
+
+```mermaid
+flowchart TB
+    ROOT["👑 root<br/>tous les droits"]
+    subgraph G1["👥 Groupe devs"]
+        A["👤 alice"]
+        B["👤 bob"]
+    end
+    subgraph G2["👥 Groupe docker"]
+        A2["👤 alice"]
+    end
+    W["🤖 www-data<br/>compte de service"]
+
+    style ROOT fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style G1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style G2 fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
+    style W fill:#f8fafc,stroke:#64748b,color:#0f172a
+```
+
+&#x20;
+
+* Chaque personne ou service a un **compte utilisateur** : `alice`, `bob`, `www-data`…
+* Les utilisateurs appartiennent à des **groupes** : donner un droit à un groupe, c'est le donner à tous ses membres.
+* <mark style="color:red;">**`root`**</mark> est le **super-administrateur** : il a **tous les droits**, partout.
+
+&#x20;
 
 ```bash
-whoami           # qui suis-je ? → alice
+whoami           # qui suis-je ?       → alice
 id               # mon identifiant et mes groupes
 groups           # la liste de mes groupes
 ```
 
+&#x20;
+
 ### `sudo` : agir en administrateur
 
+&#x20;
+
 Plutôt que de se connecter en `root`, on utilise **`sudo`** (_superuser do_) pour exécuter **une seule commande** avec les droits d'administrateur :
+
+&#x20;
 
 ```bash
 sudo apt update          # demande ton mot de passe, puis exécute en root
 ```
 
+&#x20;
+
 {% hint style="warning" %}
-`sudo` donne un pouvoir total. Une erreur avec `sudo rm -rf` peut détruire le système. N'utilise `sudo` que quand c'est **vraiment nécessaire**, et relis la commande.
+**Grand pouvoir, grandes responsabilités** — une erreur avec `sudo rm -rf` peut détruire le système. N'utilise `sudo` que quand c'est **vraiment nécessaire**, et relis la commande.
 {% endhint %}
 
-## Lire les permissions
+&#x20;
 
-La commande `ls -l` affiche les permissions en début de ligne :
+***
+
+&#x20;
+
+## <mark style="color:purple;">02</mark> · Lire les permissions
+
+&#x20;
 
 ```
 $ ls -l /home
@@ -40,173 +99,322 @@ drwxr-xr-x 2 alice   alice   4.0K Jul 20 12:41 alice
 drwxr-xr-x 2 bob     bob     4.0K Jul 20 12:40 bob
 ```
 
-Décomposons `drwxr-xr-x` :
+&#x20;
 
+Décortiquons `drwxr-xr-x` :
+
+&#x20;
+
+```mermaid
+flowchart LR
+    T["d<br/><i>type</i><br/>dossier"] --- U["rwx<br/><i>👤 User</i><br/>propriétaire"] --- G["r-x<br/><i>👥 Group</i><br/>groupe"] --- O["r-x<br/><i>🌍 Others</i><br/>tous les autres"]
+
+    style T fill:#f8fafc,stroke:#64748b,color:#0f172a
+    style U fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style G fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style O fill:#fef3c7,stroke:#f59e0b,color:#78350f
 ```
-    d   rwx   r-x   r-x
-    │   ─┬─   ─┬─   ─┬─
-    │    │     │     └── Others : tous les autres utilisateurs
-    │    │     └── Group  : les membres du groupe propriétaire
-    │    └── User   : le propriétaire du fichier
-    └── Type : d = dossier, - = fichier, l = lien
-```
 
-Chaque bloc de 3 lettres indique les droits pour une catégorie de personnes :
+&#x20;
 
-| Lettre | Droit | Sur un **fichier** | Sur un **dossier** |
-| --- | --- | --- | --- |
-| `r` | **R**ead (lire) | Lire le contenu | Lister le contenu (`ls`) |
-| `w` | **W**rite (écrire) | Modifier le contenu | Créer / supprimer des fichiers dedans |
-| `x` | e**X**ecute (exécuter) | Lancer comme programme | **Entrer** dedans (`cd`) |
-| `-` | Pas de droit | | |
+| Lettre | Droit                | Sur un **fichier**         | Sur un **dossier**                          |
+| ------ | -------------------- | -------------------------- | ------------------------------------------- |
+| `r`    | **R**ead · lire      | Lire le contenu            | Lister le contenu (`ls`)                    |
+| `w`    | **W**rite · écrire   | Modifier le contenu        | Créer / supprimer des fichiers dedans       |
+| `x`    | e**X**ecute          | Lancer comme programme     | **Entrer** dedans (`cd`)                    |
+| `-`    | Aucun droit          |                            |                                             |
+
+&#x20;
 
 Donc `drwxr-xr-x` sur `/home/alice` signifie :
 
-* **alice** (propriétaire) : lire, écrire, entrer → `rwx`
-* **groupe alice** : lire et entrer, mais pas modifier → `r-x`
-* **tous les autres** : lire et entrer, mais pas modifier → `r-x`
+&#x20;
+
+* 👤 **alice** peut lire, écrire et entrer → `rwx`
+* 👥 **le groupe** peut lire et entrer, pas modifier → `r-x`
+* 🌍 **les autres** peuvent lire et entrer, pas modifier → `r-x`
+
+&#x20;
 
 ### 🏢 L'analogie de l'immeuble de bureaux
 
+&#x20;
+
 Chaque bureau (fichier) a trois types de badges :
 
-* **User** : le badge du **locataire** du bureau.
-* **Group** : le badge de **son équipe**.
-* **Others** : le badge **visiteur**.
+&#x20;
+
+{% columns %}
+{% column %}
+**👤 User**
+
+Le badge du **locataire** du bureau.
+{% endcolumn %}
+
+{% column %}
+**👥 Group**
+
+Le badge de **son équipe**.
+{% endcolumn %}
+
+{% column %}
+**🌍 Others**
+
+Le badge **visiteur**.
+{% endcolumn %}
+{% endcolumns %}
+
+&#x20;
 
 Et chaque badge ouvre (ou non) trois choses : **lire** les dossiers sur le bureau (`r`), **modifier** ce qui s'y trouve (`w`), **utiliser** les machines (`x`).
 
-## La notation octale (les chiffres)
+&#x20;
 
-On représente souvent les permissions par **trois chiffres**. Chaque droit vaut un nombre, et on **additionne** :
+***
 
-| Droit | Valeur |
-| --- | --- |
-| `r` | **4** |
-| `w` | **2** |
-| `x` | **1** |
-| `-` | 0 |
+&#x20;
 
+## <mark style="color:purple;">03</mark> · La notation en chiffres
+
+&#x20;
+
+Chaque droit vaut un nombre, et on **additionne** :
+
+&#x20;
+
+{% columns %}
+{% column %}
+**`r` = 4**
+{% endcolumn %}
+
+{% column %}
+**`w` = 2**
+{% endcolumn %}
+
+{% column %}
+**`x` = 1**
+{% endcolumn %}
+{% endcolumns %}
+
+&#x20;
+
+```mermaid
+flowchart LR
+    U["👤 rwx<br/>4+2+1"] --> U7["7"]
+    G["👥 r-x<br/>4+0+1"] --> G5["5"]
+    O["🌍 r-x<br/>4+0+1"] --> O5["5"]
+    U7 --> R(["chmod 755"])
+    G5 --> R
+    O5 --> R
+
+    style U fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style G fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style O fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style R fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
 ```
-   rwx  =  4 + 2 + 1  =  7
-   r-x  =  4 + 0 + 1  =  5
-   r--  =  4 + 0 + 0  =  4
-   rw-  =  4 + 2 + 0  =  6
 
-   rwxr-xr-x  →  7 5 5  →  755
-   rw-r--r--  →  6 4 4  →  644
-```
+&#x20;
 
-### Les combinaisons courantes
+| Octal    | Symbolique    | Usage typique                                                   |
+| -------- | ------------- | --------------------------------------------------------------- |
+| `755`    | `rwxr-xr-x`   | Dossiers, scripts, programmes                                   |
+| `644`    | `rw-r--r--`   | Fichiers normaux (documents, config)                            |
+| `700`    | `rwx------`   | Dossier privé                                                   |
+| `600`    | `rw-------`   | <mark style="color:blue;">**Fichier privé : clés SSH, mots de passe**</mark> |
+| `777`    | `rwxrwxrwx`   | <mark style="color:red;">**⚠️ Tout le monde peut tout faire — à éviter**</mark> |
 
-| Octal | Symbolique | Usage typique |
-| --- | --- | --- |
-| `755` | `rwxr-xr-x` | Dossiers, scripts et programmes |
-| `644` | `rw-r--r--` | Fichiers normaux (documents, config) |
-| `700` | `rwx------` | Dossier privé |
-| `600` | `rw-------` | Fichier privé : **clés SSH**, mots de passe |
-| `777` | `rwxrwxrwx` | ⚠️ Tout le monde peut tout faire — **à éviter** |
+&#x20;
 
-## Modifier les permissions : `chmod`
+***
 
-`chmod` (_change mode_) s'utilise de deux façons :
+&#x20;
+
+## <mark style="color:purple;">04</mark> · Modifier les droits : `chmod`
+
+&#x20;
 
 {% tabs %}
-{% tab title="Avec des chiffres" %}
+{% tab title="🔢 Avec des chiffres" %}
 ```bash
 chmod 755 script.sh      # rwxr-xr-x
 chmod 644 notes.txt      # rw-r--r--
 chmod 600 ~/.ssh/id_rsa  # rw------- (clé privée)
-chmod -R 755 dossier/    # récursif : dossier et tout son contenu
+chmod -R 755 dossier/    # récursif
 ```
 {% endtab %}
 
-{% tab title="Avec des lettres" %}
-Format : **qui** (`u` user, `g` group, `o` others, `a` all) + **action** (`+` ajouter, `-` retirer, `=` fixer) + **droit** (`r`, `w`, `x`).
+{% tab title="🔤 Avec des lettres" %}
+Format : **qui** (`u` user, `g` group, `o` others, `a` all) + **action** (`+`, `-`, `=`) + **droit** (`r`, `w`, `x`).
 
 ```bash
 chmod u+x script.sh      # ajoute l'exécution au propriétaire
 chmod g-w notes.txt      # retire l'écriture au groupe
-chmod o-rwx secret.txt   # retire tous les droits aux autres
+chmod o-rwx secret.txt   # retire tout aux autres
 chmod a+r public.txt     # tout le monde peut lire
-chmod u=rw,go=r doc.txt  # équivaut à 644
+chmod u=rw,go=r doc.txt  # = 644
 ```
 {% endtab %}
 {% endtabs %}
 
+&#x20;
+
 {% hint style="success" %}
-**Cas classique :** tu écris un script `deploy.sh` et `./deploy.sh` répond `Permission denied`. Il manque simplement le droit d'exécution : `chmod u+x deploy.sh`.
+**Le cas classique** — tu écris `deploy.sh`, et `./deploy.sh` répond `Permission denied`. Il manque juste le droit d'exécution : `chmod u+x deploy.sh`.
 {% endhint %}
 
-## Changer le propriétaire : `chown`
+&#x20;
 
-`chown` (_change owner_) change l'utilisateur et/ou le groupe propriétaire. Il faut généralement `sudo`.
+***
+
+&#x20;
+
+## <mark style="color:purple;">05</mark> · Changer le propriétaire : `chown`
+
+&#x20;
 
 ```bash
-sudo chown bob fichier.txt            # propriétaire → bob (le groupe ne change pas)
+sudo chown bob fichier.txt            # propriétaire → bob (groupe inchangé)
 sudo chown bob:devs fichier.txt       # propriétaire → bob ET groupe → devs
-sudo chown :devs fichier.txt          # seulement le groupe → devs
+sudo chown :devs fichier.txt          # seulement le groupe
 sudo chown -R alice:alice dossier/    # récursif
 ```
 
-{% hint style="warning" %}
-**Piège fréquent :** `chown user fichier` ne change **que** le propriétaire. Pour changer aussi le groupe, il faut `chown user:group fichier`.
-{% endhint %}
-
-## Gérer les utilisateurs et groupes
-
-| Commande | Rôle | Exemple |
-| --- | --- | --- |
-| `useradd` | Créer un utilisateur | `sudo useradd -m alice` (`-m` crée son home) |
-| `passwd` | Définir un mot de passe | `sudo passwd alice` |
-| `groupadd` | Créer un groupe | `sudo groupadd devs` |
-| `usermod -aG` | Ajouter un utilisateur à un groupe | `sudo usermod -aG devs alice` |
-| `userdel` | Supprimer un utilisateur | `sudo userdel -r alice` |
-| `chmod` | Changer les permissions | `chmod 644 fichier` |
-| `chown` | Changer le propriétaire | `sudo chown alice:devs fichier` |
+&#x20;
 
 {% hint style="warning" %}
-Dans `usermod -aG`, le **`-a`** (_append_) est essentiel : sans lui, l'utilisateur est **retiré de tous ses autres groupes** !
+**Piège fréquent** — `chown user fichier` ne change **que** le propriétaire. Pour le groupe aussi : `chown user:group fichier`.
 {% endhint %}
 
-{% hint style="info" %}
-Après avoir ajouté un utilisateur à un groupe, le changement ne prend effet qu'à sa **prochaine connexion**. Il faut se déconnecter / reconnecter (ou ouvrir un nouveau shell avec `newgrp devs`).
-{% endhint %}
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">06</mark> · Gérer les comptes
+
+&#x20;
+
+| Commande        | Rôle                                   | Exemple                              |
+| --------------- | -------------------------------------- | ------------------------------------ |
+| `useradd`       | Créer un utilisateur                   | `sudo useradd -m alice` (`-m` = home) |
+| `passwd`        | Définir un mot de passe                | `sudo passwd alice`                  |
+| `groupadd`      | Créer un groupe                        | `sudo groupadd devs`                 |
+| `usermod -aG`   | Ajouter à un groupe                    | `sudo usermod -aG devs alice`        |
+| `userdel`       | Supprimer un utilisateur               | `sudo userdel -r alice`              |
+
+&#x20;
+
+{% stepper %}
+{% step %}
+### Créer le groupe et l'utilisateur
+
+&#x20;
+
+```bash
+sudo groupadd devs
+sudo useradd -m alice
+sudo passwd alice
+```
+{% endstep %}
+
+{% step %}
+### Ajouter alice au groupe
+
+&#x20;
+
+```bash
+sudo usermod -aG devs alice
+```
+
+&#x20;
+
+<mark style="color:orange;">**Le `-a` (append) est essentiel**</mark> : sans lui, alice serait **retirée de tous ses autres groupes** !
+{% endstep %}
+
+{% step %}
+### Se reconnecter
+
+&#x20;
+
+Le changement de groupe ne prend effet qu'à la **prochaine connexion** (ou avec `newgrp devs`).
+{% endstep %}
+{% endstepper %}
+
+&#x20;
 
 📖 Exercice : [Linux user groups and permissions guide — daily.dev](https://daily.dev/blog/linux-user-groups-and-permissions-guide/)
 
-## 🔒 Le principe du moindre privilège
+&#x20;
 
-> **Principe du moindre privilège** (_Principle of Least Privilege_, PoLP) : donner à chaque utilisateur **uniquement les accès dont il a besoin pour faire son travail. Rien de plus.**
+***
 
-C'est l'un des piliers de la sécurité informatique. Si un compte est compromis, les dégâts sont limités à ce que ce compte pouvait faire.
+&#x20;
 
-### 🔑 L'analogie de l'hôtel
+## <mark style="color:purple;">07</mark> · 🔒 Le principe du moindre privilège
 
-La carte d'un client d'hôtel ouvre **sa** chambre, la salle de sport et l'ascenseur. Pas les autres chambres, pas la cuisine, pas le coffre. Si le client perd sa carte, le voleur ne peut pas vider l'hôtel.
+&#x20;
 
-**Applique-le partout :**
+> **Principle of Least Privilege** (PoLP) : donner à chaque utilisateur **uniquement les accès dont il a besoin pour faire son travail. Rien de plus.**
 
-* 🐳 **Images Docker** : ne pas faire tourner l'application en `root` dans le conteneur
-* 🗄️ **Utilisateurs de base de données** : l'application n'a pas besoin des droits d'administration de la base
-* 👤 **Utilisateurs de tes applications** : un simple utilisateur ne doit pas accéder au panneau admin
-* 🔑 **Chaque token d'API** que tu génères : lecture seule si l'écriture n'est pas nécessaire
-* ✅ Sérieusement : **partout**
+&#x20;
 
-## Les erreurs courantes
+Si un compte est compromis, les dégâts sont limités à ce qu'il pouvait faire.
 
-| Erreur | Pourquoi c'est un problème |
-| --- | --- |
-| `chmod 777` « pour que ça marche » | N'importe qui peut lire, modifier et exécuter le fichier. On masque le vrai problème en ouvrant une faille |
-| `chmod -R` sur le mauvais chemin | Change les droits de milliers de fichiers d'un coup, parfois de fichiers système. Difficile à annuler |
-| Mettre `x` sur des fichiers de données | Un `.txt` ou `.csv` n'a pas à être exécutable ; c'est une porte ouverte inutile |
-| Compter **uniquement** sur les permissions | La sécurité se fait en **couches** : permissions, pare-feu, chiffrement, mises à jour… |
-| Confondre `chown user file` et `chown user:group file` | Le premier ne change pas le groupe |
-| Oublier que les changements de groupe demandent une **nouvelle session** | « J'ai ajouté alice au groupe docker mais ça ne marche pas » → elle doit se reconnecter |
+&#x20;
 
-## En résumé
+🔑 **L'analogie de l'hôtel** : la carte d'un client ouvre **sa** chambre, la salle de sport et l'ascenseur. Pas les autres chambres, ni la cuisine, ni le coffre. S'il la perd, le voleur ne peut pas vider l'hôtel.
 
+&#x20;
+
+```mermaid
+flowchart LR
+    P(["🔒 Moindre privilège"]) --> D["🐳 Images Docker<br/>pas de root dans le conteneur"]
+    P --> DB["🗄️ Utilisateurs de BDD<br/>pas de droits admin pour l'app"]
+    P --> APP["👤 Utilisateurs de l'app<br/>pas d'accès au panneau admin"]
+    P --> T["🔑 Tokens d'API<br/>lecture seule si possible"]
+    P --> ALL["✅ Sérieusement : partout"]
+
+    style P fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
+    style ALL fill:#dcfce7,stroke:#22c55e,color:#14532d
+```
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">08</mark> · Les erreurs courantes
+
+&#x20;
+
+| ❌ Erreur                                           | Pourquoi c'est un problème                                                                       |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `chmod 777` « pour que ça marche »                 | N'importe qui peut tout faire. On masque le vrai problème en ouvrant une faille                  |
+| `chmod -R` sur le mauvais chemin                   | Change des milliers de fichiers d'un coup, parfois système. Difficile à annuler                  |
+| `x` sur des fichiers de données                    | Un `.txt` ou `.csv` n'a pas à être exécutable : porte ouverte inutile                             |
+| Compter **uniquement** sur les permissions         | La sécurité se fait en **couches** : permissions, pare-feu, chiffrement, mises à jour…            |
+| Confondre `chown user f` et `chown user:group f`   | Le premier ne change pas le groupe                                                                |
+| Oublier la **nouvelle session** après un groupe    | « J'ai ajouté alice au groupe docker mais ça ne marche pas » → elle doit se reconnecter           |
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">09</mark> · En résumé
+
+&#x20;
+
+{% hint style="success" %}
 * Chaque fichier a un **propriétaire**, un **groupe** et des droits pour **User / Group / Others**.
-* `r` = 4, `w` = 2, `x` = 1 → `755` pour les dossiers et scripts, `644` pour les fichiers, `600` pour les secrets.
+* `r` = 4, `w` = 2, `x` = 1 → `755` pour dossiers et scripts, `644` pour fichiers, `600` pour secrets.
 * `chmod` change les droits, `chown` change le propriétaire.
-* **Moindre privilège** : ne donner que le strict nécessaire. **Jamais de `chmod 777`**.
+* **Moindre privilège** : le strict nécessaire, partout. **Jamais de `chmod 777`**.
+{% endhint %}
+
+&#x20;
+
+<mark style="color:green;">**→ Suite :**</mark> [8. Systèmes de fichiers](08-systemes-de-fichiers.md)

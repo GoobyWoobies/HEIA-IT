@@ -1,74 +1,146 @@
 ---
 description: Conserver les données au-delà de la vie d'un conteneur avec les volumes, bind mounts et tmpfs.
+icon: database
+cover: https://placehold.co/1600x500/0f172a/38bdf8?text=Docker+%C2%B7+Volumes
+coverY: 0
 ---
 
-# 6. Les données : volumes, bind mounts et tmpfs
+# 6. Les données et volumes
 
-## Le problème
+<mark style="color:blue;">**Les conteneurs sont jetables. Tes données, non.**</mark>
 
-On l'a vu : quand un conteneur est supprimé, **sa couche inscriptible disparaît avec lui**. Imagine une base de données PostgreSQL dans un conteneur : tu mets à jour l'image, tu recrées le conteneur… et **toutes tes données ont disparu**. 😱
+&#x20;
 
-Les conteneurs sont conçus pour être **jetables**. Les données, elles, ne doivent pas l'être. Il faut donc les stocker **en dehors** du conteneur.
+{% hint style="info" %}
+**En bref**
 
-## Les trois types de stockage
+Sans précaution, les données écrites dans un conteneur **meurent avec lui**. Pour les garder, on les range **à l'extérieur** : dans un **volume** (géré par Docker) ou un **bind mount** (un dossier de ta machine). Pour du temporaire, il y a **tmpfs** (en RAM).
+{% endhint %}
 
-Les données dans Docker peuvent être **temporaires** ou **persistantes** :
+&#x20;
 
+***
+
+&#x20;
+
+## <mark style="color:purple;">01</mark> · Le problème
+
+&#x20;
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor U as 👤 Toi
+    participant C as 📦 Conteneur postgres
+    participant W as ✏️ Couche inscriptible
+
+    U->>C: Crée des tables, ajoute des données
+    C->>W: Écrit les données
+    U->>C: docker rm (pour mettre à jour l'image)
+    C--xW: 🗑️ La couche est supprimée
+    U->>C: docker run (nouveau conteneur)
+    C-->>U: 😱 Base de données vide
 ```
-  ┌──────────────────────────────────────────────────────────────────┐
-  │ Machine hôte                                                     │
-  │                                                                  │
-  │   /home/moi/projet          ┌─────────── Docker ──────┐   ┌─────┐│
-  │   ┌──────────┐              │                         │   │ RAM ││
-  │   │ dossier  │◄─────────────┼── Conteneur 2           │   │┌───┐││
-  │   │ de l'hôte│  bind mount  │                         │   ││tmp│││
-  │   └──────────┘              │   Conteneur 1 ──────────┼──►││fs │││
-  │                             │        │                │   │└───┘││
-  │                             │        ▼                │   └─────┘│
-  │                             │   ┌─────────┐           │          │
-  │                             │   │ Volume  │ (géré     │          │
-  │                             │   └─────────┘  par      │          │
-  │                             │                Docker)  │          │
-  │                             └─────────────────────────┘          │
-  └──────────────────────────────────────────────────────────────────┘
+
+&#x20;
+
+Les conteneurs sont conçus pour être **jetables**. Les données, elles, ne doivent pas l'être : il faut les stocker **en dehors** du conteneur.
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">02</mark> · Les trois types de stockage
+
+&#x20;
+
+```mermaid
+flowchart LR
+    subgraph HOST["💻 Machine hôte"]
+        DIR["📁 /home/moi/projet"]
+        subgraph DK["🐳 Zone Docker"]
+            C1["📦 Conteneur 1"]
+            C2["📦 Conteneur 2"]
+            VOL[("💾 Volume")]
+        end
+        RAM["🧠 RAM · tmpfs"]
+    end
+    C1 -->|"volume"| VOL
+    C2 -->|"bind mount"| DIR
+    C1 -.->|"tmpfs"| RAM
+
+    style VOL fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style DIR fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style RAM fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
+    style DK fill:#fef3c7,stroke:#f59e0b,color:#78350f
 ```
 
-| Type | Persistant ? | Où sont les données ? | Cas d'usage |
-| --- | --- | --- | --- |
-| **Volume** | ✅ Oui | Dans une zone gérée par Docker | Bases de données, données d'application |
-| **Bind mount** | ✅ Oui | Dans un dossier **de ton choix** sur l'hôte | Développement : modifier le code sans reconstruire l'image |
-| **tmpfs** | ❌ Non | En **RAM** uniquement | Données temporaires ou sensibles (jamais écrites sur disque) |
+&#x20;
+
+| Type              | Persistant ?                                    | Où ?                                   | Cas d'usage                                            |
+| ----------------- | ----------------------------------------------- | -------------------------------------- | ------------------------------------------------------ |
+| 💾 **Volume**     | <mark style="color:green;">**Oui**</mark>       | Zone gérée par Docker                  | Bases de données, données d'application                |
+| 📁 **Bind mount** | <mark style="color:green;">**Oui**</mark>       | Un dossier **de ton choix** sur l'hôte | Développement : modifier le code sans rebuild          |
+| 🧠 **tmpfs**      | <mark style="color:red;">**Non**</mark>         | **RAM** uniquement                     | Données temporaires ou sensibles, jamais sur disque    |
+
+&#x20;
 
 ### 🎒 L'analogie de l'étudiant en location
 
-Pense au conteneur comme à **une chambre d'étudiant meublée** que tu peux rendre à tout moment :
+&#x20;
 
-* **Volume** = un **casier de consigne** géré par la résidence. Tu y ranges tes affaires, et elles restent là même si tu changes de chambre. Tu ne sais pas exactement où il est, mais la résidence s'en occupe.
-* **Bind mount** = un **carton qui vient de chez tes parents**. C'est ton dossier à toi, tu sais exactement où il est et tu peux le modifier depuis la maison.
-* **tmpfs** = un **tableau blanc** dans la chambre. Pratique pour noter des trucs, mais tout est effacé quand tu pars.
+Le conteneur est une **chambre meublée** que tu peux rendre à tout moment :
 
-## Les volumes
+&#x20;
+
+{% columns %}
+{% column %}
+**💾 Volume**
+
+Un **casier de consigne** géré par la résidence. Tes affaires y restent même si tu changes de chambre.
+{% endcolumn %}
+
+{% column %}
+**📁 Bind mount**
+
+Un **carton de chez tes parents**. C'est ton dossier à toi, tu sais où il est et tu le modifies depuis la maison.
+{% endcolumn %}
+
+{% column %}
+**🧠 tmpfs**
+
+Un **tableau blanc** dans la chambre. Pratique pour noter, mais tout s'efface quand tu pars.
+{% endcolumn %}
+{% endcolumns %}
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">03</mark> · Les volumes
+
+&#x20;
 
 Un volume est un espace de stockage **créé et géré par Docker**.
 
-### Gérer les volumes
+&#x20;
 
 ```bash
 docker volume create volume_test    # créer
 docker volume ls                    # lister
-docker volume inspect volume_test   # détails (dont l'emplacement réel)
+docker volume inspect volume_test   # détails, dont l'emplacement réel
 docker volume rm volume_test        # supprimer
 ```
 
-```
-$ docker volume ls
-DRIVER    VOLUME NAME
-local     volume_test
-```
+&#x20;
 
-### Monter un volume dans un conteneur
+### Monter un volume
 
-Deux syntaxes équivalentes :
+&#x20;
 
 {% tabs %}
 {% tab title="--volume (courte)" %}
@@ -89,90 +161,197 @@ docker run -it \
 {% endtab %}
 {% endtabs %}
 
-Tout ce qui est écrit dans `/volume_test` à l'intérieur du conteneur est stocké dans le volume et **survit à la suppression du conteneur**.
+&#x20;
+
+Tout ce qui est écrit dans `/volume_test` va dans le volume et **survit à la suppression du conteneur**.
+
+&#x20;
 
 {% hint style="success" %}
-Si le volume n'existe pas encore, Docker le **crée automatiquement** au lancement du conteneur.
+**Pratique** — si le volume n'existe pas encore, Docker le **crée automatiquement** au lancement du conteneur.
 {% endhint %}
 
+&#x20;
+
 ### Exemple concret : PostgreSQL
+
+&#x20;
+
+{% stepper %}
+{% step %}
+### Lancer la base avec un volume
+
+&#x20;
 
 ```bash
 docker run -d --name db \
   -e POSTGRES_PASSWORD=secret \
   -v pgdata:/var/lib/postgresql/data \
   postgres:16
+```
+{% endstep %}
 
-docker rm -f db      # on supprime le conteneur…
+{% step %}
+### Supprimer le conteneur
 
+&#x20;
+
+```bash
+docker rm -f db
+```
+{% endstep %}
+
+{% step %}
+### Recréer le conteneur avec le même volume
+
+&#x20;
+
+```bash
 docker run -d --name db \
   -e POSTGRES_PASSWORD=secret \
   -v pgdata:/var/lib/postgresql/data \
-  postgres:16        # …les données sont toujours là ✅
+  postgres:16
 ```
+
+&#x20;
+
+<mark style="color:green;">**✓ Les données sont toujours là.**</mark>
+{% endstep %}
+{% endstepper %}
+
+&#x20;
 
 ### Pourquoi préférer les volumes ?
 
-* Plus **faciles à sauvegarder et migrer** que les bind mounts.
-* Gérables via la **CLI Docker** ou l'**API Docker**.
-* Peuvent être **partagés plus sûrement** entre plusieurs conteneurs.
-* Un nouveau volume peut être **pré-rempli** par le contenu du conteneur ou de l'image.
-* Meilleures **performances d'entrée/sortie** (surtout sur macOS et Windows).
+&#x20;
+
+* <mark style="color:green;">**Faciles à sauvegarder et migrer**</mark>, plus que les bind mounts
+* Gérables via la **CLI Docker** ou l'**API Docker**
+* **Partageables plus sûrement** entre plusieurs conteneurs
+* Un nouveau volume peut être **pré-rempli** par le contenu de l'image
+* Meilleures **performances d'entrée/sortie**, surtout sur macOS et Windows
+
+&#x20;
 
 📖 [Documentation sur les volumes](https://docs.docker.com/engine/storage/volumes/)
 
-## Les bind mounts
+&#x20;
 
-Un bind mount relie **un dossier précis de ta machine** à un dossier du conteneur. Les deux voient **exactement les mêmes fichiers**, en temps réel.
+***
+
+&#x20;
+
+## <mark style="color:purple;">04</mark> · Les bind mounts
+
+&#x20;
+
+Un bind mount relie **un dossier précis de ta machine** à un dossier du conteneur. Les deux voient **les mêmes fichiers, en temps réel**.
+
+&#x20;
 
 ```bash
-mkdir /app/test     # un dossier sur l'hôte
+mkdir /app/test
 
 docker run -it --mount type=bind,source=/app/test,target=/mnt ohmyzsh/zsh
 docker run -it --volume /app/test:/mnt ohmyzsh/zsh     # équivalent
 ```
 
+&#x20;
+
+```mermaid
+flowchart LR
+    H["💻 Hôte<br/>/app/test"] <-->|"même contenu, en direct"| C["📦 Conteneur<br/>/mnt"]
+
+    style H fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style C fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
-   Machine hôte                     Conteneur
-   ┌──────────────┐                ┌──────────────┐
-   │  /app/test   │ ◄────────────► │     /mnt     │
-   └──────────────┘   même contenu └──────────────┘
-```
+
+&#x20;
 
 {% hint style="info" %}
-**Comment Docker fait la différence avec `-v` ?** Si la partie gauche est un **chemin** (commence par `/` ou `./`), c'est un bind mount. Si c'est un **simple nom**, c'est un volume.
+**Volume ou bind mount avec `-v` ?** Si la partie gauche est un **chemin** (`/…` ou `./…`), c'est un bind mount. Si c'est un **simple nom**, c'est un volume.
 
-* `-v ./src:/app/src` → bind mount
-* `-v mesdonnees:/data` → volume
+* `-v ./src:/app/src` → 📁 bind mount
+* `-v mesdonnees:/data` → 💾 volume
 {% endhint %}
+
+&#x20;
 
 **Cas d'usage typique :** en développement, tu montes ton code source dans le conteneur. Tu modifies un fichier dans ton éditeur, et le changement est **immédiatement visible** dans le conteneur, sans reconstruire l'image.
 
+&#x20;
+
 {% hint style="warning" %}
-Un bind mount donne au conteneur un **accès direct à ton système de fichiers**. Ne monte jamais un dossier sensible (ex. `/` ou `/etc`) sans bonne raison.
+**Attention** — un bind mount donne au conteneur un **accès direct à ton système de fichiers**. Ne monte jamais un dossier sensible (`/`, `/etc`…) sans bonne raison.
 {% endhint %}
 
-## tmpfs
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">05</mark> · tmpfs
+
+&#x20;
 
 Un montage `tmpfs` stocke les données **uniquement en RAM**. Elles disparaissent dès que le conteneur s'arrête.
+
+&#x20;
 
 ```bash
 docker run -it --mount type=tmpfs,destination=/mnt --name mycon ohmyzsh/zsh
 ```
 
+&#x20;
+
 **Cas d'usage :** fichiers temporaires, cache, ou données sensibles (tokens, secrets) qu'on ne veut **jamais écrire sur le disque**.
 
+&#x20;
+
 {% hint style="info" %}
-`tmpfs` n'est disponible que pour les conteneurs Linux.
+`tmpfs` n'existe que pour les conteneurs Linux. C'est le même mécanisme que le `tmpfs` de Linux (voir [Systèmes de fichiers](../linux/08-systemes-de-fichiers.md)).
 {% endhint %}
 
-## En résumé
+&#x20;
 
-| Besoin | Solution |
-| --- | --- |
-| Garder les données d'une base de données | **Volume** |
-| Modifier mon code en direct pendant le développement | **Bind mount** |
-| Données temporaires ou sensibles, jamais sur disque | **tmpfs** |
+***
 
+&#x20;
+
+## <mark style="color:purple;">06</mark> · Lequel choisir ?
+
+&#x20;
+
+```mermaid
+flowchart TD
+    Q1{"Les données doivent-elles<br/>survivre au conteneur ?"}
+    Q1 -->|Non| T["🧠 tmpfs"]
+    Q1 -->|Oui| Q2{"Dois-tu les modifier<br/>depuis ta machine ?"}
+    Q2 -->|"Oui · ex. code source"| B["📁 Bind mount"]
+    Q2 -->|"Non · ex. base de données"| V["💾 Volume"]
+
+    style T fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
+    style B fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style V fill:#dcfce7,stroke:#22c55e,color:#14532d
+```
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">07</mark> · En résumé
+
+&#x20;
+
+{% hint style="success" %}
 * Sans montage, **les données meurent avec le conteneur**.
+* 💾 **Volume** pour les données d'application, 📁 **bind mount** pour le développement, 🧠 **tmpfs** pour le temporaire.
 * `-v nom:/chemin` → volume ; `-v /chemin/hote:/chemin` → bind mount.
+{% endhint %}
+
+&#x20;
+
+<mark style="color:green;">**→ Suite :**</mark> [7. Maintenance](07-maintenance.md)

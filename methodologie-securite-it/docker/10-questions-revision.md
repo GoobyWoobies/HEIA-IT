@@ -1,227 +1,379 @@
 ---
-description: Questions pour vérifier ta compréhension de Docker. Clique pour voir la réponse.
+description: 24 questions pour vérifier ta compréhension de Docker. Clique pour voir la réponse.
+icon: graduation-cap
+cover: https://placehold.co/1600x500/0f172a/38bdf8?text=Docker+%C2%B7+R%C3%A9vision
+coverY: 0
 ---
 
 # 10. Questions de révision
 
-Essaie de répondre **avant** d'ouvrir la réponse. 💪
+<mark style="color:blue;">**Teste-toi avant l'examen.**</mark>
 
-## Concepts de base
+&#x20;
+
+{% hint style="info" %}
+**Mode d'emploi** — essaie de répondre **à voix haute ou par écrit** avant d'ouvrir la réponse. Si tu bloques, relis la page indiquée entre parenthèses.
+{% endhint %}
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">01</mark> · Concepts de base
+
+&#x20;
 
 <details>
 
-<summary>1. Quelle est la différence principale entre un conteneur et une machine virtuelle ?</summary>
+<summary>1. Quelle est la différence principale entre un conteneur et une machine virtuelle ? <em>(p. 1)</em></summary>
 
-Une **VM** embarque un **système d'exploitation complet** (guest OS) au-dessus d'un hyperviseur : elle est lourde (plusieurs Go) et lente à démarrer.
+&#x20;
 
-Un **conteneur** **partage le noyau de l'OS hôte** et ne contient que l'application et ses dépendances : il est léger (quelques Mo) et démarre en quelques secondes.
+Une **VM** embarque un **système d'exploitation complet** au-dessus d'un hyperviseur : lourde (plusieurs Go), lente à démarrer.
+
+Un **conteneur** **partage le noyau de l'OS hôte** et ne contient que l'application et ses dépendances : léger (quelques Mo), démarre en secondes.
+
+&#x20;
 
 </details>
 
 <details>
 
-<summary>2. Quels sont les trois composants de l'architecture Docker et leur rôle ?</summary>
+<summary>2. Quels sont les trois composants de l'architecture Docker ? <em>(p. 2)</em></summary>
 
-* **Client** (`docker`) : l'interface en ligne de commande, qui envoie les ordres au daemon.
-* **Daemon** (`dockerd`) : tourne sur l'hôte et fait le vrai travail (gère images, conteneurs, volumes, réseaux).
+&#x20;
+
+* **Client** (`docker`) : l'interface en ligne de commande, qui envoie les ordres.
+* **Daemon** (`dockerd`) : tourne sur l'hôte et fait le vrai travail.
 * **Registry** (ex. Docker Hub) : stocke et distribue les images.
 
-</details>
-
-<details>
-
-<summary>3. Quelle est la différence entre une image et un conteneur ?</summary>
-
-Une **image** est un **modèle en lecture seule** (comme une classe ou un moule).
-Un **conteneur** est une **instance en cours d'exécution** de cette image (comme un objet ou un gâteau). On peut créer plusieurs conteneurs à partir d'une même image.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>4. Docker est-il le seul outil pour gérer des conteneurs ?</summary>
+<summary>3. Quelle est la différence entre une image et un conteneur ? <em>(p. 2)</em></summary>
 
-Non. Il existe aussi **Podman** (sans daemon, rootless) et **containerd** (moteur bas niveau utilisé par Docker et Kubernetes). Tous suivent le standard **OCI**.
+&#x20;
 
-</details>
+L'**image** est un **modèle en lecture seule** (le moule, la classe). Le **conteneur** est une **instance qui tourne** (le gâteau, l'objet). Plusieurs conteneurs peuvent venir de la même image.
 
-## Images et Dockerfile
-
-<details>
-
-<summary>5. Pourquoi les images sont-elles composées de couches ? Quel est l'avantage ?</summary>
-
-Chaque instruction du Dockerfile crée une couche en lecture seule. Les couches sont **partagées** entre images et **mises en cache** : une couche commune n'est stockée et téléchargée qu'une fois, et seules les couches modifiées sont reconstruites.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>6. Pourquoi faut-il copier <code>package.json</code> et lancer <code>npm install</code> AVANT de copier le reste du code ?</summary>
+<summary>4. Docker est-il le seul outil pour gérer des conteneurs ? <em>(p. 1)</em></summary>
 
-Pour **profiter du cache**. Docker reconstruit une couche modifiée **et toutes celles qui suivent**. Si le code est copié avant `npm install`, chaque modification du code relance l'installation des dépendances. En copiant d'abord uniquement les fichiers de dépendances, `npm install` reste en cache tant que les dépendances ne changent pas.
+&#x20;
+
+Non : **Podman** (sans daemon, rootless) et **containerd** (moteur bas niveau) aussi. Tous suivent le standard **OCI**.
+
+&#x20;
+
+</details>
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">02</mark> · Images et Dockerfile
+
+&#x20;
+
+<details>
+
+<summary>5. Pourquoi les images sont-elles composées de couches ? <em>(p. 3)</em></summary>
+
+&#x20;
+
+Les couches sont **partagées** entre images et **mises en cache** : une couche commune n'est stockée et téléchargée qu'une fois, et seules les couches modifiées sont reconstruites.
+
+&#x20;
 
 </details>
 
 <details>
 
-<summary>7. Quelle est la différence entre <code>RUN</code> et <code>CMD</code> ?</summary>
+<summary>6. Pourquoi copier <code>package.json</code> et lancer <code>npm install</code> AVANT le reste du code ? <em>(p. 4)</em></summary>
 
-* `RUN` s'exécute **pendant le build** de l'image (ex. installer des paquets). Le résultat est figé dans l'image.
-* `CMD` définit la commande exécutée **au démarrage de chaque conteneur**.
+&#x20;
 
-</details>
+Pour **profiter du cache**. Docker reconstruit une couche modifiée **et toutes les suivantes**. Si le code était copié avant, chaque modification relancerait l'installation des dépendances.
 
-<details>
-
-<summary>8. L'instruction <code>EXPOSE 80</code> rend-elle le port 80 accessible depuis ma machine ?</summary>
-
-**Non.** `EXPOSE` ne fait que **documenter** le port utilisé par l'application. Pour le rendre accessible, il faut le **publier** au lancement du conteneur : `docker run -p 8080:80 <image>`.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>9. À quoi sert un multi-stage build ?</summary>
+<summary>7. Quelle est la différence entre <code>RUN</code> et <code>CMD</code> ? <em>(p. 4)</em></summary>
 
-À séparer l'étape de **compilation** (qui nécessite beaucoup d'outils) de l'étape d'**exécution**. L'image finale ne contient que le résultat compilé : elle est **plus petite** et **plus sûre** (moins de logiciels = moins de failles).
+&#x20;
 
-</details>
+* `RUN` s'exécute **pendant le build** (ex. installer des paquets). Résultat figé dans l'image.
+* `CMD` s'exécute **à chaque démarrage** d'un conteneur.
 
-<details>
-
-<summary>10. Cite trois raisons d'utiliser un fichier <code>.dockerignore</code>.</summary>
-
-1. **Builds plus rapides** : moins de fichiers envoyés au daemon.
-2. **Sécurité** : évite d'inclure des secrets (`.env`, clés) dans l'image.
-3. **Images plus petites** : les fichiers inutiles ne sont pas copiés.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>11. Pourquoi faut-il éviter le tag <code>latest</code> en production ?</summary>
+<summary>8. <code>EXPOSE 80</code> rend-il le port 80 accessible depuis ma machine ? <em>(p. 4)</em></summary>
 
-`latest` est simplement le tag par défaut, il **ne garantit pas** la dernière version et peut changer à tout moment. Le build n'est donc pas reproductible. Il vaut mieux **fixer une version précise** (ex. `postgres:16.4`).
+&#x20;
+
+**Non.** `EXPOSE` ne fait que **documenter**. Il faut **publier** au lancement : `docker run -p 8080:80 <image>`.
+
+&#x20;
 
 </details>
 
-## Conteneurs
+<details>
+
+<summary>9. À quoi sert un multi-stage build ? <em>(p. 4)</em></summary>
+
+&#x20;
+
+À séparer la **compilation** (beaucoup d'outils) de l'**exécution**. L'image finale ne contient que le résultat : **plus petite** et **plus sûre**.
+
+&#x20;
+
+</details>
 
 <details>
 
-<summary>12. Que fait exactement <code>docker run</code> ?</summary>
+<summary>10. Trois raisons d'utiliser un <code>.dockerignore</code> ? <em>(p. 4)</em></summary>
 
-1. **Télécharge** l'image si elle n'est pas présente localement.
+&#x20;
+
+1. **Builds plus rapides** — moins de fichiers envoyés au daemon.
+2. **Sécurité** — pas de secrets (`.env`, clés) dans l'image.
+3. **Images plus petites** — pas de fichiers inutiles copiés.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>11. Pourquoi éviter le tag <code>latest</code> en production ? <em>(p. 3)</em></summary>
+
+&#x20;
+
+`latest` est juste le tag par défaut : il **ne garantit pas** la dernière version et peut changer à tout moment. Le build n'est pas reproductible. Mieux vaut **fixer une version** (ex. `postgres:16.4`).
+
+&#x20;
+
+</details>
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">03</mark> · Conteneurs
+
+&#x20;
+
+<details>
+
+<summary>12. Que fait exactement <code>docker run</code> ? <em>(p. 5)</em></summary>
+
+&#x20;
+
+1. **Télécharge** l'image si elle manque.
 2. **Crée** le conteneur.
-3. **Démarre** le conteneur en exécutant sa commande par défaut.
+3. **Démarre** le conteneur avec sa commande par défaut.
+
+&#x20;
 
 </details>
 
 <details>
 
-<summary>13. Quelle est la différence entre <code>docker run</code> et <code>docker exec</code> ?</summary>
+<summary>13. <code>docker run</code> vs <code>docker exec</code> ? <em>(p. 5)</em></summary>
 
-* `docker run` **crée un nouveau conteneur** à partir d'une image.
+&#x20;
+
+* `docker run` **crée un nouveau conteneur**.
 * `docker exec` **exécute une commande dans un conteneur qui tourne déjà**.
 
-</details>
-
-<details>
-
-<summary>14. Dans <code>-p 8080:80</code>, quel port est celui de l'hôte ?</summary>
-
-**8080**. L'ordre est toujours `hôte:conteneur`. Le port 8080 de ta machine est redirigé vers le port 80 du conteneur.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>15. J'ai arrêté un conteneur avec <code>docker stop</code>. Occupe-t-il encore de la place ?</summary>
+<summary>14. Dans <code>-p 8080:80</code>, quel port est celui de l'hôte ? <em>(p. 5)</em></summary>
 
-**Oui.** Un conteneur arrêté existe toujours (visible avec `docker ps -a`) avec sa couche inscriptible. Il faut le supprimer avec `docker rm` ou `docker container prune`.
+&#x20;
+
+**8080.** L'ordre est toujours `hôte:conteneur`.
+
+&#x20;
 
 </details>
 
 <details>
 
-<summary>16. Cite les états du cycle de vie d'un conteneur.</summary>
+<summary>15. Un conteneur arrêté occupe-t-il encore de la place ? <em>(p. 5)</em></summary>
+
+&#x20;
+
+**Oui.** Il existe toujours (`docker ps -a`) avec sa couche inscriptible. Il faut `docker rm` ou `docker container prune`.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>16. Cite les états du cycle de vie d'un conteneur. <em>(p. 5)</em></summary>
+
+&#x20;
 
 **Created → Running ⇄ Paused**, **Running ⇄ Stopped**, puis **Deleted** (depuis Created ou Stopped).
 
-</details>
-
-## Données
-
-<details>
-
-<summary>17. Que deviennent les données écrites dans un conteneur quand on le supprime ?</summary>
-
-Elles sont **perdues**, car elles se trouvent dans la couche inscriptible du conteneur, supprimée avec lui. Pour les conserver, il faut utiliser un **volume** ou un **bind mount**.
+&#x20;
 
 </details>
 
-<details>
+&#x20;
 
-<summary>18. Quelle différence entre un volume, un bind mount et un tmpfs ?</summary>
+***
 
-| Type | Persistant | Emplacement |
-| --- | --- | --- |
-| Volume | Oui | Zone gérée par Docker |
-| Bind mount | Oui | Dossier choisi sur l'hôte |
-| tmpfs | Non | RAM uniquement |
+&#x20;
 
-</details>
+## <mark style="color:purple;">04</mark> · Données
+
+&#x20;
 
 <details>
 
-<summary>19. Quel type de stockage choisir pour : (a) une base de données, (b) développer en voyant ses modifications en direct, (c) un secret temporaire ?</summary>
+<summary>17. Que deviennent les données écrites dans un conteneur supprimé ? <em>(p. 6)</em></summary>
 
-* (a) **Volume**
-* (b) **Bind mount**
-* (c) **tmpfs**
+&#x20;
 
-</details>
+**Perdues** : elles étaient dans la couche inscriptible, supprimée avec le conteneur. Il faut un **volume** ou un **bind mount**.
 
-## Maintenance et Compose
-
-<details>
-
-<summary>20. <code>docker system prune</code> supprime-t-il les volumes ?</summary>
-
-**Non**, par défaut les volumes sont épargnés pour éviter la perte de données. Il faut ajouter `--volumes`.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>21. En quoi le nettoyage régulier de Docker est-il une mesure de sécurité ?</summary>
+<summary>18. Volume, bind mount, tmpfs : quelles différences ? <em>(p. 6)</em></summary>
 
-De vieilles images oubliées peuvent contenir des **vulnérabilités connues**. Les supprimer **réduit la surface d'attaque** de la machine.
+&#x20;
 
-</details>
+| Type          | Persistant | Emplacement             |
+| ------------- | ---------- | ----------------------- |
+| 💾 Volume     | Oui        | Zone gérée par Docker   |
+| 📁 Bind mount | Oui        | Dossier choisi sur l'hôte |
+| 🧠 tmpfs      | Non        | RAM uniquement          |
 
-<details>
-
-<summary>22. Quel problème Docker Compose résout-il ?</summary>
-
-Il permet de **décrire une application multi-conteneurs** (frontend, backend, base de données…) dans **un seul fichier** versionné, et de tout lancer avec `docker compose up`. Plus besoin d'enchaîner de longues commandes `docker run` à la main.
-
-</details>
-
-<details>
-
-<summary>23. Dans Compose, comment le backend peut-il joindre la base de données sans connaître son adresse IP ?</summary>
-
-Compose crée un **réseau commun** où chaque service est joignable **par son nom**. Si le service s'appelle `db`, le backend s'y connecte simplement via l'hôte `db`.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>24. Quelle est la différence entre <code>docker compose down</code> et <code>docker compose down -v</code> ?</summary>
+<summary>19. Quel stockage pour : (a) une base de données, (b) du code modifié en direct, (c) un secret temporaire ? <em>(p. 6)</em></summary>
 
-* `down` arrête et supprime les **conteneurs et réseaux**.
-* `down -v` supprime **en plus les volumes** → les données (ex. base de données) sont perdues.
+&#x20;
+
+(a) **Volume** · (b) **Bind mount** · (c) **tmpfs**
+
+&#x20;
 
 </details>
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">05</mark> · Maintenance et Compose
+
+&#x20;
+
+<details>
+
+<summary>20. <code>docker system prune</code> supprime-t-il les volumes ? <em>(p. 7)</em></summary>
+
+&#x20;
+
+**Non**, pour éviter la perte de données. Il faut ajouter `--volumes`.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>21. En quoi le nettoyage régulier est-il une mesure de sécurité ? <em>(p. 7)</em></summary>
+
+&#x20;
+
+De vieilles images oubliées contiennent des **vulnérabilités connues**. Les supprimer **réduit la surface d'attaque**.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>22. Quel problème Docker Compose résout-il ? <em>(p. 8)</em></summary>
+
+&#x20;
+
+Il décrit une application **multi-conteneurs** dans **un seul fichier** versionné, et lance tout avec `docker compose up`, au lieu d'enchaîner des `docker run` à la main.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>23. Comment le backend joint-il la base sans connaître son IP ? <em>(p. 8)</em></summary>
+
+&#x20;
+
+Compose crée un **réseau commun** où chaque service est joignable **par son nom**. Le backend se connecte simplement à l'hôte `db`.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>24. <code>docker compose down</code> vs <code>docker compose down -v</code> ? <em>(p. 8)</em></summary>
+
+&#x20;
+
+* `down` supprime **conteneurs et réseaux**.
+* `down -v` supprime **en plus les volumes** → les données sont perdues.
+
+&#x20;
+
+</details>
+
+&#x20;
+
+***
+
+&#x20;
+
+{% hint style="success" %}
+**Tout juste ?** Bravo, tu maîtrises les bases de Docker 🐳. Prochaine étape : conteneuriser un de tes propres projets.
+{% endhint %}

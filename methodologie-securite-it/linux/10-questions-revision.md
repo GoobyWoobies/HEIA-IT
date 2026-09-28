@@ -1,310 +1,499 @@
 ---
-description: Questions pour vérifier ta compréhension de Linux et du shell. Clique pour voir la réponse.
+description: 33 questions pour vérifier ta compréhension de Linux et du shell. Clique pour voir la réponse.
+icon: graduation-cap
+cover: https://placehold.co/1600x500/0f172a/4ade80?text=Linux+%C2%B7+R%C3%A9vision
+coverY: 0
 ---
 
 # 10. Questions de révision
 
-Essaie de répondre **avant** d'ouvrir la réponse. 💪
+<mark style="color:blue;">**Teste-toi avant l'examen.**</mark>
 
-## Linux et le shell
+&#x20;
+
+{% hint style="info" %}
+**Mode d'emploi** — réponds **à voix haute ou par écrit** avant d'ouvrir la réponse. Si tu bloques, relis la page indiquée entre parenthèses.
+{% endhint %}
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">01</mark> · Linux et le shell
+
+&#x20;
 
 <details>
 
-<summary>1. Pourquoi la FSF parle-t-elle de « GNU/Linux » plutôt que de « Linux » ?</summary>
+<summary>1. Pourquoi la FSF parle-t-elle de « GNU/Linux » ? <em>(p. 1)</em></summary>
 
-Parce que **Linux** n'est que le **noyau** (écrit par Linus Torvalds en 1991). Le reste du système (compilateur, shell, commandes de base…) vient du **projet GNU** lancé par Richard Stallman. Le système complet est donc la combinaison des deux.
+&#x20;
+
+Parce que **Linux** n'est que le **noyau** (Linus Torvalds, 1991). Le reste du système (compilateur, shell, commandes…) vient du **projet GNU** de Richard Stallman.
+
+&#x20;
 
 </details>
 
 <details>
 
-<summary>2. Qu'est-ce qu'un shell ? Et quelle différence avec un terminal ?</summary>
+<summary>2. Shell ou terminal : quelle différence ? <em>(p. 1)</em></summary>
 
-Le **shell** est un **interpréteur de commandes** : il lit ce que tu tapes et demande au système de l'exécuter (ex. bash, zsh).
-Le **terminal** est la **fenêtre** qui affiche le texte et capte le clavier. Le shell tourne **dans** le terminal.
+&#x20;
 
-</details>
+Le **shell** interprète les commandes (bash, zsh). Le **terminal** est la **fenêtre** qui l'affiche. Le shell tourne **dans** le terminal.
 
-<details>
-
-<summary>3. Que se passe-t-il quand je tape <code>ls</code> ?</summary>
-
-1. Le **shell** interprète la commande et lance le programme `ls`.
-2. `ls` demande le contenu du dossier au **noyau** via un **appel système**.
-3. Le noyau lit l'information sur le **matériel** (disque).
-4. Le résultat remonte jusqu'à `ls`, qui l'affiche.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>4. Quel est le shell par défaut de la plupart des distributions Linux ? Et de macOS ?</summary>
+<summary>3. Que se passe-t-il quand je tape <code>ls</code> ? <em>(p. 1)</em></summary>
 
-**bash** pour la plupart des Linux, **zsh** pour macOS (depuis 2019).
+&#x20;
 
-</details>
+1. Le **shell** lance le programme `ls`.
+2. `ls` demande le contenu au **noyau** via un **appel système**.
+3. Le noyau lit le **disque**.
+4. Le résultat remonte à `ls`, qui l'affiche.
 
-## Arborescence
-
-<details>
-
-<summary>5. Dans quel dossier trouve-t-on : (a) les fichiers de configuration, (b) les logs, (c) les dossiers personnels, (d) les fichiers temporaires ?</summary>
-
-* (a) `/etc`
-* (b) `/var/log`
-* (c) `/home`
-* (d) `/tmp`
+&#x20;
 
 </details>
 
 <details>
 
-<summary>6. Que représentent <code>~</code>, <code>.</code> et <code>..</code> ?</summary>
+<summary>4. Shell par défaut de la plupart des Linux ? Et de macOS ? <em>(p. 1)</em></summary>
 
-* `~` : ton dossier personnel (`$HOME`)
-* `.` : le dossier courant
-* `..` : le dossier parent
+&#x20;
+
+**bash** pour la plupart des Linux, **zsh** pour macOS.
+
+&#x20;
+
+</details>
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">02</mark> · Arborescence
+
+&#x20;
+
+<details>
+
+<summary>5. Où trouve-t-on : (a) la config, (b) les logs, (c) les dossiers personnels, (d) le temporaire ? <em>(p. 2)</em></summary>
+
+&#x20;
+
+(a) `/etc` · (b) `/var/log` · (c) `/home` · (d) `/tmp`
+
+&#x20;
 
 </details>
 
 <details>
 
-<summary>7. Je suis dans <code>/home/alice</code>. Donne le chemin absolu et relatif vers <code>/home/bob/todo.txt</code>.</summary>
+<summary>6. Que représentent <code>~</code>, <code>.</code> et <code>..</code> ? <em>(p. 2)</em></summary>
 
-* Absolu : `/home/bob/todo.txt`
-* Relatif : `../bob/todo.txt`
+&#x20;
 
-</details>
+`~` = ton home · `.` = le dossier courant · `..` = le dossier parent
 
-<details>
-
-<summary>8. Que signifie « tout est fichier » sous Linux ? Donne un exemple.</summary>
-
-Les documents, mais aussi les dossiers, les **périphériques** et les informations système sont représentés comme des fichiers. Exemples : `/dev/sda` (un disque), `/proc/cpuinfo` (infos sur le processeur, lisible avec `cat`).
-
-</details>
-
-## Commandes
-
-<details>
-
-<summary>9. Comment copier un dossier entier avec son contenu ?</summary>
-
-`cp -r source/ destination/` — l'option `-r` (récursif) est obligatoire pour un dossier.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>10. Comment renommer un fichier sous Linux ?</summary>
+<summary>7. Depuis <code>/home/alice</code>, chemins absolu et relatif vers <code>/home/bob/todo.txt</code> ? <em>(p. 2)</em></summary>
 
-Avec `mv` : `mv ancien.txt nouveau.txt`. Renommer, c'est déplacer vers un nouveau nom.
+&#x20;
 
-</details>
+Absolu : `/home/bob/todo.txt` · Relatif : `../bob/todo.txt`
 
-<details>
-
-<summary>11. Pourquoi faut-il être très prudent avec <code>rm -rf</code> ?</summary>
-
-Parce qu'il supprime **récursivement** et **sans confirmation**, et qu'il n'y a **pas de corbeille** : tout est perdu définitivement. Une faute de frappe peut effacer tout le système.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>12. Quand utiliser <code>less</code> plutôt que <code>cat</code> ?</summary>
+<summary>8. Que signifie « tout est fichier » ? <em>(p. 2)</em></summary>
 
-Pour les **gros fichiers**. `cat` affiche tout d'un coup (on ne voit que la fin), alors que `less` permet de naviguer page par page et de chercher avec `/`.
+&#x20;
+
+Documents, dossiers, **périphériques** et **infos système** sont tous représentés comme des fichiers. Ex. : `/dev/sda` (un disque), `/proc/cpuinfo` (le processeur).
+
+&#x20;
+
+</details>
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">03</mark> · Commandes
+
+&#x20;
+
+<details>
+
+<summary>9. Comment copier un dossier entier ? <em>(p. 3)</em></summary>
+
+&#x20;
+
+`cp -r source/ destination/` — `-r` est obligatoire pour un dossier.
+
+&#x20;
 
 </details>
 
 <details>
 
-<summary>13. Quelle commande pour suivre un fichier de log en temps réel ?</summary>
+<summary>10. Comment renommer un fichier ? <em>(p. 3)</em></summary>
+
+&#x20;
+
+`mv ancien.txt nouveau.txt` — renommer, c'est déplacer.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>11. Pourquoi se méfier de <code>rm -rf</code> ? <em>(p. 3)</em></summary>
+
+&#x20;
+
+Suppression **récursive**, **sans confirmation**, **sans corbeille**. Une faute de frappe peut effacer tout le système.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>12. Quand utiliser <code>less</code> plutôt que <code>cat</code> ? <em>(p. 4)</em></summary>
+
+&#x20;
+
+Pour les **gros fichiers** : `less` pagine et permet de chercher avec `/`.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>13. Comment suivre un log en temps réel ? <em>(p. 4)</em></summary>
+
+&#x20;
 
 `tail -f <fichier>`
 
+&#x20;
+
 </details>
 
 <details>
 
-<summary>14. Comment afficher toutes les lignes d'un fichier qui contiennent « error », sans tenir compte des majuscules, avec les numéros de ligne ?</summary>
+<summary>14. Afficher les lignes contenant « error », sans casse, avec numéros ? <em>(p. 4)</em></summary>
+
+&#x20;
 
 `grep -in error <fichier>`
 
-</details>
-
-<details>
-
-<summary>15. Pourquoi écrit-on <code>sort | uniq</code> et pas juste <code>uniq</code> ?</summary>
-
-`uniq` ne supprime que les doublons **consécutifs**. Il faut d'abord trier pour que les lignes identiques soient côte à côte.
-
-</details>
-
-## Redirections et pipes
-
-<details>
-
-<summary>16. Quels sont les trois descripteurs de fichiers standard ?</summary>
-
-| Nom | Numéro | Par défaut |
-| --- | --- | --- |
-| stdin | 0 | Clavier |
-| stdout | 1 | Écran |
-| stderr | 2 | Écran |
+&#x20;
 
 </details>
 
 <details>
 
-<summary>17. Quelle différence entre <code>></code> et <code>>></code> ?</summary>
+<summary>15. Pourquoi <code>sort | uniq</code> et pas juste <code>uniq</code> ? <em>(p. 4)</em></summary>
 
-* `>` **écrase** le fichier.
-* `>>` **ajoute** à la fin du fichier.
+&#x20;
+
+`uniq` ne supprime que les doublons **consécutifs** : il faut trier d'abord.
+
+&#x20;
+
+</details>
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">04</mark> · Redirections et pipes
+
+&#x20;
+
+<details>
+
+<summary>16. Les trois descripteurs standard ? <em>(p. 5)</em></summary>
+
+&#x20;
+
+| Nom    | FD | Par défaut |
+| ------ | -- | ---------- |
+| stdin  | 0  | Clavier    |
+| stdout | 1  | Écran      |
+| stderr | 2  | Écran      |
+
+&#x20;
 
 </details>
 
 <details>
 
-<summary>18. Comment enregistrer uniquement les messages d'erreur d'une commande dans <code>err.txt</code> ?</summary>
+<summary>17. <code>></code> ou <code>>></code> ? <em>(p. 5)</em></summary>
+
+&#x20;
+
+`>` **écrase** le fichier, `>>` **ajoute** à la fin.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>18. Enregistrer seulement les erreurs dans <code>err.txt</code> ? <em>(p. 5)</em></summary>
+
+&#x20;
 
 `commande 2> err.txt`
 
-</details>
-
-<details>
-
-<summary>19. Que fait <code>ls | sort -r | wc -l</code> ?</summary>
-
-Liste les fichiers, les trie en ordre inverse, puis **compte le nombre de lignes**, c'est-à-dire le nombre de fichiers et dossiers. (Le tri ne change pas le résultat du comptage.)
+&#x20;
 
 </details>
 
 <details>
 
-<summary>20. Quelle est la différence entre une redirection et un pipe ?</summary>
+<summary>19. Que fait <code>ls | sort -r | wc -l</code> ? <em>(p. 5)</em></summary>
 
-Une **redirection** (`>`) envoie la sortie vers un **fichier**. Un **pipe** (`|`) envoie la sortie vers **une autre commande**.
+&#x20;
 
-</details>
+Liste, trie à l'envers, puis **compte les lignes** = le nombre de fichiers et dossiers. (Le tri ne change pas le compte.)
 
-## Variables d'environnement
-
-<details>
-
-<summary>21. À quoi sert la variable <code>PATH</code> ?</summary>
-
-Elle contient la liste des dossiers (séparés par `:`) où le shell cherche les programmes, **dans l'ordre**, quand on tape une commande.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>22. Comment ajouter <code>/opt/outils/bin</code> au PATH sans casser l'existant ?</summary>
+<summary>20. Redirection ou pipe : quelle différence ? <em>(p. 5)</em></summary>
 
-`export PATH=$PATH:/opt/outils/bin`
+&#x20;
 
-Sans le `$PATH:` devant, on remplacerait toute la liste et plus aucune commande ne serait trouvée.
+Une **redirection** envoie vers un **fichier** ; un **pipe** envoie vers **une autre commande**.
+
+&#x20;
+
+</details>
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">05</mark> · Variables d'environnement
+
+&#x20;
+
+<details>
+
+<summary>21. À quoi sert <code>PATH</code> ? <em>(p. 6)</em></summary>
+
+&#x20;
+
+C'est la liste ordonnée des dossiers où le shell cherche les programmes quand on tape une commande.
+
+&#x20;
 
 </details>
 
 <details>
 
-<summary>23. Comment rendre une variable permanente ?</summary>
+<summary>22. Ajouter <code>/opt/outils/bin</code> au PATH sans rien casser ? <em>(p. 6)</em></summary>
 
-L'ajouter dans le fichier de configuration du shell (`~/.zshrc` pour zsh, `~/.bashrc` pour bash), puis recharger avec `source ~/.zshrc`.
+&#x20;
 
-</details>
+`export PATH=$PATH:/opt/outils/bin` — sans `$PATH:`, on remplacerait toute la liste.
 
-## Permissions
-
-<details>
-
-<summary>24. Que signifie <code>-rw-r--r--</code> ?</summary>
-
-Un **fichier** (`-`) où :
-
-* le propriétaire peut lire et écrire (`rw-`)
-* le groupe peut seulement lire (`r--`)
-* les autres peuvent seulement lire (`r--`)
-
-En octal : **644**.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>25. Convertis <code>rwxr-x---</code> en octal.</summary>
+<summary>23. Comment rendre une variable permanente ? <em>(p. 6)</em></summary>
 
-`rwx` = 4+2+1 = 7, `r-x` = 4+0+1 = 5, `---` = 0 → **750**.
+&#x20;
+
+L'ajouter dans `~/.zshrc` (zsh) ou `~/.bashrc` (bash), puis `source ~/.zshrc`.
+
+&#x20;
+
+</details>
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">06</mark> · Permissions
+
+&#x20;
+
+<details>
+
+<summary>24. Que signifie <code>-rw-r--r--</code> ? <em>(p. 7)</em></summary>
+
+&#x20;
+
+Un **fichier** : le propriétaire lit et écrit, le groupe et les autres lisent seulement. En octal : **644**.
+
+&#x20;
 
 </details>
 
 <details>
 
-<summary>26. Que signifie le droit <code>x</code> sur un dossier ?</summary>
+<summary>25. <code>rwxr-x---</code> en octal ? <em>(p. 7)</em></summary>
 
-Le droit d'**entrer** dans le dossier (`cd`) et d'accéder aux fichiers qu'il contient.
+&#x20;
 
-</details>
+7 (4+2+1), 5 (4+0+1), 0 → **750**.
 
-<details>
-
-<summary>27. Mon script <code>./deploy.sh</code> affiche « Permission denied ». Que faire ?</summary>
-
-Lui donner le droit d'exécution : `chmod u+x deploy.sh`.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>28. Quelle différence entre <code>chown bob f.txt</code> et <code>chown bob:devs f.txt</code> ?</summary>
+<summary>26. Que signifie <code>x</code> sur un dossier ? <em>(p. 7)</em></summary>
 
-Le premier change **uniquement le propriétaire**. Le second change le propriétaire **et le groupe**.
+&#x20;
 
-</details>
+Le droit d'**entrer** dedans (`cd`) et d'accéder à ses fichiers.
 
-<details>
-
-<summary>29. Qu'est-ce que le principe du moindre privilège ? Donne deux exemples d'application.</summary>
-
-Donner à chaque utilisateur **uniquement les accès nécessaires** à son travail, rien de plus.
-
-Exemples : ne pas faire tourner une app en `root` dans un conteneur Docker ; donner un token d'API en lecture seule si l'écriture n'est pas utile ; un utilisateur de base de données sans droits d'administration.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>30. Pourquoi <code>chmod 777</code> est-il une mauvaise idée ?</summary>
+<summary>27. <code>./deploy.sh</code> → « Permission denied ». Que faire ? <em>(p. 7)</em></summary>
 
-Il donne **tous les droits à tout le monde** : n'importe quel utilisateur ou processus peut lire, modifier et exécuter le fichier. On « répare » un problème de droits en ouvrant une faille de sécurité.
+&#x20;
 
-</details>
+`chmod u+x deploy.sh`
 
-## Systèmes de fichiers
-
-<details>
-
-<summary>31. Quel est l'avantage d'un système de fichiers journalisé comme ext4 ?</summary>
-
-Il note les modifications dans un journal **avant** de les appliquer. En cas de coupure brutale, il peut récupérer un état cohérent au lieu de laisser des fichiers corrompus.
+&#x20;
 
 </details>
 
 <details>
 
-<summary>32. Que contient <code>/proc</code> ? Prend-il de la place sur le disque ?</summary>
+<summary>28. <code>chown bob f.txt</code> vs <code>chown bob:devs f.txt</code> ? <em>(p. 7)</em></summary>
 
-Des informations sur les **processus** et le **noyau**, générées à la volée par le noyau (procfs). Il ne prend **aucune place sur le disque** : c'est un système de fichiers virtuel.
+&#x20;
+
+Le premier change **seulement le propriétaire** ; le second change **propriétaire et groupe**.
+
+&#x20;
 
 </details>
 
 <details>
 
-<summary>33. Quelle est la particularité de tmpfs ?</summary>
+<summary>29. Le principe du moindre privilège, avec deux exemples ? <em>(p. 7)</em></summary>
 
-Les fichiers sont stockés **en RAM** : très rapide, mais **tout est effacé au redémarrage**.
+&#x20;
+
+Donner **uniquement les accès nécessaires**. Ex. : pas de `root` dans un conteneur Docker ; un token d'API en lecture seule ; un utilisateur de BDD sans droits admin.
+
+&#x20;
 
 </details>
+
+<details>
+
+<summary>30. Pourquoi <code>chmod 777</code> est-il une mauvaise idée ? <em>(p. 7)</em></summary>
+
+&#x20;
+
+Il donne **tous les droits à tout le monde** : on « répare » un problème de droits en ouvrant une faille.
+
+&#x20;
+
+</details>
+
+&#x20;
+
+***
+
+&#x20;
+
+## <mark style="color:purple;">07</mark> · Systèmes de fichiers
+
+&#x20;
+
+<details>
+
+<summary>31. L'avantage d'un système journalisé comme ext4 ? <em>(p. 8)</em></summary>
+
+&#x20;
+
+Il note les modifications **avant** de les faire : après une coupure, il revient à un état cohérent au lieu de laisser des fichiers corrompus.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>32. Que contient <code>/proc</code> ? Prend-il de la place sur le disque ? <em>(p. 8)</em></summary>
+
+&#x20;
+
+Des infos sur les **processus** et le **noyau**, générées à la volée. **Aucune place sur le disque** : c'est virtuel.
+
+&#x20;
+
+</details>
+
+<details>
+
+<summary>33. La particularité de tmpfs ? <em>(p. 8)</em></summary>
+
+&#x20;
+
+Stocké **en RAM** : très rapide, mais **effacé au redémarrage**.
+
+&#x20;
+
+</details>
+
+&#x20;
+
+***
+
+&#x20;
+
+{% hint style="success" %}
+**Tout juste ?** Bravo, tu es à l'aise dans le terminal 🐧. Prochaine étape : le chapitre [Docker](../docker/README.md), où tu vas utiliser tout ça dans des conteneurs.
+{% endhint %}
