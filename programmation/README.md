@@ -46,9 +46,6 @@ flowchart LR
     style P1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style P2 fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
     style P3 fill:#fce7f3,stroke:#ec4899,color:#831843
-    style C1 fill:#dcfce7,stroke:#22c55e,color:#14532d
-    style C2 fill:#dcfce7,stroke:#22c55e,color:#14532d
-    style C3 fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 &#x20;
@@ -63,21 +60,21 @@ flowchart LR
 
 | #  | Chapitre                                                                                                    | Statut                                              |
 | -- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| 1  | [Introduction et éléments de base](01-introduction-elements-de-base/README.md)                              | <mark style="color:green;">**Rédigé**</mark>        |
-| 2  | [Expressions et opérateurs](02-expressions-operateurs/README.md)                                            | <mark style="color:green;">**Rédigé**</mark>        |
-| 3  | [Instructions et contrôle de flux](03-instructions-controle-flux/README.md)                                 | <mark style="color:green;">**Rédigé**</mark>        |
-| 4  | [Méthodes](04-methodes/README.md)                                                                           | À venir                                             |
-| 5  | [Tableaux](05-tableaux/README.md)                                                                           | À venir                                             |
-| 6  | [Exceptions](06-exceptions/README.md)                                                                       | À venir                                             |
-| 7  | [String et entrées/sorties](07-string-entrees-sorties/README.md)                                            | À venir                                             |
-| 8  | [Classes et objets](08-classes-objets/README.md)                                                            | À venir                                             |
-| 9  | [Packages, contrôle d'accès, initialiseurs et encapsulation](09-packages-controle-acces-initialiseurs-encapsulation/README.md) | À venir                  |
-| 10 | [Membres statiques, initialiseurs et wrappers](10-membres-statiques-initialiseurs-wrappers/README.md)       | À venir                                             |
-| 11 | [Héritage et polymorphisme](11-heritage-polymorphisme/README.md)                                            | À venir                                             |
-| 12 | [Classes abstraites et interfaces](12-classes-abstraites-interfaces/README.md)                              | À venir                                             |
-| 13 | [Généricité et expressions lambda](13-genericite-expressions-lambda/README.md)                              | À venir                                             |
-| 14 | [Enum, annotations, RSA et limitations](14-enum-annotations-rsa-limitations/README.md)                      | À venir                                             |
-| 15 | [Conventions de codage et bonnes pratiques](15-conventions-codage-bonnes-pratiques/README.md)               | À venir                                             |
+| 1  | [Introduction et éléments de base](01-introduction-elements-de-base.md)                              | <mark style="color:green;">**Rédigé**</mark>        |
+| 2  | [Expressions et opérateurs](02-expressions-operateurs.md)                                            | <mark style="color:green;">**Rédigé**</mark>        |
+| 3  | [Instructions et contrôle de flux](03-instructions-controle-flux.md)                                 | <mark style="color:green;">**Rédigé**</mark>        |
+| 4  | [Méthodes](04-methodes.md)                                                                           | <mark style="color:green;">**Rédigé**</mark>        |
+| 5  | [Tableaux](05-tableaux.md)                                                                           | <mark style="color:green;">**Rédigé**</mark>        |
+| 6  | [Exceptions](06-exceptions.md)                                                                       | <mark style="color:green;">**Rédigé**</mark>        |
+| 7  | [String et entrées/sorties](07-string-entrees-sorties.md)                                            | <mark style="color:green;">**Rédigé**</mark>        |
+| 8  | [Classes et objets](08-classes-objets.md)                                                            | <mark style="color:green;">**Rédigé**</mark>        |
+| 9  | [Packages, contrôle d'accès, initialiseurs et encapsulation](09-packages-controle-acces-initialiseurs-encapsulation.md) | <mark style="color:green;">**Rédigé**</mark>        |
+| 10 | [Membres statiques, initialiseurs et wrappers](10-membres-statiques-initialiseurs-wrappers.md)       | <mark style="color:green;">**Rédigé**</mark>        |
+| 11 | [Héritage et polymorphisme](11-heritage-polymorphisme.md)                                            | <mark style="color:green;">**Rédigé**</mark>        |
+| 12 | [Classes abstraites et interfaces](12-classes-abstraites-interfaces.md)                              | <mark style="color:green;">**Rédigé**</mark>        |
+| 13 | [Généricité et expressions lambda](13-genericite-expressions-lambda.md)                              | <mark style="color:green;">**Rédigé**</mark>        |
+| 14 | [Enum, annotations, RSA et limitations](14-enum-annotations-rsa-limitations.md)                      | <mark style="color:green;">**Rédigé**</mark>        |
+| 15 | [Conventions de codage et bonnes pratiques](15-conventions-codage-bonnes-pratiques.md)               | <mark style="color:green;">**Rédigé**</mark>        |
 
 &#x20;
 

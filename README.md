@@ -98,7 +98,7 @@ Outils du quotidien (Linux, Docker…) et sécurité informatique.
 | Matière                        | Statut                                                      |
 | ------------------------------ | ----------------------------------------------------------- |
 | Téléinformatique            | À venir                                                  |
-| Programmation               | <mark style="color:green;">Chapitres 1 à 3 sur 15</mark> |
+| Programmation               | <mark style="color:green;">15 chapitres</mark> |
 | Technique Numérique         | À venir                                                  |
 | Méthodologie et Sécurité IT | <mark style="color:green;">Linux & Shell, Docker</mark>  |
 | Économie et Droit IT        | À venir                                                  |
