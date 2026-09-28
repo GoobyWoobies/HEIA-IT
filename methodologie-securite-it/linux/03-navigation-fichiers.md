@@ -29,7 +29,7 @@ coverY: 0
 
 ```mermaid
 flowchart LR
-    C["⌨️ ls<br/><i>commande</i><br/>quoi faire"] --- O["⚙️ -l -a<br/><i>options</i><br/>comment le faire"] --- A["🎯 /home/alice<br/><i>argument</i><br/>sur quoi"]
+    C["ls<br/><i>commande</i><br/>quoi faire"] --- O["-l -a<br/><i>options</i><br/>comment le faire"] --- A["/home/alice<br/><i>argument</i><br/>sur quoi"]
 
     style C fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style O fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
@@ -85,7 +85,7 @@ $ pwd
 
 &#x20;
 
-🗺️ `pwd` (_print working directory_), c'est le point rouge **« Vous êtes ici »** sur le plan du centre commercial.
+`pwd` (_print working directory_), c'est le point rouge **« Vous êtes ici »** sur le plan du centre commercial.
 
 &#x20;
 
@@ -98,14 +98,14 @@ $ pwd
 &#x20;
 
 {% tabs %}
-{% tab title="📋 Basique" %}
+{% tab title="Basique" %}
 ```bash
 ls              # contenu du dossier courant
 ls /etc         # contenu d'un autre dossier
 ```
 {% endtab %}
 
-{% tab title="🔍 Détails" %}
+{% tab title="Détails" %}
 ```bash
 ls -l           # format long
 ls -lh          # tailles lisibles (K, M, G)
@@ -113,14 +113,14 @@ ls -lt          # trié par date de modification
 ```
 {% endtab %}
 
-{% tab title="👻 Cachés" %}
+{% tab title="Cachés" %}
 ```bash
 ls -a           # aussi les fichiers cachés (qui commencent par .)
 ls -la          # cachés + détails
 ```
 {% endtab %}
 
-{% tab title="🌲 Récursif" %}
+{% tab title="Récursif" %}
 ```bash
 ls -R           # tous les sous-dossiers
 ```
@@ -167,9 +167,9 @@ Les **fichiers cachés** commencent par un point : `.bashrc`, `.zshrc`, `.gitign
 
 ```mermaid
 flowchart TB
-    R["📁 /"] --> H["📁 home"]
-    H --> A["📁 alice"]
-    A --> D["📁 Documents"]
+    R["/"] --> H["home"]
+    H --> A["alice"]
+    A --> D["Documents"]
 
     D -->|"cd .."| A
     A -->|"cd Documents"| D
@@ -203,7 +203,7 @@ cd -                 # revenir au dossier précédent
 
 {% columns %}
 {% column %}
-### ✨ Créer
+### Créer
 
 ```bash
 mkdir projets        # un dossier
@@ -213,7 +213,7 @@ touch notes.txt      # un fichier vide
 {% endcolumn %}
 
 {% column %}
-### 📋 Copier
+### Copier
 
 ```bash
 cp notes.txt copie.txt
@@ -223,7 +223,7 @@ cp -r projets/ sauvegarde/   # dossier : -r !
 {% endcolumn %}
 
 {% column %}
-### 🚚 Déplacer / renommer
+### Déplacer / renommer
 
 ```bash
 mv notes.txt Documents/
@@ -269,12 +269,12 @@ Méfie-toi surtout de `rm -rf` (`-r` récursif, `-f` sans confirmation). Une fau
 
 ```mermaid
 flowchart TD
-    S(["🗑️ Je veux supprimer"]) --> Q1{"Fichier ou dossier ?"}
+    S(["Je veux supprimer"]) --> Q1{"Fichier ou dossier ?"}
     Q1 -->|Fichier| F["rm fichier"]
     Q1 -->|Dossier| Q2{"Il est vide ?"}
     Q2 -->|Oui| V["rmdir dossier"]
     Q2 -->|Non| Q3{"J'ai vérifié avec ls ?"}
-    Q3 -->|Non| L["🔍 ls dossier d'abord !"]
+    Q3 -->|Non| L["ls dossier d'abord !"]
     L --> Q3
     Q3 -->|Oui| R["rm -r dossier"]
 
@@ -326,7 +326,7 @@ rm brouillon*        # tout ce qui commence par "brouillon"
 
 {% columns %}
 {% column %}
-### 🔎 `find`
+### `find`
 
 ```bash
 find . -name "*.txt"
@@ -337,7 +337,7 @@ find . -size +100M
 {% endcolumn %}
 
 {% column %}
-### 🪪 Infos utiles
+### Infos utiles
 
 ```bash
 whoami            # qui suis-je ?
@@ -361,14 +361,14 @@ df -h             # espace disque
 
 | Besoin                          | Commande                              |
 | ------------------------------- | ------------------------------------- |
-| 📍 Où suis-je ?                 | `pwd`                                 |
-| 📋 Qu'y a-t-il ici ?            | `ls -la`                              |
-| 🧭 Aller ailleurs               | `cd <chemin>`                         |
-| ✨ Créer                        | `mkdir` / `touch`                     |
-| 📋 Copier / 🚚 déplacer         | `cp` / `mv`                           |
-| 🗑️ Supprimer                    | `rm` (dossier : `rm -r`) ⚠️           |
-| 🔎 Trouver                      | `find`                                |
-| 🆘 Aide                         | `man <commande>` / `--help`           |
+| Où suis-je ?                 | `pwd`                                 |
+| Qu'y a-t-il ici ?            | `ls -la`                              |
+| Aller ailleurs               | `cd <chemin>`                         |
+| Créer                        | `mkdir` / `touch`                     |
+| Copier / déplacer         | `cp` / `mv`                           |
+| Supprimer                    | `rm` (dossier : `rm -r`) |
+| Trouver                      | `find`                                |
+| Aide                         | `man <commande>` / `--help`           |
 
 &#x20;
 

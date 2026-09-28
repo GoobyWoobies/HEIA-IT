@@ -29,9 +29,9 @@ Un `Dockerfile` décrit **étape par étape** comment construire une image. `doc
 
 ```mermaid
 flowchart LR
-    DF["📝 Dockerfile<br/>la recette"] -->|"docker build"| IMG[("📦 Image<br/>le plat surgelé")]
-    IMG -->|"docker run"| CT["▶️ Conteneur<br/>le plat servi"]
-    IMG -->|"docker push"| REG[("☁️ Registry")]
+    DF["Dockerfile<br/>la recette"] -->|"docker build"| IMG[("Image<br/>le plat surgelé")]
+    IMG -->|"docker run"| CT["Conteneur<br/>le plat servi"]
+    IMG -->|"docker push"| REG[("Registry")]
 
     style DF fill:#fef3c7,stroke:#f59e0b,color:#78350f
     style IMG fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
@@ -41,11 +41,11 @@ flowchart LR
 
 &#x20;
 
-### 👨‍🍳 L'analogie de la recette
+### L'analogie de la recette
 
 &#x20;
 
-| 👨‍🍳 Cuisine                          | 🐳 Docker            |
+| Cuisine                          | Docker            |
 | ------------------------------------- | -------------------- |
 | La recette écrite                     | Le **Dockerfile**    |
 | Cuisiner en suivant la recette        | `docker build`       |
@@ -126,7 +126,7 @@ docker run -p 3000:3000 mon-app:1.0
 
 &#x20;
 
-<mark style="color:green;">**✓ C'est prêt.**</mark> Ouvre `http://localhost:3000`.
+<mark style="color:green;">**C'est prêt.**</mark> Ouvre `http://localhost:3000`.
 {% endstep %}
 {% endstepper %}
 
@@ -161,10 +161,10 @@ docker run -p 3000:3000 mon-app:1.0
 
 ```mermaid
 flowchart LR
-    subgraph BUILD["🔨 docker build · une seule fois"]
+    subgraph BUILD["docker build · une seule fois"]
         RUN["RUN npm install"]
     end
-    subgraph START["▶️ docker run · à chaque démarrage"]
+    subgraph START["docker run · à chaque démarrage"]
         CMD["CMD npm start"]
     end
     BUILD -->|"résultat figé dans l'image"| START
@@ -204,7 +204,7 @@ flowchart TB
     A["FROM node:lts-alpine"] --> B["WORKDIR /app"]
     B --> C["COPY package.json ./"]
     C --> D["RUN npm install"]
-    D --> E["COPY . .  ✏️ le code a changé"]
+    D --> E["COPY . .le code a changé"]
     E --> F["CMD npm start"]
 
     style A fill:#dcfce7,stroke:#22c55e,color:#14532d
@@ -215,7 +215,7 @@ flowchart TB
     style F fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
 ```
 
-<mark style="color:green;">**Vert**</mark> = repris du cache ⚡ · <mark style="color:red;">**Rouge**</mark> = reconstruit 🐌
+<mark style="color:green;">**Vert**</mark> = repris du cache · <mark style="color:red;">**Rouge**</mark> = reconstruit
 
 &#x20;
 
@@ -226,22 +226,22 @@ flowchart TB
 &#x20;
 
 {% tabs %}
-{% tab title="❌ Mauvais ordre" %}
+{% tab title="Mauvais ordre" %}
 ```dockerfile
 FROM node:lts-alpine
 WORKDIR /app
 COPY . .            # le code change à chaque commit…
-RUN npm install     # …donc npm install repart à CHAQUE build 🐌
+RUN npm install     # …donc npm install repart à CHAQUE build
 CMD ["npm", "start"]
 ```
 {% endtab %}
 
-{% tab title="✅ Bon ordre" %}
+{% tab title="Bon ordre" %}
 ```dockerfile
 FROM node:lts-alpine
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm install     # relancé seulement si les dépendances changent ⚡
+RUN npm install     # relancé seulement si les dépendances changent
 COPY . .
 CMD ["npm", "start"]
 ```
@@ -264,13 +264,13 @@ Pour compiler, il faut souvent plein d'outils (compilateur, SDK…) dont on n'a 
 
 ```mermaid
 flowchart LR
-    subgraph S1["🏗️ Étape 1 · builder"]
+    subgraph S1["Étape 1 · builder"]
         direction TB
-        G["golang:1.26 · ~800 Mo"] --> BIN["⚙️ binaire server"]
+        G["golang:1.26 · ~800 Mo"] --> BIN["binaire server"]
     end
-    subgraph S2["🚀 Étape 2 · runtime"]
+    subgraph S2["Étape 2 · runtime"]
         direction TB
-        AL["alpine:3.20 · ~8 Mo"] --> FINAL["📦 Image finale légère"]
+        AL["alpine:3.20 · ~8 Mo"] --> FINAL["Image finale légère"]
     end
     BIN -->|"COPY --from=builder"| FINAL
 
@@ -280,7 +280,7 @@ flowchart LR
 
 &#x20;
 
-### 🏗️ L'analogie du chantier
+### L'analogie du chantier
 
 &#x20;
 
@@ -342,19 +342,19 @@ node_modules
 
 {% columns %}
 {% column %}
-### ⚡ Plus rapide
+### Plus rapide
 
 Un gros `node_modules` ou l'historique `.git` n'est plus envoyé au daemon avant chaque build.
 {% endcolumn %}
 
 {% column %}
-### 🔒 Plus sûr
+### Plus sûr
 
 Les secrets (`.env`, clés, identifiants) ne finissent pas dans l'image, où **n'importe qui pourrait les extraire**.
 {% endcolumn %}
 
 {% column %}
-### 📦 Plus léger
+### Plus léger
 
 Un `COPY . .` ne copie plus les fichiers inutiles dans l'image.
 {% endcolumn %}
@@ -398,32 +398,32 @@ docker run -p 8080:80 nginx
 
 {% columns %}
 {% column %}
-**1️⃣ Multi-stage builds**
+**1. Multi-stage builds**
 L'image finale ne contient que ce dont l'app a besoin.
 
 &#x20;
 
-**2️⃣ Image de base petite et fiable**
+**2. Image de base petite et fiable**
 _Official_ ou _Verified Publisher_, variantes `-alpine` ou `-slim`.
 
 &#x20;
 
-**3️⃣ Fixer les versions, reconstruire souvent**
+**3. Fixer les versions, reconstruire souvent**
 `node:22.9-alpine` plutôt que `latest`, et `docker build --pull` pour les correctifs.
 {% endcolumn %}
 
 {% column %}
-**4️⃣ Exploiter le cache**
+**4. Exploiter le cache**
 Étapes stables en haut, `.dockerignore` pour le superflu.
 
 &#x20;
 
-**5️⃣ `apt-get update && apt-get install` ensemble**
+**5. `apt-get update && apt-get install` ensemble**
 Dans un seul `RUN`, pour ne jamais réutiliser un index de paquets périmé.
 
 &#x20;
 
-**6️⃣ Un rôle par conteneur**
+**6. Un rôle par conteneur**
 Un conteneur = un service, sans état, facile à remplacer et à dupliquer.
 {% endcolumn %}
 {% endcolumns %}
@@ -431,7 +431,7 @@ Un conteneur = un service, sans état, facile à remplacer et à dupliquer.
 &#x20;
 
 ```dockerfile
-# ✅ Pratique n°5 : un seul RUN, update et install toujours synchronisés
+# Pratique n°5 : un seul RUN, update et install toujours synchronisés
 RUN apt-get update && apt-get install -y \
       curl \
       git \
@@ -440,7 +440,7 @@ RUN apt-get update && apt-get install -y \
 
 &#x20;
 
-📖 [Dockerfile best practices](https://docs.docker.com/build/building/best-practices/) · [Référence Dockerfile](https://docs.docker.com/reference/dockerfile/)
+[Dockerfile best practices](https://docs.docker.com/build/building/best-practices/) · [Référence Dockerfile](https://docs.docker.com/reference/dockerfile/)
 
 &#x20;
 

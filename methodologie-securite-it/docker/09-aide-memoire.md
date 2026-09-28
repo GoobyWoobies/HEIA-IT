@@ -19,13 +19,13 @@ coverY: 0
 
 ```mermaid
 flowchart LR
-    DF["📝 Dockerfile"] -->|"build"| IMG[("📦 Image")]
-    REG[("☁️ Registry")] -->|"pull"| IMG
+    DF["Dockerfile"] -->|"build"| IMG[("Image")]
+    REG[("Registry")] -->|"pull"| IMG
     IMG -->|"push"| REG
-    IMG -->|"run"| CT["▶️ Conteneur"]
-    CT -->|"stop"| ST["⏹️ Arrêté"]
+    IMG -->|"run"| CT["Conteneur"]
+    CT -->|"stop"| ST["Arrêté"]
     ST -->|"start"| CT
-    ST -->|"rm"| X["🗑️ Supprimé"]
+    ST -->|"rm"| X["Supprimé"]
 
     style DF fill:#fef3c7,stroke:#f59e0b,color:#78350f
     style IMG fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
@@ -113,7 +113,7 @@ flowchart LR
 | ------------------------------- | ------------------------------------- |
 | Espace disque                   | `docker system df`                    |
 | Nettoyage général               | `docker system prune`                 |
-| Nettoyage + volumes             | `docker system prune --volumes` ⚠️    |
+| Nettoyage + volumes             | `docker system prune --volumes` |
 | Infos sur l'installation        | `docker system info`                  |
 
 &#x20;
@@ -125,8 +125,8 @@ flowchart LR
 | Action                  | Commande                                    |
 | ----------------------- | ------------------------------------------- |
 | Tout démarrer           | `docker compose up` (`-d` en fond)          |
-| Reconstruire et démarrer| `docker compose up --build`                 |
-| Tout arrêter            | `docker compose down` (`-v` = volumes ⚠️)   |
+| Reconstruire et démarrer | `docker compose up --build`                 |
+| Tout arrêter            | `docker compose down` (`-v` = volumes)   |
 | État                    | `docker compose ps`                         |
 | Logs                    | `docker compose logs -f`                    |
 | Shell dans un service   | `docker compose exec <service> sh`          |
@@ -142,7 +142,7 @@ flowchart LR
 &#x20;
 
 {% tabs %}
-{% tab title="📝 Dockerfile" %}
+{% tab title="Dockerfile" %}
 ```dockerfile
 FROM <image_de_base>:<version>
 WORKDIR /app
@@ -154,7 +154,7 @@ CMD ["<commande>", "<argument>"]
 ```
 {% endtab %}
 
-{% tab title="🎼 compose.yaml" %}
+{% tab title="compose.yaml" %}
 ```yaml
 services:
   app:
@@ -177,7 +177,7 @@ volumes:
 ```
 {% endtab %}
 
-{% tab title="🙈 .dockerignore" %}
+{% tab title=".dockerignore" %}
 ```
 .git
 node_modules
@@ -189,7 +189,7 @@ node_modules
 
 &#x20;
 
-📄 Cheat sheet officielle : [docker\_cheatsheet.pdf](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
+Cheat sheet officielle : [docker\_cheatsheet.pdf](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
 
 &#x20;
 

@@ -31,15 +31,15 @@ Un disque, c'est au fond une immense suite de cases vides. Le **système de fich
 
 &#x20;
 
-📚 **L'analogie de la bibliothèque** : le disque, ce sont les **étagères** ; le système de fichiers, c'est le **système de classement** (catalogue, cotes, règles de rangement). Mêmes étagères, classements différents, plus ou moins rapides ou robustes.
+**L'analogie de la bibliothèque** : le disque, ce sont les **étagères** ; le système de fichiers, c'est le **système de classement** (catalogue, cotes, règles de rangement). Mêmes étagères, classements différents, plus ou moins rapides ou robustes.
 
 &#x20;
 
 ```mermaid
 flowchart TB
-    FS(["💽 Systèmes de fichiers Linux"])
-    FS --> DISK["🗄️ Sur disque"]
-    FS --> MEM["🧠 En mémoire / virtuels"]
+    FS(["Systèmes de fichiers Linux"])
+    FS --> DISK["Sur disque"]
+    FS --> MEM["En mémoire / virtuels"]
     DISK --> E["ext4"]
     DISK --> X["XFS"]
     DISK --> B["Btrfs"]
@@ -65,28 +65,28 @@ flowchart TB
 
 {% columns %}
 {% column %}
-### 🟢 ext4
+### ext4
 
 **Mature, très fiable, journalisé.**
 Le choix par défaut de la plupart des distributions.
 
 &#x20;
 
-### 🔵 XFS
+### XFS
 
 **Très gros fichiers et volumes**, excellentes performances en parallèle.
 Serveurs d'entreprise ; plus complexe à gérer.
 {% endcolumn %}
 
 {% column %}
-### 🟣 Btrfs
+### Btrfs
 
 **Copy-on-Write, snapshots instantanés**, RAID intégré, compression transparente.
 La « nouvelle génération » (par défaut sur Fedora).
 
 &#x20;
 
-### 🟡 F2FS
+### F2FS
 
 **Conçu pour la mémoire flash** (SSD, NVMe, cartes SD).
 Maximise durée de vie et performances.
@@ -106,20 +106,20 @@ Un système **journalisé** note les modifications dans un journal **avant** de 
 ```mermaid
 sequenceDiagram
     autonumber
-    participant A as 📝 Application
-    participant J as 📔 Journal
-    participant D as 💽 Disque
+    participant A as Application
+    participant J as Journal
+    participant D as Disque
 
     A->>J: « Je vais écrire X »
     J->>D: Écrit X
-    Note over D: ⚡ Coupure de courant ici ?
+    Note over D: Coupure de courant ici ?
     D-->>J: Au redémarrage, le journal dit<br/>exactement où on en était
-    J->>J: Rejoue ou annule ✅
+    J->>J: Rejoue ou annule
 ```
 
 &#x20;
 
-📝 C'est comme un **comptable** qui note chaque opération dans son cahier **avant** de toucher à la caisse.
+C'est comme un **comptable** qui note chaque opération dans son cahier **avant** de toucher à la caisse.
 
 &#x20;
 
@@ -133,11 +133,11 @@ Avec le **Copy-on-Write** (CoW), un fichier modifié n'est **jamais écrasé sur
 
 ```mermaid
 flowchart LR
-    subgraph AVANT["📸 Snapshot · avant"]
-        P1["pointeur"] --> V1["📄 version 1"]
+    subgraph AVANT["Snapshot · avant"]
+        P1["pointeur"] --> V1["version 1"]
     end
-    subgraph APRES["✏️ Après modification"]
-        P2["pointeur"] --> V2["📄 version 2<br/>écrite ailleurs"]
+    subgraph APRES["Après modification"]
+        P2["pointeur"] --> V2["version 2<br/>écrite ailleurs"]
     end
     AVANT -->|"modification"| APRES
     V2 -.->|"la version 1 reste<br/>pour le snapshot"| V1
@@ -168,9 +168,9 @@ Certains systèmes de fichiers n'existent **pas sur le disque** : ils vivent en 
 
 | Système     | Monté sur         | Rôle                                                                              |
 | ----------- | ----------------- | --------------------------------------------------------------------------------- |
-| 🧠 **tmpfs**  | `/tmp`, `/run`…   | Fichiers **en RAM** : ultra rapide, mais <mark style="color:orange;">**effacé au redémarrage**</mark> |
-| ⚙️ **procfs** | `/proc`           | Fenêtre sur les **processus** et le noyau (stats CPU, mémoire…)                   |
-| 🔌 **sysfs**  | `/sys`            | Vue structurée du **matériel**, des pilotes et de la configuration                |
+| **tmpfs**  | `/tmp`, `/run`…   | Fichiers **en RAM** : ultra rapide, mais <mark style="color:orange;">**effacé au redémarrage**</mark> |
+| **procfs** | `/proc`           | Fenêtre sur les **processus** et le noyau (stats CPU, mémoire…)                   |
+| **sysfs**  | `/sys`            | Vue structurée du **matériel**, des pilotes et de la configuration                |
 
 &#x20;
 
@@ -232,9 +232,9 @@ tmpfs          tmpfs   16G  4.0M   16G   1% /tmp
 
 | Type          | Exemples                          | À retenir                                                     |
 | ------------- | --------------------------------- | ------------------------------------------------------------- |
-| 🗄️ Sur disque | ext4, XFS, Btrfs, F2FS            | ext4 = fiable par défaut, Btrfs = snapshots, F2FS = SSD       |
-| 🧠 En mémoire | tmpfs                             | Rapide, mais perdu au redémarrage                             |
-| ⚙️ Virtuels   | procfs (`/proc`), sysfs (`/sys`)  | Générés par le noyau, exposent processus et matériel          |
+| Sur disque | ext4, XFS, Btrfs, F2FS            | ext4 = fiable par défaut, Btrfs = snapshots, F2FS = SSD       |
+| En mémoire | tmpfs                             | Rapide, mais perdu au redémarrage                             |
+| Virtuels   | procfs (`/proc`), sysfs (`/sys`)  | Générés par le noyau, exposent processus et matériel          |
 
 &#x20;
 

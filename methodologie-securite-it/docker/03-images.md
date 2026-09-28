@@ -29,13 +29,13 @@ Une image est un **paquet figé** qui contient tout ce qu'il faut pour lancer un
 
 ```mermaid
 flowchart LR
-    subgraph IMG["📦 Une image"]
+    subgraph IMG["Une image"]
         direction TB
-        OS["🐧 Un système de fichiers de base<br/>Debian, Alpine…"]
-        RT["⚙️ Un runtime<br/>Node, Python, Java…"]
-        DEP["📚 Les dépendances"]
-        APP["💻 Le code de l'app"]
-        CMD["▶️ La commande de démarrage"]
+        OS["Un système de fichiers de base<br/>Debian, Alpine…"]
+        RT["Un runtime<br/>Node, Python, Java…"]
+        DEP["Les dépendances"]
+        APP["Le code de l'app"]
+        CMD["La commande de démarrage"]
     end
 
     style IMG fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
@@ -63,10 +63,10 @@ Une image n'est pas un gros bloc : c'est un **empilement de couches** en lecture
 
 ```mermaid
 flowchart TB
-    L4["📄 4dc359259700 · Fichiers de l'application"]
-    L3["🌐 9977b78fbad7 · Installation d'Apache"]
-    L2["🔄 e83b3bf07b42 · Mise à jour d'Ubuntu"]
-    L1["🐧 9cd978db300e · 6170bb7b0ad1 · 51136ea3c5a<br/>Image de base Ubuntu"]
+    L4["4dc359259700 · Fichiers de l'application"]
+    L3["9977b78fbad7 · Installation d'Apache"]
+    L2["e83b3bf07b42 · Mise à jour d'Ubuntu"]
+    L1["9cd978db300e · 6170bb7b0ad1 · 51136ea3c5a<br/>Image de base Ubuntu"]
     L4 --- L3 --- L2 --- L1
 
     style L4 fill:#fef3c7,stroke:#f59e0b,color:#78350f
@@ -77,7 +77,7 @@ flowchart TB
 
 &#x20;
 
-### 🎨 L'analogie des calques
+### L'analogie des calques
 
 &#x20;
 
@@ -95,10 +95,10 @@ Les couches sont **partagées**. Si tu as 10 images basées sur `ubuntu`, la cou
 
 ```mermaid
 flowchart TB
-    U[("🐧 Couche Ubuntu<br/>stockée une seule fois")]
-    U --> A["📦 Image web"]
-    U --> B["📦 Image API"]
-    U --> C["📦 Image worker"]
+    U[("Couche Ubuntu<br/>stockée une seule fois")]
+    U --> A["Image web"]
+    U --> B["Image API"]
+    U --> C["Image worker"]
 
     style U fill:#dcfce7,stroke:#22c55e,color:#14532d
     style A fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
@@ -140,7 +140,7 @@ Une image s'identifie par un **nom** et un **tag** (une étiquette de version) :
 
 ```mermaid
 flowchart LR
-    R["🏢 registry-gitlab.moxoh.ch<br/><i>registry · optionnel</i>"] --> N["📛 moxoh/app<br/><i>nom du dépôt</i>"] --> T["🏷️ 1.4.2<br/><i>tag · version</i>"]
+    R["registry-gitlab.moxoh.ch<br/><i>registry · optionnel</i>"] --> N["moxoh/app<br/><i>nom du dépôt</i>"] --> T["1.4.2<br/><i>tag · version</i>"]
 
     style R fill:#fef3c7,stroke:#f59e0b,color:#78350f
     style N fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
@@ -187,14 +187,14 @@ traefik:v3.7    2eb085ca3ba8       175MB
 &#x20;
 
 {% tabs %}
-{% tab title="📋 Lister" %}
+{% tab title="Lister" %}
 ```bash
 docker image ls           # ou : docker images
 docker image ls postgres  # filtrer par nom
 ```
 {% endtab %}
 
-{% tab title="📥 Télécharger" %}
+{% tab title="Télécharger" %}
 ```bash
 docker pull nginx                  # depuis Docker Hub
 docker pull postgres:16-alpine     # avec un tag précis
@@ -208,7 +208,7 @@ docker pull registry-gitlab.moxoh.ch/moxoh/hypotheses/app:latest
 ```
 {% endtab %}
 
-{% tab title="🔍 Chercher" %}
+{% tab title="Chercher" %}
 ```bash
 docker search redis
 ```
@@ -216,7 +216,7 @@ docker search redis
 Ou directement sur [hub.docker.com](https://hub.docker.com). Privilégie les images avec le badge <mark style="color:green;">**Docker Official Image**</mark> ou <mark style="color:green;">**Verified Publisher**</mark>.
 {% endtab %}
 
-{% tab title="🗑️ Supprimer" %}
+{% tab title="Supprimer" %}
 ```bash
 docker image rm nginx     # ou : docker rmi nginx
 ```
@@ -245,10 +245,10 @@ referenced image 5443742302f5
 ```mermaid
 flowchart TD
     Q{"Un conteneur utilise<br/>l'image ?"}
-    Q -->|Non| OK["✅ docker rmi image"]
-    Q -->|Oui| A["1️⃣ docker rm conteneur"]
-    A --> B["2️⃣ docker rmi image"]
-    Q -.->|"Raccourci déconseillé"| F["⚠️ docker rmi -f image"]
+    Q -->|Non| OK["docker rmi image"]
+    Q -->|Oui| A["1. docker rm conteneur"]
+    A --> B["2. docker rmi image"]
+    Q -.->|"Raccourci déconseillé"| F["docker rmi -f image"]
 
     style OK fill:#dcfce7,stroke:#22c55e,color:#14532d
     style B fill:#dcfce7,stroke:#22c55e,color:#14532d
@@ -277,12 +277,12 @@ Quand on lance un conteneur, Docker ajoute **une fine couche en lecture/écritur
 
 ```mermaid
 flowchart BT
-    subgraph IMG["📦 Image ubuntu · lecture seule, partagée"]
+    subgraph IMG["Image ubuntu · lecture seule, partagée"]
         direction BT
         B1["51136ea3c5a"] --- B2["6170bb7b0ad1"] --- B3["9cd978db300e"]
     end
-    IMG --> W1["✏️ Couche inscriptible<br/>du conteneur 1"]
-    IMG --> W2["✏️ Couche inscriptible<br/>du conteneur 2"]
+    IMG --> W1["Couche inscriptible<br/>du conteneur 1"]
+    IMG --> W2["Couche inscriptible<br/>du conteneur 2"]
 
     style IMG fill:#dcfce7,stroke:#22c55e,color:#14532d
     style W1 fill:#fef3c7,stroke:#f59e0b,color:#78350f

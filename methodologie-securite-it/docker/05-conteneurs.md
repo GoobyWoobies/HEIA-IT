@@ -39,9 +39,9 @@ docker run ohmyzsh/zsh
 
 ```mermaid
 flowchart LR
-    R(["docker run"]) --> P["📥 1. pull<br/>si l'image manque"]
-    P --> C["🧱 2. create<br/>crée le conteneur"]
-    C --> S["▶️ 3. start<br/>lance CMD"]
+    R(["docker run"]) --> P["1. pull<br/>si l'image manque"]
+    P --> C["2. create<br/>crée le conteneur"]
+    C --> S["3. start<br/>lance CMD"]
 
     style R fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style P fill:#fef3c7,stroke:#f59e0b,color:#78350f
@@ -74,19 +74,19 @@ Un conteneur vit **aussi longtemps que son processus principal**. Quand la comma
 &#x20;
 
 {% tabs %}
-{% tab title="💬 Shell interactif" %}
+{% tab title="Shell interactif" %}
 ```bash
 docker run -it --name my-zsh ohmyzsh/zsh
 ```
 {% endtab %}
 
-{% tab title="🌐 Serveur en fond" %}
+{% tab title="Serveur en fond" %}
 ```bash
 docker run -d --name my-server -p 8080:80 nginx
 ```
 {% endtab %}
 
-{% tab title="🧪 Test jetable" %}
+{% tab title="Test jetable" %}
 ```bash
 docker run --rm -it alpine sh
 ```
@@ -123,7 +123,7 @@ CONTAINER ID   IMAGE   STATUS                     PORTS    NAMES
 
 {% columns %}
 {% column %}
-### ⏹️ Arrêter / relancer
+### Arrêter / relancer
 
 ```bash
 docker stop my-server
@@ -135,7 +135,7 @@ Par nom ou par ID (les premiers caractères suffisent).
 {% endcolumn %}
 
 {% column %}
-### 🗑️ Supprimer
+### Supprimer
 
 ```bash
 docker rm my-server
@@ -182,11 +182,11 @@ stateDiagram-v2
 
 | État                  | Description                                    | Commande          |
 | --------------------- | ---------------------------------------------- | ----------------- |
-| ⚪ **Created**        | Créé, jamais démarré                           | `docker create`   |
-| 🟢 **Running**        | En cours d'exécution                           | `docker start` / `run` |
-| 🟡 **Paused**         | Processus gelés en mémoire                     | `docker pause`    |
-| 🔴 **Stopped**        | <mark style="color:orange;">Arrêté, mais encore sur le disque</mark> | `docker stop`     |
-| ⚫ **Deleted**        | Supprimé définitivement                        | `docker rm`       |
+| **Created**        | Créé, jamais démarré                           | `docker create`   |
+| **Running**        | En cours d'exécution                           | `docker start` / `run` |
+| **Paused**         | Processus gelés en mémoire                     | `docker pause`    |
+| **Stopped**        | <mark style="color:orange;">Arrêté, mais encore sur le disque</mark> | `docker stop`     |
+| **Deleted**        | Supprimé définitivement                        | `docker rm`       |
 
 &#x20;
 
@@ -220,7 +220,7 @@ root@3f72126a581a:/#
 
 <mark style="color:blue;">**Crée un nouveau**</mark> conteneur à partir d'une image.
 
-🏗️ Construire une nouvelle maison.
+Construire une nouvelle maison.
 {% endcolumn %}
 
 {% column %}
@@ -228,7 +228,7 @@ root@3f72126a581a:/#
 
 <mark style="color:blue;">**Entre dans**</mark> un conteneur qui tourne déjà.
 
-🚪 Entrer dans une maison existante.
+Entrer dans une maison existante.
 {% endcolumn %}
 {% endcolumns %}
 
@@ -267,12 +267,12 @@ docker run --name my-server2 -p 8080:80 nginx
 
 ```mermaid
 flowchart LR
-    B(["🌐 Navigateur<br/>localhost:8080"]) --> H
-    subgraph HOST["💻 Machine hôte"]
-        H["🔌 Port 8080"]
-        subgraph DK["🐳 Docker"]
-            subgraph CT["📦 Conteneur nginx"]
-                P["🔌 Port 80"] --> W["🌐 Serveur web"]
+    B(["Navigateur<br/>localhost:8080"]) --> H
+    subgraph HOST["Machine hôte"]
+        H["Port 8080"]
+        subgraph DK["Docker"]
+            subgraph CT["Conteneur nginx"]
+                P["Port 80"] --> W["Serveur web"]
             end
         end
         H -->|"-p 8080:80"| P
@@ -290,7 +290,7 @@ flowchart LR
 
 &#x20;
 
-### 🏨 L'analogie de l'hôtel
+### L'analogie de l'hôtel
 
 &#x20;
 

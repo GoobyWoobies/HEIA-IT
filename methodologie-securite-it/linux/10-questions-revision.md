@@ -495,5 +495,5 @@ Stocké **en RAM** : très rapide, mais **effacé au redémarrage**.
 &#x20;
 
 {% hint style="success" %}
-**Tout juste ?** Bravo, tu es à l'aise dans le terminal 🐧. Prochaine étape : le chapitre [Docker](../docker/README.md), où tu vas utiliser tout ça dans des conteneurs.
+**Tout juste ?** Bravo, tu es à l'aise dans le terminal. Prochaine étape : le chapitre [Docker](../docker/README.md), où tu vas utiliser tout ça dans des conteneurs.
 {% endhint %}

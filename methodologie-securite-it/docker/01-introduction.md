@@ -33,8 +33,8 @@ Tu développes une application web sur ton laptop. Elle utilise Node.js 22, Post
 
 ```mermaid
 flowchart LR
-    Toi["👩‍💻 Ton laptop<br/>Node 22 · Postgres 16 · Linux"] -->|"📤 envoie le code"| Lui["🧑‍💻 Laptop du collègue<br/>Node 18 · pas de Postgres · Windows"]
-    Lui --> KO["💥 Ça plante"]
+    Toi["Ton laptop<br/>Node 22 · Postgres 16 · Linux"] -->|"envoie le code"| Lui["Laptop du collègue<br/>Node 18 · pas de Postgres · Windows"]
+    Lui --> KO["Ça plante"]
 
     style Toi fill:#dcfce7,stroke:#22c55e,color:#14532d
     style Lui fill:#fef3c7,stroke:#f59e0b,color:#78350f
@@ -69,16 +69,16 @@ Au lieu d'envoyer seulement ton code, tu envoies **ton code + tout ce dont il a 
 
 ```mermaid
 flowchart LR
-    subgraph C["📦 Conteneur"]
+    subgraph C["Conteneur"]
         direction TB
-        Code["💻 Ton code"]
-        Rt["⚙️ Node 22"]
-        Lib["📚 Librairies"]
-        Cfg["🔧 Configuration"]
+        Code["Ton code"]
+        Rt["Node 22"]
+        Lib["Librairies"]
+        Cfg["Configuration"]
     end
-    C --> L1["👩‍💻 Ton laptop ✅"]
-    C --> L2["🧑‍💻 Laptop du collègue ✅"]
-    C --> L3["☁️ Serveur cloud ✅"]
+    C --> L1["Ton laptop"]
+    C --> L2["Laptop du collègue"]
+    C --> L3["Serveur cloud"]
 
     style C fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style L1 fill:#dcfce7,stroke:#22c55e,color:#14532d
@@ -88,7 +88,7 @@ flowchart LR
 
 &#x20;
 
-### 🚢 L'analogie du conteneur maritime
+### L'analogie du conteneur maritime
 
 &#x20;
 
@@ -100,7 +100,7 @@ Puis on a inventé le **conteneur maritime standard**. Peu importe ce qu'il cont
 
 &#x20;
 
-| 🌊 Monde maritime       | 🐳 Monde Docker                    |
+| Monde maritime       | Monde Docker                    |
 | ----------------------- | ---------------------------------- |
 | La marchandise          | Ton application + ses dépendances  |
 | Le conteneur standard   | Le conteneur Docker                |
@@ -129,15 +129,15 @@ Avant Docker, pour isoler une application, on utilisait des **machines virtuelle
 
 {% columns %}
 {% column %}
-**🖥️ Machine virtuelle**
+**Machine virtuelle**
 
 ```mermaid
 flowchart TB
     subgraph VM1["VM 1"]
-        A1["App A"] --> B1["Bins/Libs"] --> G1["🟪 Guest OS"]
+        A1["App A"] --> B1["Bins/Libs"] --> G1["Guest OS"]
     end
     subgraph VM2["VM 2"]
-        A2["App B"] --> B2["Bins/Libs"] --> G2["🟪 Guest OS"]
+        A2["App B"] --> B2["Bins/Libs"] --> G2["Guest OS"]
     end
     G1 --> H["Hyperviseur"]
     G2 --> H
@@ -151,7 +151,7 @@ Chaque VM embarque **un OS complet** → <mark style="color:orange;">**lourd**</
 {% endcolumn %}
 
 {% column %}
-**📦 Conteneur**
+**Conteneur**
 
 ```mermaid
 flowchart TB
@@ -161,7 +161,7 @@ flowchart TB
     subgraph C2["Conteneur 2"]
         A2["App B"] --> B2["Bins/Libs"]
     end
-    B1 --> D["🐳 Docker Engine"]
+    B1 --> D["Docker Engine"]
     B2 --> D
     D --> OS["OS hôte (noyau partagé)"] --> S["Serveur"]
 
@@ -175,7 +175,7 @@ Les conteneurs **partagent le noyau** de l'hôte → <mark style="color:green;">
 
 &#x20;
 
-### 🏠 L'analogie du logement
+### L'analogie du logement
 
 &#x20;
 
@@ -184,7 +184,7 @@ Les conteneurs **partagent le noyau** de l'hôte → <mark style="color:green;">
 
 &#x20;
 
-| Critère                    | 🖥️ Machine virtuelle                              | 📦 Conteneur                                          |
+| Critère                    | Machine virtuelle                              | Conteneur                                          |
 | -------------------------- | ------------------------------------------------- | ----------------------------------------------------- |
 | Contient                   | Un OS complet                                     | Seulement l'app et ses dépendances                    |
 | Taille                     | <mark style="color:orange;">Plusieurs Go</mark>   | <mark style="color:green;">Quelques Mo à centaines de Mo</mark> |
@@ -220,7 +220,7 @@ timeline
     2000 : FreeBSD Jails
     2008 : LXC
          : conteneurs Linux
-    2013 : 🐳 Docker
+    2013 : Docker
          : les conteneurs pour tous
     2014 : Kubernetes
     2015 : OCI
@@ -243,19 +243,19 @@ Docker est l'outil le plus populaire pour gérer des conteneurs, **mais pas le s
 
 {% columns %}
 {% column %}
-### 🐳 Docker
+### Docker
 
 Le plus répandu, très simple à prendre en main.
 {% endcolumn %}
 
 {% column %}
-### 🦭 Podman
+### Podman
 
 Sans daemon, fonctionne sans droits root, commandes compatibles Docker.
 {% endcolumn %}
 
 {% column %}
-### ⚙️ containerd
+### containerd
 
 Le moteur bas niveau utilisé par Docker lui-même et par Kubernetes.
 {% endcolumn %}

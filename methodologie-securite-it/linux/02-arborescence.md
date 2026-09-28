@@ -61,7 +61,7 @@ flowchart TB
 
 &#x20;
 
-### 🌳 Un arbre… la tête en bas
+### Un arbre… la tête en bas
 
 &#x20;
 
@@ -81,7 +81,7 @@ Cette organisation suit une norme : le <mark style="color:blue;">**FHS**</mark> 
 
 &#x20;
 
-| Dossier          | Contenu                                                                              | 💡 Pour retenir                        |
+| Dossier          | Contenu                                                                              | Pour retenir                        |
 | ---------------- | ------------------------------------------------------------------------------------ | -------------------------------------- |
 | `/`              | La **racine** : contient tout le reste                                               | Le tronc de l'arbre                    |
 | `/bin`           | **Binaires essentiels** pour tous (`ls`, `cp`, `cat`…)                               | _bin_ = binaries                       |
@@ -109,48 +109,48 @@ Sur les distributions récentes, `/bin`, `/sbin` et `/lib` sont souvent de simpl
 
 &#x20;
 
-### 🏠 L'analogie de la maison
+### L'analogie de la maison
 
 &#x20;
 
 {% columns %}
 {% column %}
-**🧰 `/bin`, `/usr/bin`**
+**`/bin`, `/usr/bin`**
 La boîte à outils commune.
 
 &#x20;
 
-**🔧 `/sbin`**
+**`/sbin`**
 Le local technique, accès réservé.
 
 &#x20;
 
-**🎛️ `/etc`**
+**`/etc`**
 Le tableau des réglages : thermostat, alarme…
 
 &#x20;
 
-**🛏️ `/home/alice`**
+**`/home/alice`**
 La chambre de chacun.
 {% endcolumn %}
 
 {% column %}
-**👑 `/root`**
+**`/root`**
 La chambre du propriétaire.
 
 &#x20;
 
-**📝 `/tmp`**
+**`/tmp`**
 La table de brouillon, nettoyée chaque soir.
 
 &#x20;
 
-**📔 `/var/log`**
+**`/var/log`**
 Le journal de bord de la maison.
 
 &#x20;
 
-**🔌 `/dev`, `/mnt`**
+**`/dev`, `/mnt`**
 Les prises murales pour brancher des appareils.
 {% endcolumn %}
 {% endcolumns %}
@@ -213,7 +213,7 @@ echo $HOME    # affiche le chemin du home, ex. /home/alice
 
 {% columns %}
 {% column %}
-### 📍 Absolu
+### Absolu
 
 Commence **toujours par `/`**. Il part de la racine et marche **d'où que tu sois**.
 
@@ -221,11 +221,11 @@ Commence **toujours par `/`**. Il part de la racine et marche **d'où que tu soi
 cat /home/alice/Documents/notes.txt
 ```
 
-🏠 Une **adresse postale complète** : « Rue de la Gare 12, 1700 Fribourg ».
+Une **adresse postale complète** : « Rue de la Gare 12, 1700 Fribourg ».
 {% endcolumn %}
 
 {% column %}
-### 🧭 Relatif
+### Relatif
 
 Ne commence **pas** par `/`. Il part du **dossier où tu te trouves**.
 
@@ -235,7 +235,7 @@ cat Documents/notes.txt
 cat ../bob/todo.txt
 ```
 
-🚶 Une **indication de passant** : « deuxième rue à gauche ».
+Une **indication de passant** : « deuxième rue à gauche ».
 {% endcolumn %}
 {% endcolumns %}
 
@@ -247,11 +247,11 @@ cat ../bob/todo.txt
 
 ```mermaid
 flowchart TB
-    H["📁 /home"] --> A["📁 alice<br/>📍 je suis ici"]
-    H --> B["📁 bob"]
-    A --> D["📁 Documents"]
-    D --> N["📄 notes.txt"]
-    B --> T["📄 todo.txt"]
+    H["/home"] --> A["alice<br/>je suis ici"]
+    H --> B["bob"]
+    A --> D["Documents"]
+    D --> N["notes.txt"]
+    B --> T["todo.txt"]
 
     A -.->|"Documents/notes.txt"| N
     A -.->|"../bob/todo.txt"| T

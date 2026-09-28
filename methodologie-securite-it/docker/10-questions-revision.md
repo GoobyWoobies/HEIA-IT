@@ -277,9 +277,9 @@ Pour **profiter du cache**. Docker reconstruit une couche modifiée **et toutes 
 
 | Type          | Persistant | Emplacement             |
 | ------------- | ---------- | ----------------------- |
-| 💾 Volume     | Oui        | Zone gérée par Docker   |
-| 📁 Bind mount | Oui        | Dossier choisi sur l'hôte |
-| 🧠 tmpfs      | Non        | RAM uniquement          |
+| Volume     | Oui        | Zone gérée par Docker   |
+| Bind mount | Oui        | Dossier choisi sur l'hôte |
+| tmpfs      | Non        | RAM uniquement          |
 
 &#x20;
 
@@ -375,5 +375,5 @@ Compose crée un **réseau commun** où chaque service est joignable **par son n
 &#x20;
 
 {% hint style="success" %}
-**Tout juste ?** Bravo, tu maîtrises les bases de Docker 🐳. Prochaine étape : conteneuriser un de tes propres projets.
+**Tout juste ?** Bravo, tu maîtrises les bases de Docker. Prochaine étape : conteneuriser un de tes propres projets.
 {% endhint %}

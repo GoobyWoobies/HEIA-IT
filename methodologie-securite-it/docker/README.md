@@ -60,14 +60,14 @@ Docker met ton application **et tout ce dont elle a besoin** dans une boîte sta
 
 ```mermaid
 flowchart LR
-    A["🚢 1. Introduction"] --> B["🏗️ 2. Architecture"]
-    B --> C["📦 3. Images"]
-    C --> D["📝 4. Dockerfile"]
-    D --> E["▶️ 5. Conteneurs"]
-    E --> F["💾 6. Volumes"]
-    F --> G["🧹 7. Maintenance"]
-    G --> H["🎼 8. Compose"]
-    H --> I["🎓 Révision"]
+    A["1. Introduction"] --> B["2. Architecture"]
+    B --> C["3. Images"]
+    C --> D["4. Dockerfile"]
+    D --> E["5. Conteneurs"]
+    E --> F["6. Volumes"]
+    F --> G["7. Maintenance"]
+    G --> H["8. Compose"]
+    H --> I["Révision"]
 
     style A fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style B fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
@@ -128,7 +128,7 @@ docker run hello-world
 
 &#x20;
 
-<mark style="color:green;">**✓ Si tu vois « Hello from Docker! », c'est prêt.**</mark>
+<mark style="color:green;">**Si tu vois « Hello from Docker! », c'est prêt.**</mark>
 {% endstep %}
 
 {% step %}
@@ -148,7 +148,7 @@ Tape chaque commande toi-même. Docker s'apprend avec les doigts, pas avec les y
 
 <details>
 
-<summary>📚 Références</summary>
+<summary>Références</summary>
 
 &#x20;
 

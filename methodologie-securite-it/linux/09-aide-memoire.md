@@ -61,8 +61,8 @@ coverY: 0
 | Créer un fichier vide   | `touch <fichier>`                          |
 | Copier                  | `cp <src> <dest>` (`-r` pour un dossier)   |
 | Déplacer / renommer     | `mv <src> <dest>`                          |
-| Supprimer un fichier    | `rm <fichier>` ⚠️                          |
-| Supprimer un dossier    | `rm -r <dossier>` ⚠️                       |
+| Supprimer un fichier    | `rm <fichier>` |
+| Supprimer un dossier    | `rm -r <dossier>` |
 | Chercher un fichier     | `find . -name "*.txt"`                     |
 | Type d'un fichier       | `file <fichier>`                           |
 | Taille d'un dossier     | `du -sh <dossier>`                         |

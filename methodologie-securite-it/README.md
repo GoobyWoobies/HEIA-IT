@@ -29,8 +29,8 @@ On commence par **Linux et la ligne de commande**, puis on apprend à emballer e
 
 ```mermaid
 flowchart LR
-    L["🐧 Linux & Shell<br/>le terminal, les fichiers,<br/>les permissions"] --> D["🐳 Docker<br/>images, conteneurs,<br/>volumes, Compose"]
-    D --> N["➕ Prochains cours…"]
+    L["Linux & Shell<br/>le terminal, les fichiers,<br/>les permissions"] --> D["Docker<br/>images, conteneurs,<br/>volumes, Compose"]
+    D --> N["Prochains cours…"]
 
     style L fill:#dcfce7,stroke:#22c55e,color:#14532d
     style D fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
@@ -41,7 +41,7 @@ flowchart LR
 
 {% columns %}
 {% column %}
-### 🐧 [Linux & Shell](linux/README.md)
+### [Linux & Shell](linux/README.md)
 
 Histoire de Linux, arborescence, commandes de base, redirections et pipes, variables d'environnement, permissions, systèmes de fichiers.
 
@@ -51,7 +51,7 @@ Histoire de Linux, arborescence, commandes de base, redirections et pipes, varia
 {% endcolumn %}
 
 {% column %}
-### 🐳 [Docker](docker/README.md)
+### [Docker](docker/README.md)
 
 Conteneurs vs VM, architecture, images et Dockerfile, conteneurs, volumes, maintenance et Docker Compose.
 

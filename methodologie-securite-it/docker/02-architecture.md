@@ -29,11 +29,11 @@ Tu parles au **client**, le client parle au **daemon**, et le daemon va chercher
 
 ```mermaid
 flowchart LR
-    U(["👤 Toi"]) --> CLI["⌨️ Client<br/>docker"]
-    CLI -->|"API REST"| D["⚙️ Daemon<br/>dockerd"]
-    D --> IMG[("📦 Images locales")]
-    D --> CT["▶️ Conteneurs"]
-    D <-->|"pull / push"| R[("☁️ Registry<br/>Docker Hub")]
+    U(["Toi"]) --> CLI["Client<br/>docker"]
+    CLI -->|"API REST"| D["Daemon<br/>dockerd"]
+    D --> IMG[("Images locales")]
+    D --> CT["Conteneurs"]
+    D <-->|"pull / push"| R[("Registry<br/>Docker Hub")]
 
     style U fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style CLI fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
@@ -55,19 +55,19 @@ flowchart LR
 
 {% columns %}
 {% column %}
-### ⌨️ Le client
+### Le client
 
 La commande `docker` dans ton terminal. Il ne fait rien lui-même : il **transmet tes ordres** au daemon et t'affiche les réponses.
 {% endcolumn %}
 
 {% column %}
-### ⚙️ Le daemon
+### Le daemon
 
 `dockerd` tourne en arrière-plan sur la machine hôte. C'est **lui qui fait le vrai travail** : images, conteneurs, réseaux, volumes.
 {% endcolumn %}
 
 {% column %}
-### ☁️ Le registry
+### Le registry
 
 Une **bibliothèque d'images** en ligne. Par défaut : [Docker Hub](https://hub.docker.com). Les entreprises ont souvent un registry privé.
 {% endcolumn %}
@@ -81,11 +81,11 @@ Tu n'interagis **jamais directement** avec le daemon : le client lui parle via u
 
 &#x20;
 
-### 🍽️ L'analogie du restaurant
+### L'analogie du restaurant
 
 &#x20;
 
-| 🍽️ Restaurant                      | 🐳 Docker                          |
+| Restaurant                      | Docker                          |
 | ---------------------------------- | ---------------------------------- |
 | Toi, le client                     | Toi, dans le terminal              |
 | Le serveur qui prend la commande   | Le **client** `docker`             |
@@ -115,10 +115,10 @@ Voici le trajet complet d'un `docker run nginx` quand l'image n'est pas encore s
 ```mermaid
 sequenceDiagram
     autonumber
-    actor U as 👤 Toi
-    participant C as ⌨️ Client
-    participant D as ⚙️ Daemon
-    participant R as ☁️ Docker Hub
+    actor U as Toi
+    participant C asClient
+    participant D asDaemon
+    participant R asDocker Hub
 
     U->>C: docker run nginx
     C->>D: « Lance un conteneur nginx »
@@ -127,25 +127,25 @@ sequenceDiagram
     R-->>D: Couches de l'image
     D->>D: Crée et démarre le conteneur
     D-->>C: ID du conteneur
-    C-->>U: ✅ Conteneur lancé
+    C-->>U: Conteneur lancé
 ```
 
 &#x20;
 
 {% tabs %}
-{% tab title="📥 docker pull" %}
+{% tab title="docker pull" %}
 1. Le client demande au daemon de récupérer une image.
 2. Le daemon **la télécharge depuis le registry**.
 3. L'image est stockée localement, prête à l'emploi.
 {% endtab %}
 
-{% tab title="🔨 docker build" %}
+{% tab title="docker build" %}
 1. Le client envoie au daemon un `Dockerfile` et les fichiers du projet (le _build context_).
 2. Le daemon **construit une nouvelle image** en suivant les instructions.
 3. L'image est stockée localement.
 {% endtab %}
 
-{% tab title="▶️ docker run" %}
+{% tab title="docker run" %}
 1. Le client demande de lancer un conteneur à partir d'une image.
 2. Si l'image **manque**, le daemon la **télécharge** d'abord.
 3. Le daemon **crée et démarre** le conteneur.
@@ -168,7 +168,7 @@ Ce sont les deux objets Docker les plus importants. Il faut **absolument** bien 
 
 {% columns %}
 {% column %}
-### 📦 Image
+### Image
 
 * Un **modèle en lecture seule**
 * Contient les instructions pour créer un conteneur
@@ -177,7 +177,7 @@ Ce sont les deux objets Docker les plus importants. Il faut **absolument** bien 
 {% endcolumn %}
 
 {% column %}
-### ▶️ Conteneur
+### Conteneur
 
 * Une **instance qui tourne**, créée à partir d'une image
 * On peut la démarrer, l'arrêter, la supprimer
@@ -190,10 +190,10 @@ Ce sont les deux objets Docker les plus importants. Il faut **absolument** bien 
 
 ```mermaid
 flowchart TB
-    I[("📦 Image nginx<br/>lecture seule")]
-    I --> C1["▶️ site-a"]
-    I --> C2["▶️ site-b"]
-    I --> C3["▶️ test"]
+    I[("Image nginx<br/>lecture seule")]
+    I --> C1["site-a"]
+    I --> C2["site-b"]
+    I --> C3["test"]
 
     style I fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
     style C1 fill:#dcfce7,stroke:#22c55e,color:#14532d
@@ -203,7 +203,7 @@ flowchart TB
 
 &#x20;
 
-### 🧁 L'analogie du moule à gâteau
+### L'analogie du moule à gâteau
 
 &#x20;
 

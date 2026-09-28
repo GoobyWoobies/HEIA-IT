@@ -37,9 +37,9 @@ Chaque programme démarre avec **trois descripteurs déjà ouverts** :
 
 ```mermaid
 flowchart LR
-    K(["⌨️ Clavier"]) -->|"0 · stdin"| P["⚙️ N'importe quelle<br/>commande"]
-    P -->|"1 · stdout"| S1(["🖥️ Écran · résultats"])
-    P -->|"2 · stderr"| S2(["🖥️ Écran · erreurs"])
+    K(["Clavier"]) -->|"0 · stdin"| P["N'importe quelle<br/>commande"]
+    P -->|"1 · stdout"| S1(["Écran · résultats"])
+    P -->|"2 · stderr"| S2(["Écran · erreurs"])
 
     style K fill:#dcfce7,stroke:#22c55e,color:#14532d
     style P fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
@@ -51,9 +51,9 @@ flowchart LR
 
 | Flux                | FD    | Nom      | Par défaut       |
 | ------------------- | ----- | -------- | ---------------- |
-| 🟢 Entrée standard  | **0** | `stdin`  | Le **clavier**   |
-| 🟣 Sortie standard  | **1** | `stdout` | L'**écran**      |
-| 🔴 Erreur standard  | **2** | `stderr` | L'**écran**      |
+| Entrée standard  | **0** | `stdin`  | Le **clavier**   |
+| Sortie standard  | **1** | `stdout` | L'**écran**      |
+| Erreur standard  | **2** | `stderr` | L'**écran**      |
 
 &#x20;
 
@@ -88,7 +88,7 @@ Les deux s'affichent à l'écran, mais ce sont **deux canaux différents**. On v
 
 &#x20;
 
-### 🚰 L'analogie de la plomberie
+### L'analogie de la plomberie
 
 &#x20;
 
@@ -106,10 +106,10 @@ Un programme est un **appareil de plomberie** avec un tuyau d'arrivée (stdin) e
 
 ```mermaid
 flowchart LR
-    F1[("📄 fichier")] -->|"<"| C["⚙️ commande"]
-    C -->|"> écrase"| F2[("📄 sortie.txt")]
-    C -->|">> ajoute"| F3[("📄 journal.txt")]
-    C -->|"2>"| F4[("📄 erreurs.txt")]
+    F1[("fichier")] -->|"<"| C["commande"]
+    C -->|"> écrase"| F2[("sortie.txt")]
+    C -->|">> ajoute"| F3[("journal.txt")]
+    C -->|"2>"| F4[("erreurs.txt")]
 
     style C fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style F2 fill:#fef3c7,stroke:#f59e0b,color:#78350f
@@ -205,7 +205,7 @@ Un **pipe** (tube) envoie la **sortie d'une commande directement à l'entrée de
 
 ```mermaid
 flowchart LR
-    A["📂 ls"] -->|"pipe"| B["🔤 sort -r"] -->|"pipe"| C["🔢 wc -l"] --> D(["🖥️ 12"])
+    A["ls"] -->|"pipe"| B["sort -r"] -->|"pipe"| C["wc -l"] --> D(["12"])
 
     style A fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style B fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
@@ -221,7 +221,7 @@ flowchart LR
 
 &#x20;
 
-### 🏭 L'analogie de la chaîne de montage
+### L'analogie de la chaîne de montage
 
 &#x20;
 
@@ -289,7 +289,7 @@ Garde les **5 premiers**.
 
 &#x20;
 
-<mark style="color:green;">**✓ Le top 5 des fruits, en une ligne.**</mark>
+<mark style="color:green;">**Le top 5 des fruits, en une ligne.**</mark>
 {% endstep %}
 {% endstepper %}
 
@@ -325,7 +325,7 @@ history | grep docker                            # retrouver une vieille command
 
 {% columns %}
 {% column %}
-### 📄 Redirection `>`
+### Redirection `>`
 
 Envoie la sortie vers un **fichier**.
 
@@ -335,7 +335,7 @@ ls > liste.txt
 {% endcolumn %}
 
 {% column %}
-### 🚰 Pipe `|`
+### Pipe `|`
 
 Envoie la sortie vers **une autre commande**.
 

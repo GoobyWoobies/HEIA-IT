@@ -39,7 +39,7 @@ timeline
     1985 : Free Software Foundation
     1987 : Minix
          : Andrew Tanenbaum
-    1991 : 🐧 Noyau Linux
+    1991 : Noyau Linux
          : Linus Torvalds
 ```
 
@@ -95,15 +95,15 @@ Linus maintient toujours le noyau aujourd'hui : son code est sur [kernel.org](ht
 
 ```mermaid
 flowchart LR
-    U["🏛️ Unix<br/>Bell Labs, 1969"] --> BSD["🎓 BSD"]
-    U --> COM["🏢 Unix commerciaux<br/>Solaris, AIX, HP-UX"]
+    U["Unix<br/>Bell Labs, 1969"] --> BSD["BSD"]
+    U --> COM["Unix commerciaux<br/>Solaris, AIX, HP-UX"]
     BSD --> FBSD["FreeBSD · OpenBSD"]
-    BSD --> NX["NeXTSTEP"] --> MAC["🍎 macOS"]
-    GNU["🐃 Outils GNU<br/>1983"] --> GL["🐧 GNU/Linux<br/>1991"]
-    LIN["⚙️ Noyau Linux"] --> GL
-    MINIX["📘 Minix"] -.->|"a inspiré"| LIN
+    BSD --> NX["NeXTSTEP"] --> MAC["macOS"]
+    GNU["Outils GNU<br/>1983"] --> GL["GNU/Linux<br/>1991"]
+    LIN["Noyau Linux"] --> GL
+    MINIX["Minix"] -.->|"a inspiré"| LIN
     GL --> D["Ubuntu · Debian · Fedora…"]
-    LIN --> AND["🤖 Android"]
+    LIN --> AND["Android"]
 
     style U fill:#fef3c7,stroke:#f59e0b,color:#78350f
     style GL fill:#dcfce7,stroke:#22c55e,color:#14532d
@@ -129,11 +129,11 @@ Le noyau seul ne suffit pas. Une **distribution** assemble le noyau, les outils 
 
 | Distribution     | Particularité                                                  |
 | ---------------- | -------------------------------------------------------------- |
-| 🟠 **Ubuntu**    | La plus populaire pour débuter, basée sur Debian               |
-| 🔴 **Debian**    | Très stable, omniprésente sur les serveurs                     |
-| 🔵 **Fedora**    | Récente, sponsorisée par Red Hat                               |
-| 🩵 **Arch**      | Minimaliste : tu construis tout toi-même                       |
-| 🟦 **Alpine**    | Ultra-légère (~5 Mo), star des images Docker                   |
+| **Ubuntu**    | La plus populaire pour débuter, basée sur Debian               |
+| **Debian**    | Très stable, omniprésente sur les serveurs                     |
+| **Fedora**    | Récente, sponsorisée par Red Hat                               |
+| **Arch**      | Minimaliste : tu construis tout toi-même                       |
+| **Alpine**    | Ultra-légère (~5 Mo), star des images Docker                   |
 
 &#x20;
 
@@ -147,13 +147,13 @@ Le noyau seul ne suffit pas. Une **distribution** assemble le noyau, les outils 
 
 ```mermaid
 flowchart TB
-    subgraph US["👤 Espace utilisateur"]
+    subgraph US["Espace utilisateur"]
         direction LR
-        SH["🐚 Shell"]
-        APP["🌐 Navigateur · 📝 Éditeur · ls · grep…"]
+        SH["Shell"]
+        APP["Navigateur · Éditeur · ls · grep…"]
     end
-    K["⚙️ Noyau (kernel)<br/>mémoire · processus · fichiers · périphériques"]
-    HW["🔩 Matériel<br/>CPU · RAM · disque · réseau"]
+    K["Noyau (kernel)<br/>mémoire · processus · fichiers · périphériques"]
+    HW["Matériel<br/>CPU · RAM · disque · réseau"]
     US --> K --> HW
 
     style US fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
@@ -166,19 +166,19 @@ flowchart TB
 
 {% columns %}
 {% column %}
-**🔩 Matériel**
+**Matériel**
 
 Le processeur, la mémoire, le disque…
 {% endcolumn %}
 
 {% column %}
-**⚙️ Noyau**
+**Noyau**
 
 Le chef d'orchestre. Le **seul** à parler directement au matériel.
 {% endcolumn %}
 
 {% column %}
-**👤 Espace utilisateur**
+**Espace utilisateur**
 
 Tous tes programmes. Ils n'ont **pas le droit** de toucher le matériel : ils **demandent au noyau**.
 {% endcolumn %}
@@ -202,11 +202,11 @@ _Shell_ veut dire **coquille** : c'est la couche la plus externe, celle qui enve
 
 &#x20;
 
-### 🍽️ L'analogie du restaurant
+### L'analogie du restaurant
 
 &#x20;
 
-| 🍽️ Restaurant                        | 💻 Ordinateur          |
+| Restaurant                        | Ordinateur          |
 | ------------------------------------ | ---------------------- |
 | Toi, le client                       | L'utilisateur          |
 | Le serveur qui prend ta commande     | Le **shell**           |
@@ -225,19 +225,19 @@ Tu ne vas jamais en cuisine allumer les fourneaux toi-même. Tu dis au serveur c
 
 {% columns %}
 {% column %}
-**🪟 Le terminal**
+**Le terminal**
 
 La **fenêtre** qui affiche du texte et capte ton clavier : GNOME Terminal, iTerm2, Windows Terminal…
 
-📞 Le téléphone.
+Le téléphone.
 {% endcolumn %}
 
 {% column %}
-**🐚 Le shell**
+**Le shell**
 
 Le **programme qui tourne dedans** et interprète tes commandes : bash, zsh…
 
-🧑‍💼 La personne au bout du fil.
+La personne au bout du fil.
 {% endcolumn %}
 {% endcolumns %}
 
@@ -258,11 +258,11 @@ Le **programme qui tourne dedans** et interprète tes commandes : bash, zsh…
 ```mermaid
 sequenceDiagram
     autonumber
-    actor U as 👤 Toi
-    participant S as 🐚 Shell
-    participant L as 📂 ls
-    participant K as ⚙️ Noyau
-    participant D as 💽 Disque
+    actor U as Toi
+    participant S as Shell
+    participant L as ls
+    participant K asNoyau
+    participant D as Disque
 
     U->>S: ls
     S->>L: Trouve et lance le programme ls

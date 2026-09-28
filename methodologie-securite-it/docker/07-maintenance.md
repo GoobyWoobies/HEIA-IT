@@ -19,7 +19,7 @@ Images anciennes, conteneurs arrêtés, cache de build : tout s'accumule **en si
 
 &#x20;
 
-### 🧹 L'analogie du garage
+### L'analogie du garage
 
 &#x20;
 
@@ -84,11 +84,11 @@ Are you sure you want to continue? [y/N]
 
 ```mermaid
 flowchart LR
-    P(["🧹 docker system prune"]) --> C["⏹️ Conteneurs arrêtés"]
-    P --> N["🌐 Réseaux inutilisés"]
-    P --> I["🏷️ Images dangling<br/>sans nom ni tag"]
-    P --> B["🔨 Cache de build inutilisé"]
-    P -.->|"❌ PAS par défaut"| V[("💾 Volumes")]
+    P(["docker system prune"]) --> C["Conteneurs arrêtés"]
+    P --> N["Réseaux inutilisés"]
+    P --> I["Images dangling<br/>sans nom ni tag"]
+    P --> B["Cache de build inutilisé"]
+    P -.->|"PAS par défaut"| V[("Volumes")]
 
     style P fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style V fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
@@ -108,27 +108,27 @@ flowchart LR
 
 {% columns %}
 {% column %}
-**💾 Espace disque**
+**Espace disque**
 Libère des Go inutiles, évite les erreurs « disque plein ».
 
 &#x20;
 
-**⚡ Performances**
+**Performances**
 Système plus réactif, déploiements plus rapides.
 
 &#x20;
 
-**🔒 Sécurité**
+**Sécurité**
 De vieilles images oubliées contiennent des **vulnérabilités connues**. Moins d'images = moins de surface d'attaque.
 {% endcolumn %}
 
 {% column %}
-**🌐 Réseau propre**
+**Réseau propre**
 Supprime les bridges et règles iptables laissés par d'anciens conteneurs.
 
 &#x20;
 
-**🤖 Automatisable**
+**Automatisable**
 Une seule commande à planifier, au lieu de scripts de nettoyage maison.
 {% endcolumn %}
 {% endcolumns %}
@@ -181,7 +181,7 @@ WARNING! This will remove:
 | `docker volume prune`                  | Volumes non utilisés                                        |
 | `docker network prune`                 | Réseaux non utilisés                                        |
 | `docker builder prune`                 | Cache de build                                              |
-| `docker system prune -a --volumes`     | <mark style="color:red;">⚠️ **Tout** ce qui n'est pas utilisé</mark> |
+| `docker system prune -a --volumes`     | <mark style="color:red;">**Tout** ce qui n'est pas utilisé</mark> |
 
 &#x20;
 

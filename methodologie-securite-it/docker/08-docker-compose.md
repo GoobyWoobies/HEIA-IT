@@ -33,8 +33,8 @@ Tu développes une application SaaS pour un client. Son architecture :
 
 ```mermaid
 flowchart LR
-    F["🖥️ Web Frontend<br/>React"] -->|"utilise"| B["⚙️ Web Backend<br/>API Node"]
-    B -->|"utilise"| D[("🗄️ Database<br/>PostgreSQL")]
+    F["Web Frontend<br/>React"] -->|"utilise"| B["Web Backend<br/>API Node"]
+    B -->|"utilise"| D[("Database<br/>PostgreSQL")]
 
     style F fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
     style B fill:#fce7f3,stroke:#ec4899,color:#831843
@@ -61,7 +61,7 @@ docker run -d --name frontend --network app-net -p 8080:80 frontend
 
 &#x20;
 
-…à retenir, dans le bon ordre, à chaque fois. 😩 Il nous faut un **mécanisme d'orchestration** : <mark style="color:blue;">**Docker Compose**</mark>.
+…à retenir, dans le bon ordre, à chaque fois. Il nous faut un **mécanisme d'orchestration** : <mark style="color:blue;">**Docker Compose**</mark>.
 
 &#x20;
 
@@ -73,25 +73,25 @@ docker run -d --name frontend --network app-net -p 8080:80 frontend
 
 &#x20;
 
-### 🎼 L'analogie du chef d'orchestre
+### L'analogie du chef d'orchestre
 
 &#x20;
 
 {% columns %}
 {% column %}
-**🎻 Les musiciens**
+**Les musiciens**
 
 Chaque **conteneur** sait jouer sa partie.
 {% endcolumn %}
 
 {% column %}
-**📜 La partition**
+**La partition**
 
 Le **`compose.yaml`** dit qui joue quoi, avec qui, dans quel ordre.
 {% endcolumn %}
 
 {% column %}
-**🎼 Le chef**
+**Le chef**
 
 **Docker Compose** lit la partition et fait jouer tout le monde ensemble.
 {% endcolumn %}
@@ -145,7 +145,7 @@ docker compose up
 
 &#x20;
 
-<mark style="color:green;">**✓ Trois conteneurs, un réseau, un volume — en une commande.**</mark>
+<mark style="color:green;">**Trois conteneurs, un réseau, un volume — en une commande.**</mark>
 
 &#x20;
 
@@ -160,18 +160,18 @@ docker compose up
 ```mermaid
 sequenceDiagram
     autonumber
-    actor U as 👤 Toi
-    participant C as 🎼 Compose
-    participant D as 🗄️ db
-    participant B as ⚙️ backend
-    participant F as 🖥️ frontend
+    actor U as Toi
+    participant C as Compose
+    participant D asdb
+    participant B asbackend
+    participant F asfrontend
 
     U->>C: docker compose up
     C->>C: Crée le réseau et le volume
     C->>D: Démarre (aucune dépendance)
     C->>B: Build puis démarre (dépend de db)
     C->>F: Build puis démarre (dépend de backend)
-    C-->>U: ✅ Stack lancée
+    C-->>U: Stack lancée
 ```
 
 &#x20;
@@ -205,7 +205,7 @@ sequenceDiagram
 
 &#x20;
 
-### ✨ La magie du réseau
+### La magie du réseau
 
 &#x20;
 
@@ -215,8 +215,8 @@ Compose crée automatiquement un **réseau commun**, où chaque service est joig
 
 ```mermaid
 flowchart LR
-    B["⚙️ backend"] -->|"postgres://…@db:5432"| DNS{{"🔎 DNS de Compose<br/>db → 172.18.0.2"}}
-    DNS --> D[("🗄️ db")]
+    B["backend"] -->|"postgres://…@db:5432"| DNS{{"DNS de Compose<br/>db → 172.18.0.2"}}
+    DNS --> D[("db")]
 
     style B fill:#fce7f3,stroke:#ec4899,color:#831843
     style DNS fill:#fef3c7,stroke:#f59e0b,color:#78350f
@@ -235,17 +235,17 @@ On peut séparer les services. Ici, le frontend **ne peut pas** parler directeme
 
 ```mermaid
 flowchart LR
-    subgraph FT["🌐 front-tier"]
-        F["🖥️ frontend"]
+    subgraph FT["front-tier"]
+        F["frontend"]
     end
-    subgraph BT["🔒 back-tier"]
-        B["⚙️ backend"]
-        D[("🗄️ db")]
+    subgraph BT["back-tier"]
+        B["backend"]
+        D[("db")]
     end
-    Internet(["🌍 Internet"]) --> F
+    Internet(["Internet"]) --> F
     F --> B
     B --> D
-    F -.->|"❌ interdit"| D
+    F -.->|"interdit"| D
 
     style FT fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style BT fill:#dcfce7,stroke:#22c55e,color:#14532d
@@ -295,7 +295,7 @@ networks:
 | `docker compose up -d`              | Idem, en arrière-plan                                         |
 | `docker compose up --build`         | Reconstruit les images avant de démarrer                      |
 | `docker compose down`               | **Arrête et supprime** conteneurs et réseaux                  |
-| `docker compose down -v`            | <mark style="color:red;">Idem + supprime les volumes ⚠️</mark> |
+| `docker compose down -v`            | <mark style="color:red;">Idem + supprime les volumes</mark> |
 | `docker compose ps`                 | État des services                                             |
 | `docker compose logs -f backend`    | Suit les logs d'un service                                    |
 | `docker compose exec backend sh`    | Shell dans un service qui tourne                              |
@@ -323,16 +323,16 @@ Les commandes `docker compose` s'exécutent **dans le dossier qui contient `comp
 
 &#x20;
 
-|                              | `docker run`                          | 🎼 Docker Compose                                   |
+|                              | `docker run`                          | Docker Compose                                   |
 | ---------------------------- | ------------------------------------- | --------------------------------------------------- |
 | Conteneurs                   | Un à la fois                          | Toute l'application                                 |
 | Configuration                | Dans la ligne de commande             | Dans un fichier **versionné avec le code**           |
 | Réseau entre conteneurs      | À créer à la main                     | <mark style="color:green;">Automatique, par nom</mark> |
-| Reproductible par l'équipe   | <mark style="color:orange;">Difficile</mark> | <mark style="color:green;">`git clone` + `docker compose up` ✅</mark> |
+| Reproductible par l'équipe   | <mark style="color:orange;">Difficile</mark> | <mark style="color:green;">`git clone` + `docker compose up`</mark> |
 
 &#x20;
 
-👉 **À toi de jouer :** [Docker Compose — Getting started](https://docs.docker.com/compose/gettingstarted/) · 📖 [Compose file reference](https://docs.docker.com/reference/compose-file/)
+**À toi de jouer :** [Docker Compose — Getting started](https://docs.docker.com/compose/gettingstarted/) · [Compose file reference](https://docs.docker.com/reference/compose-file/)
 
 &#x20;
 

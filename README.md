@@ -33,12 +33,12 @@ Choisis une matière ci-dessous, lis les chapitres dans l'ordre, et termine par 
 
 ```mermaid
 flowchart LR
-    H(["🎓 HEIA-IT"]) --> T["📡 Téléinformatique"]
-    H --> P["💻 Programmation"]
-    H --> N["🔢 Technique Numérique"]
-    H --> M["🛡️ Méthodologie<br/>et Sécurité IT"]
-    M --> L["🐧 Linux & Shell"]
-    M --> D["🐳 Docker"]
+    H(["HEIA-IT"]) --> T["Téléinformatique"]
+    H --> P["Programmation"]
+    H --> N["Technique Numérique"]
+    H --> M["Méthodologie<br/>et Sécurité IT"]
+    M --> L["Linux & Shell"]
+    M --> D["Docker"]
 
     style H fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style T fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
@@ -53,25 +53,25 @@ flowchart LR
 
 {% columns %}
 {% column %}
-### 📡 [Téléinformatique](teleinformatique/README.md)
+### [Téléinformatique](teleinformatique/README.md)
 
 Réseaux, protocoles et communication de données.
 
 &#x20;
 
-### 💻 [Programmation](programmation/README.md)
+### [Programmation](programmation/README.md)
 
 Langages, algorithmes et bonnes pratiques.
 {% endcolumn %}
 
 {% column %}
-### 🔢 [Technique Numérique](technique-numerique/README.md)
+### [Technique Numérique](technique-numerique/README.md)
 
 Logique, systèmes numériques et électronique digitale.
 
 &#x20;
 
-### 🛡️ [Méthodologie et Sécurité IT](methodologie-securite-it/README.md)
+### [Méthodologie et Sécurité IT](methodologie-securite-it/README.md)
 
 Outils du quotidien (Linux, Docker…) et sécurité informatique.
 {% endcolumn %}
@@ -89,10 +89,10 @@ Outils du quotidien (Linux, Docker…) et sécurité informatique.
 
 | Matière                        | Statut                                                      |
 | ------------------------------ | ----------------------------------------------------------- |
-| 📡 Téléinformatique            | ⚪ À venir                                                  |
-| 💻 Programmation               | ⚪ À venir                                                  |
-| 🔢 Technique Numérique         | ⚪ À venir                                                  |
-| 🛡️ Méthodologie et Sécurité IT | <mark style="color:green;">🟢 Linux & Shell, Docker</mark>  |
+| Téléinformatique            | À venir                                                  |
+| Programmation               | À venir                                                  |
+| Technique Numérique         | À venir                                                  |
+| Méthodologie et Sécurité IT | <mark style="color:green;">Linux & Shell, Docker</mark>  |
 
 &#x20;
 
@@ -153,7 +153,7 @@ Les couleurs ont toujours un sens :
 
 <details>
 
-<summary>🗂️ Organisation du dépôt</summary>
+<summary>Organisation du dépôt</summary>
 
 &#x20;
 

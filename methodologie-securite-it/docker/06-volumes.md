@@ -30,16 +30,16 @@ Sans précaution, les données écrites dans un conteneur **meurent avec lui**. 
 ```mermaid
 sequenceDiagram
     autonumber
-    actor U as 👤 Toi
-    participant C as 📦 Conteneur postgres
-    participant W as ✏️ Couche inscriptible
+    actor U as Toi
+    participant C as Conteneur postgres
+    participant W asCouche inscriptible
 
     U->>C: Crée des tables, ajoute des données
     C->>W: Écrit les données
     U->>C: docker rm (pour mettre à jour l'image)
-    C--xW: 🗑️ La couche est supprimée
+    C--xW:La couche est supprimée
     U->>C: docker run (nouveau conteneur)
-    C-->>U: 😱 Base de données vide
+    C-->>U: Base de données vide
 ```
 
 &#x20;
@@ -58,14 +58,14 @@ Les conteneurs sont conçus pour être **jetables**. Les données, elles, ne doi
 
 ```mermaid
 flowchart LR
-    subgraph HOST["💻 Machine hôte"]
-        DIR["📁 /home/moi/projet"]
-        subgraph DK["🐳 Zone Docker"]
-            C1["📦 Conteneur 1"]
-            C2["📦 Conteneur 2"]
-            VOL[("💾 Volume")]
+    subgraph HOST["Machine hôte"]
+        DIR["/home/moi/projet"]
+        subgraph DK["Zone Docker"]
+            C1["Conteneur 1"]
+            C2["Conteneur 2"]
+            VOL[("Volume")]
         end
-        RAM["🧠 RAM · tmpfs"]
+        RAM["RAM · tmpfs"]
     end
     C1 -->|"volume"| VOL
     C2 -->|"bind mount"| DIR
@@ -81,13 +81,13 @@ flowchart LR
 
 | Type              | Persistant ?                                    | Où ?                                   | Cas d'usage                                            |
 | ----------------- | ----------------------------------------------- | -------------------------------------- | ------------------------------------------------------ |
-| 💾 **Volume**     | <mark style="color:green;">**Oui**</mark>       | Zone gérée par Docker                  | Bases de données, données d'application                |
-| 📁 **Bind mount** | <mark style="color:green;">**Oui**</mark>       | Un dossier **de ton choix** sur l'hôte | Développement : modifier le code sans rebuild          |
-| 🧠 **tmpfs**      | <mark style="color:red;">**Non**</mark>         | **RAM** uniquement                     | Données temporaires ou sensibles, jamais sur disque    |
+| **Volume**     | <mark style="color:green;">**Oui**</mark>       | Zone gérée par Docker                  | Bases de données, données d'application                |
+| **Bind mount** | <mark style="color:green;">**Oui**</mark>       | Un dossier **de ton choix** sur l'hôte | Développement : modifier le code sans rebuild          |
+| **tmpfs**      | <mark style="color:red;">**Non**</mark>         | **RAM** uniquement                     | Données temporaires ou sensibles, jamais sur disque    |
 
 &#x20;
 
-### 🎒 L'analogie de l'étudiant en location
+### L'analogie de l'étudiant en location
 
 &#x20;
 
@@ -97,19 +97,19 @@ Le conteneur est une **chambre meublée** que tu peux rendre à tout moment :
 
 {% columns %}
 {% column %}
-**💾 Volume**
+**Volume**
 
 Un **casier de consigne** géré par la résidence. Tes affaires y restent même si tu changes de chambre.
 {% endcolumn %}
 
 {% column %}
-**📁 Bind mount**
+**Bind mount**
 
 Un **carton de chez tes parents**. C'est ton dossier à toi, tu sais où il est et tu le modifies depuis la maison.
 {% endcolumn %}
 
 {% column %}
-**🧠 tmpfs**
+**tmpfs**
 
 Un **tableau blanc** dans la chambre. Pratique pour noter, mais tout s'efface quand tu pars.
 {% endcolumn %}
@@ -215,7 +215,7 @@ docker run -d --name db \
 
 &#x20;
 
-<mark style="color:green;">**✓ Les données sont toujours là.**</mark>
+<mark style="color:green;">**Les données sont toujours là.**</mark>
 {% endstep %}
 {% endstepper %}
 
@@ -233,7 +233,7 @@ docker run -d --name db \
 
 &#x20;
 
-📖 [Documentation sur les volumes](https://docs.docker.com/engine/storage/volumes/)
+[Documentation sur les volumes](https://docs.docker.com/engine/storage/volumes/)
 
 &#x20;
 
@@ -260,7 +260,7 @@ docker run -it --volume /app/test:/mnt ohmyzsh/zsh     # équivalent
 
 ```mermaid
 flowchart LR
-    H["💻 Hôte<br/>/app/test"] <-->|"même contenu, en direct"| C["📦 Conteneur<br/>/mnt"]
+    H["Hôte<br/>/app/test"] <-->|"même contenu, en direct"| C["Conteneur<br/>/mnt"]
 
     style H fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style C fill:#dcfce7,stroke:#22c55e,color:#14532d
@@ -271,8 +271,8 @@ flowchart LR
 {% hint style="info" %}
 **Volume ou bind mount avec `-v` ?** Si la partie gauche est un **chemin** (`/…` ou `./…`), c'est un bind mount. Si c'est un **simple nom**, c'est un volume.
 
-* `-v ./src:/app/src` → 📁 bind mount
-* `-v mesdonnees:/data` → 💾 volume
+* `-v ./src:/app/src` → bind mount
+* `-v mesdonnees:/data` → volume
 {% endhint %}
 
 &#x20;
@@ -326,10 +326,10 @@ docker run -it --mount type=tmpfs,destination=/mnt --name mycon ohmyzsh/zsh
 ```mermaid
 flowchart TD
     Q1{"Les données doivent-elles<br/>survivre au conteneur ?"}
-    Q1 -->|Non| T["🧠 tmpfs"]
+    Q1 -->|Non| T["tmpfs"]
     Q1 -->|Oui| Q2{"Dois-tu les modifier<br/>depuis ta machine ?"}
-    Q2 -->|"Oui · ex. code source"| B["📁 Bind mount"]
-    Q2 -->|"Non · ex. base de données"| V["💾 Volume"]
+    Q2 -->|"Oui · ex. code source"| B["Bind mount"]
+    Q2 -->|"Non · ex. base de données"| V["Volume"]
 
     style T fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
     style B fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
@@ -348,7 +348,7 @@ flowchart TD
 
 {% hint style="success" %}
 * Sans montage, **les données meurent avec le conteneur**.
-* 💾 **Volume** pour les données d'application, 📁 **bind mount** pour le développement, 🧠 **tmpfs** pour le temporaire.
+* **Volume** pour les données d'application, **bind mount** pour le développement, **tmpfs** pour le temporaire.
 * `-v nom:/chemin` → volume ; `-v /chemin/hote:/chemin` → bind mount.
 {% endhint %}
 

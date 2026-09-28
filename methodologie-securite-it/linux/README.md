@@ -57,14 +57,14 @@ Linux fait tourner la majorité des serveurs, du cloud, des conteneurs Docker et
 
 ```mermaid
 flowchart LR
-    A["🐧 1. Introduction"] --> B["🌳 2. Arborescence"]
-    B --> C["🧭 3. Navigation"]
-    C --> D["🔎 4. Lire & chercher"]
-    D --> E["🚰 5. Pipes"]
-    E --> F["💲 6. Variables"]
-    F --> G["🔐 7. Permissions"]
-    G --> H["💽 8. Filesystems"]
-    H --> I["🎓 Révision"]
+    A["1. Introduction"] --> B["2. Arborescence"]
+    B --> C["3. Navigation"]
+    C --> D["4. Lire & chercher"]
+    D --> E["5. Pipes"]
+    E --> F["6. Variables"]
+    F --> G["7. Permissions"]
+    G --> H["8. Filesystems"]
+    H --> I["Révision"]
 
     style A fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style B fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
@@ -103,25 +103,25 @@ flowchart LR
 &#x20;
 
 {% tabs %}
-{% tab title="🐧 Linux" %}
+{% tab title="Linux" %}
 Rien à faire : ouvre simplement un **terminal** (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> sur la plupart des distributions).
 {% endtab %}
 
-{% tab title="🍎 macOS" %}
+{% tab title="macOS" %}
 Ouvre l'application **Terminal**. macOS est un Unix (famille BSD) : presque toutes les commandes sont identiques.
 {% endtab %}
 
-{% tab title="🪟 Windows" %}
+{% tab title="Windows" %}
 Installe **WSL** (Windows Subsystem for Linux), qui fait tourner un vrai Linux dans Windows :
 
 ```powershell
 wsl --install
 ```
 
-📖 [Guide d'installation de WSL](https://learn.microsoft.com/fr-fr/windows/wsl/install)
+[Guide d'installation de WSL](https://learn.microsoft.com/fr-fr/windows/wsl/install)
 {% endtab %}
 
-{% tab title="🐳 Docker" %}
+{% tab title="Docker" %}
 Lance un shell zsh jetable dans un conteneur :
 
 ```bash
@@ -146,7 +146,7 @@ Idéal pour expérimenter sans risquer de casser ta machine. Voir le chapitre [D
 
 <details>
 
-<summary>📚 Références</summary>
+<summary>Références</summary>
 
 &#x20;
 

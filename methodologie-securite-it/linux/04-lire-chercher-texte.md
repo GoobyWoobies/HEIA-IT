@@ -29,7 +29,7 @@ coverY: 0
 
 ```mermaid
 flowchart TD
-    S(["📄 Je veux…"]) --> A{"…voir le fichier ?"}
+    S(["Je veux…"]) --> A{"…voir le fichier ?"}
     S --> B{"…trouver quelque chose ?"}
     S --> C{"…compter ou trier ?"}
     A -->|"petit"| CAT["cat"]
@@ -114,7 +114,7 @@ Tout est pris **littéralement**.
 
 {% columns %}
 {% column %}
-### 🐱 `cat`
+### `cat`
 
 Affiche **tout d'un coup**.
 
@@ -129,7 +129,7 @@ Parfait pour les **petits** fichiers.
 {% endcolumn %}
 
 {% column %}
-### 📖 `less`
+### `less`
 
 Affiche **page par page**, avec recherche.
 
@@ -143,7 +143,7 @@ Parfait pour les **gros** fichiers.
 
 &#x20;
 
-### 📖 L'analogie du livre
+### L'analogie du livre
 
 &#x20;
 
@@ -211,7 +211,7 @@ tail -f /var/log/syslog       # suit le fichier EN DIRECT (Ctrl+C pour arrêter)
 
 ```mermaid
 flowchart LR
-    IN["📄 pomme<br/>banane<br/>cerise<br/>pomme<br/>kiwi"] -->|"grep pomme"| OUT["✅ pomme<br/>✅ pomme"]
+    IN["pomme<br/>banane<br/>cerise<br/>pomme<br/>kiwi"] -->|"grep pomme"| OUT["pomme<br/>pomme"]
 
     style IN fill:#f8fafc,stroke:#64748b,color:#0f172a
     style OUT fill:#dcfce7,stroke:#22c55e,color:#14532d
@@ -219,7 +219,7 @@ flowchart LR
 
 &#x20;
 
-🔦 **L'analogie du surligneur** : `grep`, c'est passer un surligneur sur un document et **ne garder que les lignes surlignées**.
+**L'analogie du surligneur** : `grep`, c'est passer un surligneur sur un document et **ne garder que les lignes surlignées**.
 
 &#x20;
 
@@ -240,7 +240,7 @@ flowchart LR
 &#x20;
 
 {% tabs %}
-{% tab title="🪵 Logs" %}
+{% tab title="Logs" %}
 ```bash
 grep -i "error" /var/log/syslog
 ```
@@ -248,7 +248,7 @@ grep -i "error" /var/log/syslog
 Toutes les erreurs, peu importe la casse.
 {% endtab %}
 
-{% tab title="💻 Code" %}
+{% tab title="Code" %}
 ```bash
 grep -rn "TODO" .
 ```
@@ -256,7 +256,7 @@ grep -rn "TODO" .
 Tous les TODO du projet, avec fichier et numéro de ligne.
 {% endtab %}
 
-{% tab title="⚙️ Config" %}
+{% tab title="Config" %}
 ```bash
 grep -v "^#" /etc/ssh/sshd_config
 ```
@@ -269,7 +269,7 @@ La configuration sans les lignes de commentaire.
 
 <details>
 
-<summary>💡 Pour aller plus loin : les expressions régulières</summary>
+<summary>Pour aller plus loin : les expressions régulières</summary>
 
 &#x20;
 
@@ -300,7 +300,7 @@ La configuration sans les lignes de commentaire.
 
 {% columns %}
 {% column %}
-### 🔢 `wc`
+### `wc`
 
 ```bash
 wc fruits.txt       # lignes mots octets
@@ -310,7 +310,7 @@ wc -w fruits.txt    # mots
 {% endcolumn %}
 
 {% column %}
-### 🔤 `sort` · `uniq`
+### `sort` · `uniq`
 
 ```bash
 sort fruits.txt
@@ -322,7 +322,7 @@ sort fruits.txt | uniq -c
 {% endcolumn %}
 
 {% column %}
-### ⚖️ `diff`
+### `diff`
 
 ```bash
 diff ancien.txt nouveau.txt
@@ -350,13 +350,13 @@ Affiche les lignes qui diffèrent.
 
 | Besoin                              | Commande                                  |
 | ----------------------------------- | ----------------------------------------- |
-| 💬 Afficher un message / une variable | `echo`                                  |
-| 🐱 Afficher un petit fichier        | `cat`                                     |
-| 📖 Parcourir un gros fichier        | `less` (<kbd>q</kbd> pour quitter)        |
-| ⏮️ ⏭️ Début / fin                   | `head` / `tail` (`-f` pour suivre)        |
-| 🔦 Filtrer des lignes               | `grep` (`-i`, `-n`, `-v`, `-r`)           |
-| 🔢 Compter                          | `wc -l`                                   |
-| 🔤 Trier / dédoublonner             | `sort` / `sort \| uniq`                   |
+| Afficher un message / une variable | `echo`                                  |
+| Afficher un petit fichier        | `cat`                                     |
+| Parcourir un gros fichier        | `less` (<kbd>q</kbd> pour quitter)        |
+| Début / fin                   | `head` / `tail` (`-f` pour suivre)        |
+| Filtrer des lignes               | `grep` (`-i`, `-n`, `-v`, `-r`)           |
+| Compter                          | `wc -l`                                   |
+| Trier / dédoublonner             | `sort` / `sort \| uniq`                   |
 
 &#x20;
 

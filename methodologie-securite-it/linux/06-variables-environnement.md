@@ -33,10 +33,10 @@ Une **variable d'environnement** est une valeur nommée que le shell garde en m�
 
 ```mermaid
 flowchart TB
-    S["🐚 Shell<br/>HOME=/home/alice<br/>USER=alice<br/>PATH=/usr/bin:/bin"]
-    S -->|"copie des variables"| P1["📝 nano"]
-    S -->|"copie des variables"| P2["🐍 python"]
-    S -->|"copie des variables"| P3["🐳 docker"]
+    S["Shell<br/>HOME=/home/alice<br/>USER=alice<br/>PATH=/usr/bin:/bin"]
+    S -->|"copie des variables"| P1["nano"]
+    S -->|"copie des variables"| P2["python"]
+    S -->|"copie des variables"| P3["docker"]
 
     style S fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style P1 fill:#dcfce7,stroke:#22c55e,color:#14532d
@@ -46,7 +46,7 @@ flowchart TB
 
 &#x20;
 
-### 🎒 L'analogie du sac à dos
+### L'analogie du sac à dos
 
 &#x20;
 
@@ -108,11 +108,11 @@ Quand tu tapes `ls`, comment le shell sait-il **où** est ce programme ? Il parc
 
 ```mermaid
 flowchart TD
-    T(["⌨️ Je tape : ls"]) --> A{"/usr/local/bin/ls<br/>existe ?"}
+    T(["Je tape : ls"]) --> A{"/usr/local/bin/ls<br/>existe ?"}
     A -->|Non| B{"/usr/bin/ls<br/>existe ?"}
-    B -->|"Oui ✓"| RUN["▶️ On exécute /usr/bin/ls"]
+    B -->|"Oui"| RUN["On exécute /usr/bin/ls"]
     B -->|Non| C{"/bin/ls<br/>existe ?"}
-    C -->|Non| ERR["❌ command not found"]
+    C -->|Non| ERR["command not found"]
 
     style RUN fill:#dcfce7,stroke:#22c55e,color:#14532d
     style ERR fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
@@ -127,7 +127,7 @@ which ls          # /usr/bin/ls
 
 &#x20;
 
-📚 **L'analogie de la bibliothèque** : le `PATH`, c'est la **liste des étagères** où le bibliothécaire cherche un livre, **dans l'ordre**. Dès qu'il le trouve, il s'arrête.
+**L'analogie de la bibliothèque** : le `PATH`, c'est la **liste des étagères** où le bibliothécaire cherche un livre, **dans l'ordre**. Dès qu'il le trouve, il s'arrête.
 
 &#x20;
 
@@ -188,8 +188,8 @@ unset PRENOM              # supprime la variable
 |                                     | Variable du shell  | Variable d'environnement |
 | ----------------------------------- | ------------------ | ------------------------ |
 | Création                            | `NOM=valeur`       | `export NOM=valeur`      |
-| Visible dans le shell courant       | ✅                 | ✅                       |
-| Transmise aux programmes lancés     | ❌                 | ✅                       |
+| Visible dans le shell courant       | Oui | Oui |
+| Transmise aux programmes lancés     | Non | Oui |
 
 &#x20;
 
@@ -206,7 +206,7 @@ Une variable définie dans le terminal **disparaît quand tu le fermes**. Pour l
 &#x20;
 
 {% tabs %}
-{% tab title="🐚 zsh" %}
+{% tab title="zsh" %}
 ```mermaid
 flowchart LR
     A["~/.zshenv<br/><i>toujours</i>"] --> B["~/.zprofile<br/><i>shell de connexion</i>"]
@@ -227,10 +227,10 @@ flowchart LR
 
 &#x20;
 
-📖 [How do Zsh configuration files work? — freeCodeCamp](https://www.freecodecamp.org/news/how-do-zsh-configuration-files-work/)
+[How do Zsh configuration files work? — freeCodeCamp](https://www.freecodecamp.org/news/how-do-zsh-configuration-files-work/)
 {% endtab %}
 
-{% tab title="🐚 bash" %}
+{% tab title="bash" %}
 | Fichier            | Quand ?                          |
 | ------------------ | -------------------------------- |
 | `~/.bash_profile`  | Shell de connexion               |
@@ -262,7 +262,7 @@ source ~/.zshrc
 
 &#x20;
 
-<mark style="color:green;">**✓ Le changement est actif, et le restera à chaque ouverture.**</mark>
+<mark style="color:green;">**Le changement est actif, et le restera à chaque ouverture.**</mark>
 {% endstep %}
 {% endstepper %}
 
@@ -270,7 +270,7 @@ source ~/.zshrc
 
 <details>
 
-<summary>💡 Bonus : les alias</summary>
+<summary>Bonus : les alias</summary>
 
 &#x20;
 

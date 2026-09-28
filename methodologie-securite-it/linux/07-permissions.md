@@ -33,15 +33,15 @@ Linux est **multi-utilisateur** depuis toujours : plusieurs personnes (ou servic
 
 ```mermaid
 flowchart TB
-    ROOT["👑 root<br/>tous les droits"]
-    subgraph G1["👥 Groupe devs"]
-        A["👤 alice"]
-        B["👤 bob"]
+    ROOT["root<br/>tous les droits"]
+    subgraph G1["Groupe devs"]
+        A["alice"]
+        B["bob"]
     end
-    subgraph G2["👥 Groupe docker"]
-        A2["👤 alice"]
+    subgraph G2["Groupe docker"]
+        A2["alice"]
     end
-    W["🤖 www-data<br/>compte de service"]
+    W["www-data<br/>compte de service"]
 
     style ROOT fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
     style G1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
@@ -107,7 +107,7 @@ Décortiquons `drwxr-xr-x` :
 
 ```mermaid
 flowchart LR
-    T["d<br/><i>type</i><br/>dossier"] --- U["rwx<br/><i>👤 User</i><br/>propriétaire"] --- G["r-x<br/><i>👥 Group</i><br/>groupe"] --- O["r-x<br/><i>🌍 Others</i><br/>tous les autres"]
+    T["d<br/><i>type</i><br/>dossier"] --- U["rwx<br/><i>User</i><br/>propriétaire"] --- G["r-x<br/><i>Group</i><br/>groupe"] --- O["r-x<br/><i>Others</i><br/>tous les autres"]
 
     style T fill:#f8fafc,stroke:#64748b,color:#0f172a
     style U fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
@@ -130,13 +130,13 @@ Donc `drwxr-xr-x` sur `/home/alice` signifie :
 
 &#x20;
 
-* 👤 **alice** peut lire, écrire et entrer → `rwx`
-* 👥 **le groupe** peut lire et entrer, pas modifier → `r-x`
-* 🌍 **les autres** peuvent lire et entrer, pas modifier → `r-x`
+* **alice** peut lire, écrire et entrer → `rwx`
+* **le groupe** peut lire et entrer, pas modifier → `r-x`
+* **les autres** peuvent lire et entrer, pas modifier → `r-x`
 
 &#x20;
 
-### 🏢 L'analogie de l'immeuble de bureaux
+### L'analogie de l'immeuble de bureaux
 
 &#x20;
 
@@ -146,19 +146,19 @@ Chaque bureau (fichier) a trois types de badges :
 
 {% columns %}
 {% column %}
-**👤 User**
+**User**
 
 Le badge du **locataire** du bureau.
 {% endcolumn %}
 
 {% column %}
-**👥 Group**
+**Group**
 
 Le badge de **son équipe**.
 {% endcolumn %}
 
 {% column %}
-**🌍 Others**
+**Others**
 
 Le badge **visiteur**.
 {% endcolumn %}
@@ -200,9 +200,9 @@ Chaque droit vaut un nombre, et on **additionne** :
 
 ```mermaid
 flowchart LR
-    U["👤 rwx<br/>4+2+1"] --> U7["7"]
-    G["👥 r-x<br/>4+0+1"] --> G5["5"]
-    O["🌍 r-x<br/>4+0+1"] --> O5["5"]
+    U["rwx<br/>4+2+1"] --> U7["7"]
+    G["r-x<br/>4+0+1"] --> G5["5"]
+    O["r-x<br/>4+0+1"] --> O5["5"]
     U7 --> R(["chmod 755"])
     G5 --> R
     O5 --> R
@@ -221,7 +221,7 @@ flowchart LR
 | `644`    | `rw-r--r--`   | Fichiers normaux (documents, config)                            |
 | `700`    | `rwx------`   | Dossier privé                                                   |
 | `600`    | `rw-------`   | <mark style="color:blue;">**Fichier privé : clés SSH, mots de passe**</mark> |
-| `777`    | `rwxrwxrwx`   | <mark style="color:red;">**⚠️ Tout le monde peut tout faire — à éviter**</mark> |
+| `777`    | `rwxrwxrwx`   | <mark style="color:red;">**Tout le monde peut tout faire — à éviter**</mark> |
 
 &#x20;
 
@@ -234,7 +234,7 @@ flowchart LR
 &#x20;
 
 {% tabs %}
-{% tab title="🔢 Avec des chiffres" %}
+{% tab title="Avec des chiffres" %}
 ```bash
 chmod 755 script.sh      # rwxr-xr-x
 chmod 644 notes.txt      # rw-r--r--
@@ -243,7 +243,7 @@ chmod -R 755 dossier/    # récursif
 ```
 {% endtab %}
 
-{% tab title="🔤 Avec des lettres" %}
+{% tab title="Avec des lettres" %}
 Format : **qui** (`u` user, `g` group, `o` others, `a` all) + **action** (`+`, `-`, `=`) + **droit** (`r`, `w`, `x`).
 
 ```bash
@@ -343,7 +343,7 @@ Le changement de groupe ne prend effet qu'à la **prochaine connexion** (ou avec
 
 &#x20;
 
-📖 Exercice : [Linux user groups and permissions guide — daily.dev](https://daily.dev/blog/linux-user-groups-and-permissions-guide/)
+Exercice : [Linux user groups and permissions guide — daily.dev](https://daily.dev/blog/linux-user-groups-and-permissions-guide/)
 
 &#x20;
 
@@ -351,7 +351,7 @@ Le changement de groupe ne prend effet qu'à la **prochaine connexion** (ou avec
 
 &#x20;
 
-## <mark style="color:purple;">07</mark> · 🔒 Le principe du moindre privilège
+## <mark style="color:purple;">07</mark> · Le principe du moindre privilège
 
 &#x20;
 
@@ -363,17 +363,17 @@ Si un compte est compromis, les dégâts sont limités à ce qu'il pouvait faire
 
 &#x20;
 
-🔑 **L'analogie de l'hôtel** : la carte d'un client ouvre **sa** chambre, la salle de sport et l'ascenseur. Pas les autres chambres, ni la cuisine, ni le coffre. S'il la perd, le voleur ne peut pas vider l'hôtel.
+**L'analogie de l'hôtel** : la carte d'un client ouvre **sa** chambre, la salle de sport et l'ascenseur. Pas les autres chambres, ni la cuisine, ni le coffre. S'il la perd, le voleur ne peut pas vider l'hôtel.
 
 &#x20;
 
 ```mermaid
 flowchart LR
-    P(["🔒 Moindre privilège"]) --> D["🐳 Images Docker<br/>pas de root dans le conteneur"]
-    P --> DB["🗄️ Utilisateurs de BDD<br/>pas de droits admin pour l'app"]
-    P --> APP["👤 Utilisateurs de l'app<br/>pas d'accès au panneau admin"]
-    P --> T["🔑 Tokens d'API<br/>lecture seule si possible"]
-    P --> ALL["✅ Sérieusement : partout"]
+    P(["Moindre privilège"]) --> D["Images Docker<br/>pas de root dans le conteneur"]
+    P --> DB["Utilisateurs de BDD<br/>pas de droits admin pour l'app"]
+    P --> APP["Utilisateurs de l'app<br/>pas d'accès au panneau admin"]
+    P --> T["Tokens d'API<br/>lecture seule si possible"]
+    P --> ALL["Sérieusement : partout"]
 
     style P fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
     style ALL fill:#dcfce7,stroke:#22c55e,color:#14532d
@@ -389,7 +389,7 @@ flowchart LR
 
 &#x20;
 
-| ❌ Erreur                                           | Pourquoi c'est un problème                                                                       |
+| Erreur                                           | Pourquoi c'est un problème                                                                       |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | `chmod 777` « pour que ça marche »                 | N'importe qui peut tout faire. On masque le vrai problème en ouvrant une faille                  |
 | `chmod -R` sur le mauvais chemin                   | Change des milliers de fichiers d'un coup, parfois système. Difficile à annuler                  |

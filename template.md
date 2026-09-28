@@ -37,10 +37,10 @@ Avant de commencer, voici comment les pièces s'emboîtent.
 
 ```mermaid
 flowchart LR
-    U(["👤 Utilisateur"]) --> A["🖥️ Application"]
-    A --> API["⚙️ API"]
-    API --> DB[("🗄️ Base de données")]
-    API --> C["☁️ Cache"]
+    U(["Utilisateur"]) --> A["Application"]
+    A --> API["API"]
+    API --> DB[("Base de données")]
+    API --> C["Cache"]
 
     style U fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style A fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
@@ -106,26 +106,26 @@ npm start
 
 &#x20;
 
-<mark style="color:green;">**✓ C'est prêt.**</mark> Ouvre `http://localhost:3000`.
+<mark style="color:green;">**C'est prêt.**</mark> Ouvre `http://localhost:3000`.
 {% endstep %}
 {% endstepper %}
 
 &#x20;
 
 {% tabs %}
-{% tab title="🍎 macOS" %}
+{% tab title="macOS" %}
 ```bash
 brew install mon-outil
 ```
 {% endtab %}
 
-{% tab title="🪟 Windows" %}
+{% tab title="Windows" %}
 ```powershell
 winget install mon-outil
 ```
 {% endtab %}
 
-{% tab title="🐧 Linux" %}
+{% tab title="Linux" %}
 ```bash
 sudo apt install mon-outil
 ```
@@ -149,17 +149,17 @@ Une requête suit toujours le même chemin :
 ```mermaid
 sequenceDiagram
     autonumber
-    actor U as 👤 Utilisateur
-    participant A as 🖥️ App
-    participant API as ⚙️ API
-    participant DB as 🗄️ Base
+    actor U as Utilisateur
+    participant A asApp
+    participant API asAPI
+    participant DB asBase
 
     U->>A: Clique sur « Envoyer »
     A->>API: POST /messages
     API->>DB: Enregistre
     DB-->>API: OK
     API-->>A: 201 Created
-    A-->>U: ✅ Message envoyé
+    A-->>U: Message envoyé
 ```
 
 &#x20;
@@ -190,7 +190,7 @@ stateDiagram-v2
     [*] --> Brouillon
     Brouillon --> Relecture : Prête
     Relecture --> Brouillon : À corriger
-    Relecture --> Publiée : Validée ✓
+    Relecture --> Publiée : Validée
     Publiée --> Archivée
     Archivée --> [*]
 ```
@@ -199,10 +199,10 @@ stateDiagram-v2
 
 | Statut          | Signification                          |
 | --------------- | -------------------------------------- |
-| ⚪ Brouillon    | En cours d'écriture                    |
-| 🟡 Relecture    | <mark style="color:orange;">En attente de validation</mark> |
-| 🟢 Publiée      | <mark style="color:green;">Visible par tous</mark>          |
-| ⚫ Archivée     | Conservée, mais masquée                |
+| Brouillon    | En cours d'écriture                    |
+| Relecture    | <mark style="color:orange;">En attente de validation</mark> |
+| Publiée      | <mark style="color:green;">Visible par tous</mark>          |
+| Archivée     | Conservée, mais masquée                |
 
 &#x20;
 
@@ -256,11 +256,11 @@ Dans le texte, reste sobre :
 ```mermaid
 timeline
     title Prochaines versions
-    T4 2026 : 🚀 Lancement public
+    T4 2026 : Lancement public
             : Documentation complète
-    T1 2027 : 🔌 Intégrations
+    T1 2027 : Intégrations
             : API v2
-    T2 2027 : 📱 Application mobile
+    T2 2027 : Application mobile
 ```
 
 &#x20;
@@ -271,7 +271,7 @@ timeline
 
 <details>
 
-<summary>💡 Pour aller plus loin</summary>
+<summary>Pour aller plus loin</summary>
 
 &#x20;
 
