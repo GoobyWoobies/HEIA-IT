@@ -1,3 +1,7 @@
+---
+icon: superscript
+---
+
 # 7. Nombres complexes : formes et opérations
 
 {% hint style="info" %}

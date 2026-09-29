@@ -1,3 +1,7 @@
+---
+icon: compass-drafting
+---
+
 # 1. Angles, triangles et mouvements circulaires
 
 {% hint style="info" %}

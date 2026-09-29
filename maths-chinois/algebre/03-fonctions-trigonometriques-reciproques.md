@@ -1,3 +1,7 @@
+---
+icon: arrow-right-arrow-left
+---
+
 # 3. 反三角函数
 
 > **目标**：掌握 $$\arcsin$$、$$\arccos$$、$$\arctan$$（定义域、值域、图像），计算它们的精确值，识破 $$\arcsin(\sin x)$$ 这类陷阱，并用它们表示未知角（飞机问题）。本章对应 « Test 1 Pb 2 »。

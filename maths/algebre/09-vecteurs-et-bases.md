@@ -1,3 +1,7 @@
+---
+icon: arrows-up-down-left-right
+---
+
 # 9. Vecteurs, combinaisons linéaires et bases
 
 {% hint style="info" %}

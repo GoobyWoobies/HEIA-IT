@@ -1,3 +1,7 @@
+---
+icon: draw-polygon
+---
+
 # 8. 复数的根、方程与多项式
 
 > **目标**：求一个复数的全部 $$n$$ 次方根，用代数形式开平方，解复系数的二次方程以及含 $$\lvert z \rvert$$、$$\operatorname{Re}$$、$$\operatorname{Im}$$ 的方程，并推理多项式的零点。对应 « Test 2 Pb 3 和 Pb 4 »。

@@ -1,3 +1,7 @@
+---
+icon: equals
+---
+
 # 4. Identités trigonométriques et simplifications
 
 {% hint style="info" %}

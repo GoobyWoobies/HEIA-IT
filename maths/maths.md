@@ -1,3 +1,7 @@
+---
+icon: square-root-variable
+---
+
 # Mathématiques : cours complet (ISC, HEIA-FR)
 
 Bienvenue ! Ce GitBook est un <mark style="color:blue;">cours théorique complet</mark> construit à partir des évaluations des années précédentes (tests, travaux écrits et examens) d'<mark style="color:blue;">Algèbre linéaire 1</mark> et d'<mark style="color:blue;">Analyse 1</mark>. Chaque type de question rencontré dans ces épreuves y est expliqué, méthodé, illustré et corrigé.

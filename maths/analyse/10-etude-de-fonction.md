@@ -1,3 +1,7 @@
+---
+icon: magnifying-glass-chart
+---
+
 # 10. Étude de fonction : variations, extrema et concavité
 
 {% hint style="info" %}

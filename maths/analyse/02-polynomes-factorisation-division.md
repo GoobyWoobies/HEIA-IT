@@ -1,3 +1,7 @@
+---
+icon: divide
+---
+
 # 2. Polynômes : factorisation et division polynomiale
 
 {% hint style="info" %}

@@ -1,3 +1,7 @@
+---
+icon: scale-balanced
+---
+
 # 5. Équations trigonométriques
 
 {% hint style="info" %}

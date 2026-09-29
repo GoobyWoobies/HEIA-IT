@@ -1,3 +1,7 @@
+---
+icon: infinity
+---
+
 # Analyse 1
 
 Ce cours reconstruit <mark style="color:blue;">toute la matière évaluée</mark> dans les travaux écrits d'Analyse 1 (ISC, HEIA-FR) de 2019 à 2025 : TE « Révision et limites », « Limites et dérivées », « Dérivées », « Dérivées – applications », les Tests 1 et 2 (2023-2024) et les examens (« Travail écrit A/B »).

@@ -1,3 +1,7 @@
+---
+icon: arrow-trend-up
+---
+
 # 4. Fonctions réciproques, exponentielles et logarithmes
 
 {% hint style="info" %}

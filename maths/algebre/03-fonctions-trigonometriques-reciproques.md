@@ -1,3 +1,7 @@
+---
+icon: arrow-right-arrow-left
+---
+
 # 3. Fonctions trigonométriques réciproques
 
 {% hint style="info" %}

@@ -1,3 +1,7 @@
+---
+icon: list-check
+---
+
 # 8. Règles de dérivation
 
 {% hint style="info" %}

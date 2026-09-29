@@ -1,3 +1,7 @@
+---
+icon: cube
+---
+
 # 11. Produit vectoriel et produit mixte
 
 {% hint style="info" %}

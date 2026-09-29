@@ -1,3 +1,7 @@
+---
+icon: bullseye
+---
+
 # 11. Applications des dérivées : taux liés, approximations et optimisation
 
 {% hint style="info" %}

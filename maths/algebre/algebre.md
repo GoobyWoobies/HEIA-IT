@@ -1,3 +1,7 @@
+---
+icon: vector-square
+---
+
 # Algèbre linéaire 1
 
 Ce cours reconstruit, chapitre par chapitre, <mark style="color:blue;">toute la matière évaluée</mark> dans les tests et travaux écrits d'Algèbre linéaire 1 (ISC, HEIA-FR) : les tests courts de 15 minutes « sans calculatrice, ni résumé, ni livres », et les TE F-1 / F-2 de 90 minutes.

@@ -1,3 +1,7 @@
+---
+icon: circle-half-stroke
+---
+
 # 2. Le cercle trigonométrique
 
 {% hint style="info" %}

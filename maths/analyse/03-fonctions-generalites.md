@@ -1,3 +1,7 @@
+---
+icon: chart-line
+---
+
 # 3. Fonctions : domaine, image, composition, parité et transformations
 
 {% hint style="info" %}

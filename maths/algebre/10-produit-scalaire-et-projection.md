@@ -1,3 +1,7 @@
+---
+icon: ruler-combined
+---
+
 # 10. Produit scalaire, norme, angles et projection orthogonale
 
 {% hint style="info" %}

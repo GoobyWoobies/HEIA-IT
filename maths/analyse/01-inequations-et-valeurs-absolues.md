@@ -1,3 +1,7 @@
+---
+icon: greater-than-equal
+---
+
 # 1. Inéquations, tableaux de signes et valeurs absolues
 
 {% hint style="info" %}

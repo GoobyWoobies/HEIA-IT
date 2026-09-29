@@ -1,3 +1,7 @@
+---
+icon: route
+---
+
 # 6. Continuité
 
 {% hint style="info" %}

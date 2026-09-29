@@ -1,3 +1,7 @@
+---
+icon: link
+---
+
 # 9. Dérivation implicite et dérivation logarithmique
 
 {% hint style="info" %}

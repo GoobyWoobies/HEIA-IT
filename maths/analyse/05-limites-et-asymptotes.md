@@ -1,3 +1,7 @@
+---
+icon: arrows-to-dot
+---
+
 # 5. Limites et asymptotes
 
 {% hint style="info" %}

@@ -1,3 +1,7 @@
+---
+icon: wave-square
+---
+
 # 6. Oscillations harmoniques et phaseurs
 
 {% hint style="info" %}

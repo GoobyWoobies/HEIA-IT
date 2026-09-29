@@ -1,3 +1,7 @@
+---
+icon: compass
+---
+
 # 13. Coordonnées polaires et courbes polaires
 
 {% hint style="info" %}

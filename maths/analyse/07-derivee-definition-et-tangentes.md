@@ -1,3 +1,7 @@
+---
+icon: ruler
+---
+
 # 7. La dérivée : taux de variation, définition et tangentes
 
 {% hint style="info" %}

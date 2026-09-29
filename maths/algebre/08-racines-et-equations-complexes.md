@@ -1,3 +1,7 @@
+---
+icon: draw-polygon
+---
+
 # 8. Racines complexes, équations et polynômes
 
 {% hint style="info" %}

@@ -1,3 +1,7 @@
+---
+icon: layer-group
+---
+
 # 12. Droites et plans (géométrie analytique)
 
 {% hint style="info" %}
