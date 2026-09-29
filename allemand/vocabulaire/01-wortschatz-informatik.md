@@ -472,5 +472,5 @@ stateDiagram-v2
 &#x20;
 
 {% hint style="info" %}
-**Pour conjuguer ces verbes** → [Conjugaison](../conjugaison.md)
+**Pour conjuguer ces verbes** → [Conjugaison — présent des verbes réguliers](../conjugaison/01-present-verbes-reguliers.md)
 {% endhint %}

@@ -408,5 +408,5 @@ Ces phrases viennent des fiches, mais chacune contient **une petite faute**. Tro
 &#x20;
 
 {% hint style="info" %}
-**Retour au sommaire** → [Conjugaison](../conjugaison.md) · Et ensuite : [Grammaire — place du verbe](../grammaire/01-place-du-verbe-et-questions.md)
+**Retour à l'accueil** → [Accueil](../../README.md) · Et ensuite : [Grammaire — place du verbe](../grammaire/01-place-du-verbe-et-questions.md)
 {% endhint %}
