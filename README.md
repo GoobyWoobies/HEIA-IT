@@ -89,9 +89,9 @@ Logique, systèmes numériques et électronique digitale.
 {% endcolumn %}
 
 {% column %}
-#### Mathématiques
+#### [Mathématiques](maths/maths.md)
 
-À venir.
+[Algèbre linéaire 1](maths/algebre/algebre.md) et [Analyse 1](maths/analyse/analyse.md), construits à partir des anciennes évaluations. Aussi disponible [en chinois](maths-chinois/maths-chinois.md).
 
 #### [Économie et Droit IT](economie-droit-it/README.md)
 
@@ -111,7 +111,7 @@ Culture générale d'entreprise et droit appliqué à l'informatique.
 | ISC        | Technique Numérique         | À venir                                                               |
 | Autres     | Allemand                    | <mark style="color:green;">Conjugaison, grammaire, vocabulaire</mark> |
 | Autres     | Anglais                     | À venir                                                               |
-| Autres     | Mathématiques               | À venir                                                               |
+| Autres     | Mathématiques               | <mark style="color:green;">Algèbre (13), Analyse (11), FR + 中文</mark> |
 | Autres     | Économie et Droit IT        | <mark style="color:green;">Introduction (6 pages)</mark>              |
 
 ***
@@ -174,6 +174,15 @@ Les couleurs ont toujours un sens :
 │   ├── conjugaison/
 │   ├── grammaire/
 │   └── vocabulaire/
+├── anglais/                   # Vide pour l'instant
+├── maths/
+│   ├── maths.md           # Page d'accueil du cours
+│   ├── algebre/
+│   └── analyse/
+├── maths-chinois/             # Même cours, en chinois
+│   ├── maths-chinois.md
+│   ├── algebre/
+│   └── analyse/
 └── economie-droit-it/
     └── 01-introduction/
 ```
