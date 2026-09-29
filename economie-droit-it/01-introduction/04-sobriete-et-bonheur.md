@@ -1,5 +1,7 @@
 ---
-description: La sobriété, ça fait mal ? Technosolutionnisme, sobriété vs pauvreté, bonheur hédonique vs eudémonique.
+description: >-
+  La sobriété, ça fait mal ? Technosolutionnisme, sobriété vs pauvreté, bonheur
+  hédonique vs eudémonique.
 icon: leaf
 cover: https://placehold.co/1600x500/0f172a/3b82f6?text=Sobri%C3%A9t%C3%A9+et+bonheur
 coverY: 0
@@ -9,65 +11,41 @@ coverY: 0
 
 <mark style="color:blue;">**Consommer moins, ce n'est pas forcément être moins heureux — à condition de savoir ce qu'est le bonheur.**</mark>
 
-&#x20;
-
 {% hint style="info" %}
 **En bref**
 
-* Il faudra réduire fortement notre empreinte (de ~14 à ~2 tonnes de CO₂ par personne et par an).
+* Il faudra réduire fortement notre empreinte (de \~14 à \~2 tonnes de CO₂ par personne et par an).
 * La **technologie seule** ne suffira pas : croire le contraire, c'est du **technosolutionnisme**.
 * Il reste deux chemins : la **sobriété** (baisse **choisie**) ou la **pauvreté** (baisse **subie**).
 * La clé : distinguer le bonheur **hédonique** (plaisir, confort) du bonheur **eudémonique** (sens, liens, accomplissement). La sobriété peut réduire le premier sans toucher au second.
 {% endhint %}
 
-&#x20;
-
 ***
-
-&#x20;
 
 ## <mark style="color:purple;">01</mark> · Le technosolutionnisme, c'est « bisounours » ?
 
-&#x20;
-
-**Technosolutionnisme** = l'idée que **la technologie va tout résoudre** et qu'on pourra passer de ~**14 tonnes** à ~**2 tonnes de CO₂** par personne **sans aucune baisse de confort**.
-
-&#x20;
+**Technosolutionnisme** = l'idée que **la technologie va tout résoudre** et qu'on pourra passer de \~**14 tonnes** à \~**2 tonnes de CO₂** par personne **sans aucune baisse de confort**.
 
 Les formules typiques (que le prof met dans la bouche d'un bisounours) :
-
-&#x20;
 
 * « croissance verte », « économie circulaire », « développement durable »
 * « zéro baisse de confort », « post-croissance »
 * « investissements ESG » (placements dits responsables)
 * « j'ai posé des panneaux solaires », « merci l'industrie de demain », « merci les ingénieurs »
 
-&#x20;
-
 {% hint style="warning" %}
 **Attention, nuance** — le cours ne dit pas que la technologie est **inutile**. Recyclage, énergie décarbonée, efficacité énergétique **aident**. Il dit qu'elle **ne suffit pas** : elle fait une partie du chemin, pas tout.
 {% endhint %}
-
-&#x20;
 
 {% hint style="success" %}
 **Analogie** — c'est comme vouloir perdre 30 kg en achetant uniquement des produits « light », sans rien changer à ce qu'on mange. Ça aide un peu, mais ça ne suffit pas.
 {% endhint %}
 
-&#x20;
-
 ***
-
-&#x20;
 
 ## <mark style="color:purple;">02</mark> · Deux chemins pour descendre : sobriété ou pauvreté
 
-&#x20;
-
 Entre notre **empreinte actuelle** et l'**empreinte future** (obligatoire), la technologie fait une partie du trajet. Pour le reste, deux options :
-
-&#x20;
 
 ```mermaid
 flowchart TB
@@ -85,103 +63,67 @@ flowchart TB
     style B fill:#e5e7eb,stroke:#4b5563,color:#111827
 ```
 
-&#x20;
-
-| | <mark style="color:green;">**Sobriété**</mark> | <mark style="color:red;">**Pauvreté**</mark> |
-| --- | --- | --- |
-| Consommation | baisse | baisse |
-| Confort | adaptation à moins | baisse |
-| Bien-être | **pas de baisse** | **baisse** |
-| Comment ? | **choisi, assumé**, préparé | **subi**, imposé par les événements |
-
-&#x20;
+|              | <mark style="color:green;">**Sobriété**</mark> | <mark style="color:red;">**Pauvreté**</mark> |
+| ------------ | ---------------------------------------------- | -------------------------------------------- |
+| Consommation | baisse                                         | baisse                                       |
+| Confort      | adaptation à moins                             | baisse                                       |
+| Bien-être    | **pas de baisse**                              | **baisse**                                   |
+| Comment ?    | **choisi, assumé**, préparé                    | **subi**, imposé par les événements          |
 
 {% hint style="info" %}
 **L'idée clé** — sobriété et pauvreté ont **le même résultat matériel** (on consomme moins). La différence, c'est **le choix** et **la préparation**. Un régime qu'on choisit n'est pas la même chose qu'une famine.
 {% endhint %}
 
-&#x20;
-
 ***
-
-&#x20;
 
 ## <mark style="color:purple;">03</mark> · Consommer plus rend-il plus heureux ?
 
-&#x20;
-
 Le cours pose deux questions en montrant des photos de générations successives (années 1940 → aujourd'hui) :
-
-&#x20;
 
 * Quelle est la génération **qui consomme le plus** ? → la plus **récente**, clairement.
 * Quelle est la génération **la plus heureuse** ? → **pas évident du tout** !
 
-&#x20;
-
 On consomme **beaucoup plus** que nos grands-parents, mais on n'est **pas beaucoup plus heureux**. Pourquoi ? Parce qu'**on a oublié de définir le bonheur**.
-
-&#x20;
 
 ***
 
-&#x20;
-
 ## <mark style="color:purple;">04</mark> · Deux sortes de bonheur
-
-&#x20;
 
 {% columns %}
 {% column %}
 ### Bonheur hédonique
 
-*(Aristippe de Cyrène)*
+_(Aristippe de Cyrène)_
 
 **Plaisir, confort, stimulation.**
-
-&#x20;
 
 Satisfaction immédiate, plaisir des sens, nouveauté, gratification.
 
 Exemples : un bon repas, une voiture neuve, des vacances, un smartphone, le chauffage, un canapé moelleux, la machine à café qui fait « pschhht ».
 
-&#x20;
+<mark style="color:green;">La croissance économique est</mark> <mark style="color:green;"></mark><mark style="color:green;">**extrêmement efficace**</mark> <mark style="color:green;"></mark><mark style="color:green;">pour produire ça.</mark>
 
-<mark style="color:green;">La croissance économique est **extrêmement efficace** pour produire ça.</mark>
-
-&#x20;
-
-<mark style="color:red;">**MAIS** : l'**adaptation hédonique**.</mark> Le cerveau **s'habitue** : le luxe devient normal, la nouveauté devient routine, l'exception devient un dû.
+<mark style="color:red;">**MAIS**</mark> <mark style="color:red;"></mark><mark style="color:red;">: l'</mark><mark style="color:red;">**adaptation hédonique**</mark><mark style="color:red;">.</mark> Le cerveau **s'habitue** : le luxe devient normal, la nouveauté devient routine, l'exception devient un dû.
 {% endcolumn %}
 
 {% column %}
 ### Bonheur eudémonique
 
-*(Aristote)*
+_(Aristote)_
 
 **Sens, cohérence, accomplissement.**
-
-&#x20;
 
 Relations profondes, utilité sociale, autonomie, transmission, engagement, maîtrise, sentiment d'avoir sa place, une vie qui a un fil conducteur.
 
 Cela demande : des liens durables, des communautés, une identité stable, du **temps lent**.
 
-&#x20;
-
-<mark style="color:orange;">La croissance économique **n'a presque aucun effet** sur tout ça — voire l'abîme.</mark>
-
-&#x20;
+<mark style="color:orange;">La croissance économique</mark> <mark style="color:orange;"></mark><mark style="color:orange;">**n'a presque aucun effet**</mark> <mark style="color:orange;"></mark><mark style="color:orange;">sur tout ça — voire l'abîme.</mark>
 
 <mark style="color:blue;">**DONC**</mark> : agir sur les **trois piliers** de l'eudémonisme (voir ci-dessous).
 {% endcolumn %}
 {% endcolumns %}
 
-&#x20;
-
 **Le tapis roulant hédonique :**
-
-&#x20;
 
 ```mermaid
 flowchart LR
@@ -196,33 +138,21 @@ flowchart LR
     style V fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
 ```
 
-&#x20;
-
 {% hint style="success" %}
 **Analogie** — le bonheur hédonique, c'est courir sur un **tapis roulant** : on court de plus en plus vite (on consomme plus) mais on reste **au même endroit** (même niveau de bonheur).
 {% endhint %}
 
-&#x20;
-
 **Les trois piliers du bonheur eudémonique :**
 
-&#x20;
-
-| Pilier            | Signification                                                                 | Exemple                                          |
-| ----------------- | ----------------------------------------------------------------------------- | ------------------------------------------------ |
-| **1. Affiliation** | Être **entouré**, faire partie d'un groupe                                   | Amis, famille, équipe, association               |
-| **2. Autonomie**   | Avoir l'**impression d'avoir choisi**, même des choses peu agréables         | Choisir ses études, décider de moins voyager     |
-| **3. Compétence**  | **Progresser**, plutôt que chercher à être le meilleur                       | Apprendre un instrument, s'améliorer en code     |
-
-&#x20;
+| Pilier             | Signification                                                        | Exemple                                      |
+| ------------------ | -------------------------------------------------------------------- | -------------------------------------------- |
+| **1. Affiliation** | Être **entouré**, faire partie d'un groupe                           | Amis, famille, équipe, association           |
+| **2. Autonomie**   | Avoir l'**impression d'avoir choisi**, même des choses peu agréables | Choisir ses études, décider de moins voyager |
+| **3. Compétence**  | **Progresser**, plutôt que chercher à être le meilleur               | Apprendre un instrument, s'améliorer en code |
 
 ***
 
-&#x20;
-
 ## <mark style="color:purple;">05</mark> · La sobriété, une catastrophe sociale ?
-
-&#x20;
 
 {% columns %}
 {% column %}
@@ -248,8 +178,6 @@ flowchart LR
 {% endcolumn %}
 {% endcolumns %}
 
-&#x20;
-
 ```mermaid
 flowchart LR
     M["Moins de<br/>consommation"] --> H1["Bonheur hédonique<br/>en baisse"]
@@ -263,41 +191,23 @@ flowchart LR
     style Y fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
-&#x20;
-
 ***
-
-&#x20;
 
 ## <mark style="color:purple;">06</mark> · « Vous allez vivre une époque formidable »
 
-&#x20;
-
-Le cours se termine sur un **jeu de mots**. Aujourd'hui, « formidable » veut dire « génial ». Mais dans le **dictionnaire de l'Académie française** (1814), **formidable** voulait dire : **« redoutable, qui est à craindre »** (du latin *formido* = la peur).
-
-&#x20;
+Le cours se termine sur un **jeu de mots**. Aujourd'hui, « formidable » veut dire « génial ». Mais dans le **dictionnaire de l'Académie française** (1814), **formidable** voulait dire : **« redoutable, qui est à craindre »** (du latin _formido_ = la peur).
 
 Votre époque sera donc « formidable » **dans les deux sens** : **redoutable** (climat, fin de la croissance) **et** pleine d'occasions de **réinventer** les choses.
 
-&#x20;
-
 ***
 
-&#x20;
-
 ## <mark style="color:purple;">07</mark> · Exercices
-
-&#x20;
 
 <details>
 
 <summary>1. Qu'est-ce que le technosolutionnisme ?</summary>
 
-&#x20;
-
 La croyance que **la technologie seule** (croissance verte, recyclage, panneaux solaires…) permettra de réduire notre empreinte **sans aucune baisse de confort**. Le cours la juge trop optimiste (« bisounours ») : la technologie aide mais **ne suffit pas**.
-
-&#x20;
 
 </details>
 
@@ -305,11 +215,7 @@ La croyance que **la technologie seule** (croissance verte, recyclage, panneaux 
 
 <summary>2. Quelle est la différence entre sobriété et pauvreté ?</summary>
 
-&#x20;
-
 Les deux font **baisser la consommation**. Mais la **sobriété** est **choisie et assumée**, sans baisse de bien-être ; la **pauvreté** est **subie**, avec baisse de confort **et** de bien-être.
-
-&#x20;
 
 </details>
 
@@ -317,12 +223,8 @@ Les deux font **baisser la consommation**. Mais la **sobriété** est **choisie 
 
 <summary>3. Définis le bonheur hédonique et le bonheur eudémonique. Qui sont les philosophes associés ?</summary>
 
-&#x20;
-
 * **Hédonique** (Aristippe de Cyrène) : **plaisir, confort, stimulation** — satisfaction immédiate.
 * **Eudémonique** (Aristote) : **sens, cohérence, accomplissement** — relations, utilité, autonomie.
-
-&#x20;
 
 </details>
 
@@ -330,11 +232,7 @@ Les deux font **baisser la consommation**. Mais la **sobriété** est **choisie 
 
 <summary>4. Qu'est-ce que l'adaptation hédonique ? Donne un exemple.</summary>
 
-&#x20;
-
 Le cerveau **s'habitue** à ce qui lui faisait plaisir : le luxe devient **standard**, la nouveauté devient **routine**. Exemple : le nouveau téléphone rend heureux quelques jours, puis devient « normal », et on veut déjà le suivant.
-
-&#x20;
 
 </details>
 
@@ -342,13 +240,9 @@ Le cerveau **s'habitue** à ce qui lui faisait plaisir : le luxe devient **stand
 
 <summary>5. Cite les trois piliers du bonheur eudémonique.</summary>
 
-&#x20;
-
 1. **Affiliation** (l'entourage)
 2. **Autonomie** (impression d'avoir choisi)
 3. **Compétence** (progresser plutôt qu'être le meilleur)
-
-&#x20;
 
 </details>
 
@@ -356,11 +250,7 @@ Le cerveau **s'habitue** à ce qui lui faisait plaisir : le luxe devient **stand
 
 <summary>6. Pourquoi la croissance économique n'améliore-t-elle pas forcément le bonheur ?</summary>
 
-&#x20;
-
 Parce qu'elle produit surtout du bonheur **hédonique**, auquel on **s'habitue** (adaptation hédonique). Elle n'a presque **aucun effet** sur le bonheur **eudémonique** (liens, sens, autonomie), qui est le plus durable.
-
-&#x20;
 
 </details>
 
@@ -368,11 +258,7 @@ Parce qu'elle produit surtout du bonheur **hédonique**, auquel on **s'habitue**
 
 <summary>7. Comment éviter que la sobriété devienne une catastrophe sociale ?</summary>
 
-&#x20;
-
 En **renforçant le bonheur eudémonique** : plus de liens sociaux, plus de temps libre, moins d'inégalités, du sens au travail, des communautés fortes, plus d'autonomie réelle.
-
-&#x20;
 
 </details>
 
@@ -380,15 +266,9 @@ En **renforçant le bonheur eudémonique** : plus de liens sociaux, plus de temp
 
 <summary>8. Que voulait dire « formidable » à l'origine ?</summary>
 
-&#x20;
-
-**Redoutable, qui est à craindre** (latin *formido* = peur). D'où la phrase à double sens : « vous allez vivre une époque formidable ».
-
-&#x20;
+**Redoutable, qui est à craindre** (latin _formido_ = peur). D'où la phrase à double sens : « vous allez vivre une époque formidable ».
 
 </details>
-
-&#x20;
 
 {% hint style="info" %}
 **Page suivante** → [5. Questions de révision](05-questions-revision.md)
