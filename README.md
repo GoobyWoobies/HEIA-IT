@@ -79,7 +79,7 @@ Logique, systèmes numériques et électronique digitale.
 
 {% columns %}
 {% column %}
-#### [Allemand](allemand/conjugaison/01-present-verbes-reguliers.md)
+#### [Allemand](allemand/allemand.md)
 
 [Conjugaison](allemand/conjugaison/01-present-verbes-reguliers.md), [grammaire](allemand/grammaire/01-place-du-verbe-et-questions.md) et [vocabulaire](allemand/vocabulaire/01-wortschatz-informatik.md) de l'informatique.
 
@@ -170,6 +170,7 @@ Les couleurs ont toujours un sens :
 │
 │   # Autres cours
 ├── allemand/
+│   ├── allemand.md        # Page d'accueil du cours
 │   ├── conjugaison/
 │   ├── grammaire/
 │   └── vocabulaire/

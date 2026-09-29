@@ -408,5 +408,5 @@ Ces phrases viennent des fiches, mais chacune contient **une petite faute**. Tro
 &#x20;
 
 {% hint style="info" %}
-**Retour à l'accueil** → [Accueil](../../README.md) · Et ensuite : [Grammaire — place du verbe](../grammaire/01-place-du-verbe-et-questions.md)
+**Retour au sommaire** → [Allemand](../allemand.md) · Et ensuite : [Grammaire — place du verbe](../grammaire/01-place-du-verbe-et-questions.md)
 {% endhint %}

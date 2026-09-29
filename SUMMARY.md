@@ -48,13 +48,14 @@
 
 ## Autres cours
 
-* [Allemand — Conjugaison](allemand/conjugaison/01-present-verbes-reguliers.md)
-  * [2. Présent — verbes irréguliers](allemand/conjugaison/02-present-verbes-irreguliers.md)
-  * [3. Verbes séparables et inséparables](allemand/conjugaison/03-verbes-separables-inseparables.md)
-  * [4. Le Perfekt](allemand/conjugaison/04-perfekt.md)
-  * [5. Exercices de conjugaison](allemand/conjugaison/05-exercices-conjugaison.md)
-* [Allemand — Grammaire](allemand/grammaire/01-place-du-verbe-et-questions.md)
-* [Allemand — Vocabulaire](allemand/vocabulaire/01-wortschatz-informatik.md)
+* [Allemand](allemand/allemand.md)
+  * [Conjugaison](allemand/conjugaison/01-present-verbes-reguliers.md)
+    * [2. Présent — verbes irréguliers](allemand/conjugaison/02-present-verbes-irreguliers.md)
+    * [3. Verbes séparables et inséparables](allemand/conjugaison/03-verbes-separables-inseparables.md)
+    * [4. Le Perfekt](allemand/conjugaison/04-perfekt.md)
+    * [5. Exercices de conjugaison](allemand/conjugaison/05-exercices-conjugaison.md)
+  * [Grammaire](allemand/grammaire/01-place-du-verbe-et-questions.md)
+  * [Vocabulaire](allemand/vocabulaire/01-wortschatz-informatik.md)
 * [Économie et Droit IT](economie-droit-it/README.md)
   * [Introduction](economie-droit-it/01-introduction/introduction.md)
     * [1. L'esprit du cours](economie-droit-it/01-introduction/01-esprit-du-cours.md)
