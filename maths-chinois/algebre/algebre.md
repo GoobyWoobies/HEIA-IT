@@ -1,5 +1,5 @@
 ---
-icon: vector-square
+icon: shapes
 ---
 
 # 线性代数 1（Algèbre linéaire 1）

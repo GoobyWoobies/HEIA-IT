@@ -1,5 +1,5 @@
 ---
-icon: vector-square
+icon: shapes
 ---
 
 # Algèbre linéaire 1
