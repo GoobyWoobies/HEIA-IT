@@ -231,6 +231,14 @@ stateDiagram-v2
 
 &#x20;
 
+{% hint style="success" %}
+**Flashcards Quizlet**
+
+Tout le vocabulaire de la liste est aussi disponible en cartes à réviser : [HEIA Allemand – Flashcards sur Quizlet](https://quizlet.com/ch/1215156150/heia-allemand-flash-cards/?i=3qz2td&x=1jqt).
+{% endhint %}
+
+&#x20;
+
 ### A. Allemand → français
 
 &#x20;
