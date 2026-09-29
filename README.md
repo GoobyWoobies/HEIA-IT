@@ -83,9 +83,9 @@ Logique, systèmes numériques et électronique digitale.
 
 [Conjugaison](allemand/conjugaison/01-present-verbes-reguliers.md), [grammaire](allemand/grammaire/01-place-du-verbe-et-questions.md) et [vocabulaire](allemand/vocabulaire/01-wortschatz-informatik.md) de l'informatique.
 
-#### Anglais
+#### [Anglais](anglais/anglais.md)
 
-À venir.
+[Tous les temps](anglais/conjugaison/01-vue-ensemble-des-temps.md), [verbes irréguliers](anglais/conjugaison/08-verbes-irreguliers.md) et [grammaire](anglais/grammaire/01-questions-et-negations.md), niveau A2-B1.
 {% endcolumn %}
 
 {% column %}
@@ -110,7 +110,7 @@ Culture générale d'entreprise et droit appliqué à l'informatique.
 | ISC        | Téléinformatique            | À venir                                                               |
 | ISC        | Technique Numérique         | À venir                                                               |
 | Autres     | Allemand                    | <mark style="color:green;">Conjugaison, grammaire, vocabulaire</mark> |
-| Autres     | Anglais                     | À venir                                                               |
+| Autres     | Anglais                     | <mark style="color:green;">Conjugaison (9), grammaire (8)</mark>          |
 | Autres     | Mathématiques               | <mark style="color:green;">Algèbre (13), Analyse (11), FR + 中文</mark> |
 | Autres     | Économie et Droit IT        | <mark style="color:green;">Introduction (6 pages)</mark>              |
 
@@ -174,7 +174,10 @@ Les couleurs ont toujours un sens :
 │   ├── conjugaison/
 │   ├── grammaire/
 │   └── vocabulaire/
-├── anglais/                   # Vide pour l'instant
+├── anglais/
+│   ├── anglais.md         # Page d'accueil du cours
+│   ├── conjugaison/
+│   └── grammaire/
 ├── maths/
 │   ├── maths.md           # Page d'accueil du cours
 │   ├── algebre/
