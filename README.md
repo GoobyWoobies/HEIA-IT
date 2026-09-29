@@ -40,6 +40,7 @@ flowchart LR
     M --> L["Linux & Shell"]
     M --> D["Docker"]
     H --> E["Économie<br/>et Droit IT"]
+    H --> AL["Allemand"]
 
     style H fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
     style T fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
@@ -49,6 +50,7 @@ flowchart LR
     style L fill:#f0fdf4,stroke:#22c55e,color:#14532d
     style D fill:#f0fdf4,stroke:#22c55e,color:#14532d
     style E fill:#ffedd5,stroke:#f97316,color:#7c2d12
+    style AL fill:#fef9c3,stroke:#eab308,color:#713f12
 ```
 
 &#x20;
@@ -82,6 +84,12 @@ Logique, systèmes numériques et électronique digitale.
 ### [Méthodologie et Sécurité IT](methodologie-securite-it/README.md)
 
 Outils du quotidien (Linux, Docker…) et sécurité informatique.
+
+&#x20;
+
+### [Allemand](allemand/allemand.md)
+
+Conjugaison, grammaire et vocabulaire de l'informatique.
 {% endcolumn %}
 {% endcolumns %}
 
@@ -102,6 +110,7 @@ Outils du quotidien (Linux, Docker…) et sécurité informatique.
 | Technique Numérique         | À venir                                                  |
 | Méthodologie et Sécurité IT | <mark style="color:green;">Linux & Shell, Docker</mark>  |
 | Économie et Droit IT        | À venir                                                  |
+| Allemand                    | <mark style="color:green;">Conjugaison, grammaire, vocabulaire</mark> |
 
 &#x20;
 
@@ -178,7 +187,12 @@ Les couleurs ont toujours un sens :
 ├── methodologie-securite-it/
 │   ├── linux/
 │   └── docker/
-└── economie-droit-it/
+├── economie-droit-it/
+└── allemand/
+    ├── allemand.md
+    ├── conjugaison.md  + conjugaison/
+    ├── grammaire.md    + grammaire/
+    └── vocabulaire.md  + vocabulaire/
 ```
 
 &#x20;
