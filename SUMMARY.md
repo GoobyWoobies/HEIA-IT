@@ -81,6 +81,7 @@
     * [3. Fonctions trigonométriques réciproques](maths/algebre/03-fonctions-trigonometriques-reciproques.md)
     * [4. Identités trigonométriques](maths/algebre/04-identites-trigonometriques.md)
     * [5. Équations trigonométriques](maths/algebre/05-equations-trigonometriques.md)
+    * [5 bis. Inéquations trigonométriques](maths/algebre/05b-inequations-trigonometriques.md)
     * [6. Oscillations harmoniques et phaseurs](maths/algebre/06-oscillations-harmoniques.md)
     * [7. Nombres complexes : formes et opérations](maths/algebre/07-nombres-complexes.md)
     * [8. Racines complexes, équations et polynômes](maths/algebre/08-racines-et-equations-complexes.md)
