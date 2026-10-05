@@ -8,22 +8,22 @@ Ce cours reconstruit, chapitre par chapitre, <mark style="color:blue;">toute la 
 
 ## Plan du cours
 
-| # | Chapitre | Évalué dans |
-| --- | --- | --- |
-| 1 | [Angles, triangles et mouvements circulaires](01-angles-et-triangles.md) | Test 1 Pb 1, TE F-1 « Triangle & Co », « Vous avez dit crétins ? » |
-| 2 | [Le cercle trigonométrique](02-cercle-trigonometrique.md) | Test 1 Pb 1, TE F-1 « Comparaison d'angles » |
-| 3 | [Fonctions trigonométriques réciproques](03-fonctions-trigonometriques-reciproques.md) | Test 1 Pb 2 |
-| 4 | [Identités trigonométriques et simplifications](04-identites-trigonometriques.md) | Test 1 Pb 3 |
-| 5 | [Équations trigonométriques](05-equations-trigonometriques.md) | Test 1 Pb 4, TE F-1 |
-| 5 bis | [Inéquations trigonométriques](05b-inequations-trigonometriques.md) | Complément : arcs, intervalles et tableaux de signes |
-| 6 | [Oscillations harmoniques et phaseurs](06-oscillations-harmoniques.md) | Test 2 Pb 1, TE F-1 « Oscillations » |
-| 7 | [Nombres complexes : formes et opérations](07-nombres-complexes.md) | Test 2 Pb 2 et Pb 3 |
-| 8 | [Racines complexes, équations et polynômes](08-racines-et-equations-complexes.md) | Test 2 Pb 3 et Pb 4 |
-| 9 | [Vecteurs, combinaisons linéaires et bases](09-vecteurs-et-bases.md) | Test 3 Pb 1, Test 3A, TE F-2 |
-| 10 | [Produit scalaire, angles et projection orthogonale](10-produit-scalaire-et-projection.md) | Test 3 Pb 2 et Pb 3 |
-| 11 | [Produit vectoriel et produit mixte](11-produit-vectoriel-et-mixte.md) | Test 3 Pb 4, TE F-2 « Maison des lapins crétins » |
-| 12 | [Droites et plans](12-droites-et-plans.md) | TE F-2 « Droites & Co », « Plan » |
-| 13 | [Coordonnées polaires et courbes polaires](13-coordonnees-polaires.md) | TE F-2 « Courbes polaires » |
+| #   | Chapitre                                                                                   | Évalué dans                                                        |
+| --- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| 1   | [Angles, triangles et mouvements circulaires](01-angles-et-triangles.md)                   | Test 1 Pb 1, TE F-1 « Triangle & Co », « Vous avez dit crétins ? » |
+| 2   | [Le cercle trigonométrique](02-cercle-trigonometrique.md)                                  | Test 1 Pb 1, TE F-1 « Comparaison d'angles »                       |
+| 3   | [Fonctions trigonométriques réciproques](03-fonctions-trigonometriques-reciproques.md)     | Test 1 Pb 2                                                        |
+| 4   | [Identités trigonométriques et simplifications](04-identites-trigonometriques.md)          | Test 1 Pb 3                                                        |
+| 5   | [Équations trigonométriques](05-equations-trigonometriques.md)                             | Test 1 Pb 4, TE F-1                                                |
+| 5 b | [Inéquations trigonométriques](05b-inequations-trigonometriques.md)                        | Complément : arcs, intervalles et tableaux de signes               |
+| 6   | [Oscillations harmoniques et phaseurs](06-oscillations-harmoniques.md)                     | Test 2 Pb 1, TE F-1 « Oscillations »                               |
+| 7   | [Nombres complexes : formes et opérations](07-nombres-complexes.md)                        | Test 2 Pb 2 et Pb 3                                                |
+| 8   | [Racines complexes, équations et polynômes](08-racines-et-equations-complexes.md)          | Test 2 Pb 3 et Pb 4                                                |
+| 9   | [Vecteurs, combinaisons linéaires et bases](09-vecteurs-et-bases.md)                       | Test 3 Pb 1, Test 3A, TE F-2                                       |
+| 10  | [Produit scalaire, angles et projection orthogonale](10-produit-scalaire-et-projection.md) | Test 3 Pb 2 et Pb 3                                                |
+| 11  | [Produit vectoriel et produit mixte](11-produit-vectoriel-et-mixte.md)                     | Test 3 Pb 4, TE F-2 « Maison des lapins crétins »                  |
+| 12  | [Droites et plans](12-droites-et-plans.md)                                                 | TE F-2 « Droites & Co », « Plan »                                  |
+| 13  | [Coordonnées polaires et courbes polaires](13-coordonnees-polaires.md)                     | TE F-2 « Courbes polaires »                                        |
 
 ## Comment les chapitres s'enchaînent
 
