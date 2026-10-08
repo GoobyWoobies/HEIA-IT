@@ -45,6 +45,17 @@
   * [15. Conventions de codage et bonnes pratiques](programmation/15-conventions-codage-bonnes-pratiques.md)
 * [Téléinformatique](teleinformatique/README.md)
 * [Technique Numérique](technique-numerique/README.md)
+  * [Concepts de base](technique-numerique/01-concepts-de-base/01-systemes-logiques.md)
+    * [2. Décrire une fonction logique](technique-numerique/01-concepts-de-base/02-decrire-une-fonction-logique.md)
+    * [3. Exercices A.1 à A.3](technique-numerique/01-concepts-de-base/03-exercices-concepts.md)
+  * [Codage des nombres](technique-numerique/02-codage-des-nombres/01-systemes-de-numeration.md)
+    * [2. Conversions entre bases](technique-numerique/02-codage-des-nombres/02-conversions.md)
+    * [3. Octal et hexadécimal](technique-numerique/02-codage-des-nombres/03-octal-et-hexadecimal.md)
+    * [4. BCD, Gray et ASCII](technique-numerique/02-codage-des-nombres/04-bcd-gray-ascii.md)
+    * [5. Arithmétique binaire et dépassement](technique-numerique/02-codage-des-nombres/05-arithmetique-et-depassement.md)
+    * [6. Nombres signés : complément à 2](technique-numerique/02-codage-des-nombres/06-complement-a-2.md)
+    * [7. Nombres réels : virgule fixe](technique-numerique/02-codage-des-nombres/07-virgule-fixe.md)
+    * [8. Exercices B.1 à B.12](technique-numerique/02-codage-des-nombres/08-exercices-codage.md)
 
 ## Autres cours
 

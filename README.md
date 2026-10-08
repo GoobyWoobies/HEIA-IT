@@ -71,7 +71,7 @@ Réseaux, protocoles et communication de données.
 
 #### [Technique Numérique](technique-numerique/README.md)
 
-Logique, systèmes numériques et électronique digitale.
+[Concepts de base](technique-numerique/01-concepts-de-base/01-systemes-logiques.md) (fonctions logiques) et [codage des nombres](technique-numerique/02-codage-des-nombres/01-systemes-de-numeration.md) : binaire, hexa, complément à 2.
 {% endcolumn %}
 {% endcolumns %}
 
@@ -108,7 +108,7 @@ Culture générale d'entreprise et droit appliqué à l'informatique.
 | ISC        | Méthodologie et Sécurité IT | <mark style="color:green;">Linux & Shell, Docker</mark>               |
 | ISC        | Programmation               | <mark style="color:green;">15 chapitres</mark>                        |
 | ISC        | Téléinformatique            | À venir                                                               |
-| ISC        | Technique Numérique         | À venir                                                               |
+| ISC        | Technique Numérique         | <mark style="color:green;">Concepts de base (3), codage des nombres (8)</mark> |
 | Autres     | Allemand                    | <mark style="color:green;">Conjugaison, grammaire, vocabulaire</mark> |
 | Autres     | Anglais                     | <mark style="color:green;">Conjugaison (9), grammaire (8)</mark>          |
 | Autres     | Mathématiques               | <mark style="color:green;">Algèbre (14), Analyse (11), FR + 中文</mark> |
@@ -167,6 +167,8 @@ Les couleurs ont toujours un sens :
 ├── programmation/
 ├── teleinformatique/
 ├── technique-numerique/
+│   ├── 01-concepts-de-base/
+│   └── 02-codage-des-nombres/
 │
 │   # Autres cours
 ├── allemand/
