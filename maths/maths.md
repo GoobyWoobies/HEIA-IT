@@ -10,7 +10,7 @@ Bienvenue ! Ce GitBook est un <mark style="color:blue;">cours théorique complet
 
 | Partie | Contenu | Point d'entrée |
 | --- | --- | --- |
-| <mark style="color:blue;">Algèbre linéaire 1</mark> | Trigonométrie, oscillations, nombres complexes, vecteurs, produits scalaire/vectoriel/mixte, droites et plans, coordonnées polaires | [Algèbre](algebre/algebre.md) |
+| <mark style="color:blue;">Algèbre linéaire 1</mark> | Trigonométrie (équations et inéquations comprises), oscillations, nombres complexes, vecteurs, produits scalaire/vectoriel/mixte, droites et plans, coordonnées polaires | [Algèbre](algebre/algebre.md) |
 | <mark style="color:blue;">Analyse 1</mark> | Inéquations, polynômes, fonctions, exponentielles et logarithmes, limites, continuité, dérivées et leurs applications | [Analyse](analyse/analyse.md) |
 
 ## Comment utiliser ce cours

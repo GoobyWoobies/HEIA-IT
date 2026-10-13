@@ -81,7 +81,7 @@ Réseaux, protocoles et communication de données.
 {% column %}
 #### [Allemand](allemand/allemand.md)
 
-[Conjugaison](allemand/conjugaison/01-present-verbes-reguliers.md), [grammaire](allemand/grammaire/01-place-du-verbe-et-questions.md) et [vocabulaire](allemand/vocabulaire/01-wortschatz-informatik.md) de l'informatique.
+[Conjugaison](allemand/conjugaison/01-present-verbes-reguliers.md), grammaire ([place du verbe](allemand/grammaire/01-place-du-verbe-et-questions.md), [comparatif](allemand/grammaire/02-komparativ.md)) et [vocabulaire](allemand/vocabulaire/01-wortschatz-informatik.md) de l'informatique.
 
 #### [Anglais](anglais/anglais.md)
 
@@ -109,7 +109,7 @@ Culture générale d'entreprise et droit appliqué à l'informatique.
 | ISC        | Programmation               | <mark style="color:green;">15 chapitres</mark>                        |
 | ISC        | Téléinformatique            | À venir                                                               |
 | ISC        | Technique Numérique         | <mark style="color:green;">Concepts de base (3), codage des nombres (8)</mark> |
-| Autres     | Allemand                    | <mark style="color:green;">Conjugaison, grammaire, vocabulaire</mark> |
+| Autres     | Allemand                    | <mark style="color:green;">Conjugaison (5), grammaire (2), vocabulaire (1)</mark> |
 | Autres     | Anglais                     | <mark style="color:green;">Conjugaison (9), grammaire (8)</mark>          |
 | Autres     | Mathématiques               | <mark style="color:green;">Algèbre (17), Analyse (11), FR + 中文</mark> |
 | Autres     | Économie et Droit IT        | <mark style="color:green;">Introduction (6 pages)</mark>              |
@@ -159,6 +159,7 @@ Les couleurs ont toujours un sens :
 ├── SUMMARY.md                 # Table des matières GitBook
 ├── .gitbook.yaml              # Configuration de la synchronisation
 ├── .gitbook/assets/           # Images et fichiers joints
+├── template.md                # Modèle de page (hors menu)
 │
 │   # Informatique et systèmes de communication
 ├── methodologie-securite-it/

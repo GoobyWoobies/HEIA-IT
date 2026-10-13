@@ -14,7 +14,7 @@ coverY: 0
 {% hint style="info" %}
 **En bref**
 
-Le cours tourne autour de **trois piliers** : savoir **conjuguer** les verbes (présent et Perfekt), savoir **construire une phrase** (où va le verbe ?), et connaître le **vocabulaire de l'informatique**. Chaque page contient des exemples et des exercices dont la réponse est **cachée** : clique pour la voir.
+Le cours tourne autour de **trois piliers** : savoir **conjuguer** les verbes (présent et Perfekt), savoir **construire une phrase** (où va le verbe ? comment comparer ?), et connaître le **vocabulaire de l'informatique**. Chaque page contient des exemples et des exercices dont la réponse est **cachée** : clique pour la voir.
 {% endhint %}
 
 ***
