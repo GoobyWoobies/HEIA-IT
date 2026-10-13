@@ -349,3 +349,7 @@ $$\large \varphi = \arctan\left(\frac{\sqrt{3}}{-2}\right) + \pi \approx -0{,}71
 
 $$\Large \color{#2F9E44} h(t) = \sqrt{7}\sin(4t + 2{,}43)$$
 </details>
+
+{% hint style="info" %}
+**Pour aller plus loin** → [6 bis. Modéliser des oscillations](06b-modeliser-des-oscillations.md) : ressort, pendule, grande roue, instants et durées, vitesse et accélération, interférences et battements (séries 3 et 4).
+{% endhint %}

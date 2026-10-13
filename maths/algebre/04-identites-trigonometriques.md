@@ -259,3 +259,7 @@ En divisant :
 
 $$\large \frac{\sin x + \cos x}{\sin x\cos x}\cdot\frac{\cos x}{\sin x + \cos x} = \frac{1}{\sin x} = \color{#2F9E44}\csc x$$
 </details>
+
+{% hint style="info" %}
+**Pour aller plus loin** → [4 bis. Compléments : décalages, valeurs exactes, somme → produit](04b-complements-identites.md).
+{% endhint %}

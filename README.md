@@ -111,7 +111,7 @@ Culture générale d'entreprise et droit appliqué à l'informatique.
 | ISC        | Technique Numérique         | <mark style="color:green;">Concepts de base (3), codage des nombres (8)</mark> |
 | Autres     | Allemand                    | <mark style="color:green;">Conjugaison, grammaire, vocabulaire</mark> |
 | Autres     | Anglais                     | <mark style="color:green;">Conjugaison (9), grammaire (8)</mark>          |
-| Autres     | Mathématiques               | <mark style="color:green;">Algèbre (14), Analyse (11), FR + 中文</mark> |
+| Autres     | Mathématiques               | <mark style="color:green;">Algèbre (17), Analyse (11), FR + 中文</mark> |
 | Autres     | Économie et Droit IT        | <mark style="color:green;">Introduction (6 pages)</mark>              |
 
 ***

@@ -11,12 +11,15 @@ Ce cours reconstruit, chapitre par chapitre, <mark style="color:blue;">toute la 
 | #   | Chapitre                                                                                   | Évalué dans                                                        |
 | --- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
 | 1   | [Angles, triangles et mouvements circulaires](01-angles-et-triangles.md)                   | Test 1 Pb 1, TE F-1 « Triangle & Co », « Vous avez dit crétins ? » |
+| 1 bis | [Triangles et angles en situation](01b-triangles-en-situation.md)                        | Séries 1 et 2 : triangulation, ombres, caps, visées, cordes        |
 | 2   | [Le cercle trigonométrique](02-cercle-trigonometrique.md)                                  | Test 1 Pb 1, TE F-1 « Comparaison d'angles »                       |
 | 3   | [Fonctions trigonométriques réciproques](03-fonctions-trigonometriques-reciproques.md)     | Test 1 Pb 2                                                        |
 | 4   | [Identités trigonométriques et simplifications](04-identites-trigonometriques.md)          | Test 1 Pb 3                                                        |
+| 4 bis | [Décalages, valeurs exactes, somme → produit](04b-complements-identites.md)              | Série 2 ex. 1, 2, 4, 9 ; outils de la série 4                      |
 | 5   | [Équations trigonométriques](05-equations-trigonometriques.md)                             | Test 1 Pb 4, TE F-1                                                |
-| 5 b | [Inéquations trigonométriques](05b-inequations-trigonometriques.md)                        | Complément : arcs, intervalles et tableaux de signes               |
+| 5 bis | [Inéquations trigonométriques](05b-inequations-trigonometriques.md)                      | Complément : arcs, intervalles et tableaux de signes               |
 | 6   | [Oscillations harmoniques et phaseurs](06-oscillations-harmoniques.md)                     | Test 2 Pb 1, TE F-1 « Oscillations »                               |
+| 6 bis | [Modéliser des oscillations](06b-modeliser-des-oscillations.md)                          | Séries 3 et 4 : ressort, pendule, roue, battements                 |
 | 7   | [Nombres complexes : formes et opérations](07-nombres-complexes.md)                        | Test 2 Pb 2 et Pb 3                                                |
 | 8   | [Racines complexes, équations et polynômes](08-racines-et-equations-complexes.md)          | Test 2 Pb 3 et Pb 4                                                |
 | 9   | [Vecteurs, combinaisons linéaires et bases](09-vecteurs-et-bases.md)                       | Test 3 Pb 1, Test 3A, TE F-2                                       |
@@ -30,11 +33,16 @@ Ce cours reconstruit, chapitre par chapitre, <mark style="color:blue;">toute la 
 ```mermaid
 flowchart TD
     A["1. Angles et triangles"] --> B["2. Cercle trigonométrique"]
+    A --> A2["1 bis. Triangles en situation"]
     B --> C["3. Réciproques"]
     B --> D["4. Identités"]
+    D --> D2["4 bis. Décalages et somme → produit"]
     D --> E["5. Équations trigonométriques"]
     E --> E2["5 bis. Inéquations trigonométriques"]
     B --> F["6. Oscillations et phaseurs"]
+    F --> F2["6 bis. Modéliser des oscillations"]
+    D2 --> F2
+    E2 --> F2
     F --> G["7. Nombres complexes"]
     G --> H["8. Racines et équations complexes"]
     G --> M["13. Coordonnées polaires"]

@@ -352,3 +352,7 @@ $$\large v = r\omega = 0{,}30 \cdot 24\pi = 7{,}2\pi \approx 22{,}6 \text{ m/s} 
 
 $$\large d = v \cdot t \approx 22{,}6 \cdot 300 \approx 6786 \text{ m} \approx \color{#2F9E44}6{,}8 \text{ km}$$
 </details>
+
+{% hint style="info" %}
+**Pour aller plus loin** → [1 bis. Triangles et angles en situation](01b-triangles-en-situation.md) : triangulation, degrés-minutes-secondes, triangles semblables, composantes et caps, doubles visées, cordes et chaînes (séries 1 et 2).
+{% endhint %}

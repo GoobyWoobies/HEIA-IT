@@ -34,6 +34,7 @@ flowchart LR
     C4 --> C5["5. Exercices"]
 
     G --> G1["1. Place du verbe<br/>et questions"]
+    G1 --> G2["2. Le comparatif"]
 
     V --> V1["1. Wortschatz<br/>Informatik"]
 
@@ -59,6 +60,7 @@ flowchart LR
 | Conjugaison | [4. Le Perfekt](conjugaison/04-perfekt.md)                                               | Le passé composé : `er hat … entwickelt`                      |
 | Conjugaison | [5. Exercices de conjugaison](conjugaison/05-exercices-conjugaison.md)                   | La fiche du cours corrigée + exercices mélangés               |
 | Grammaire   | [1. Place du verbe et questions](grammaire/01-place-du-verbe-et-questions.md)            | Verbe en 2e position, la « parenthèse », poser une question   |
+| Grammaire   | [2. Le comparatif (Komparativ)](grammaire/02-komparativ.md)                              | `schneller als`, `so … wie`, `am schnellsten`, `gut → besser` |
 | Vocabulaire | [1. Wortschatz Informatik](vocabulaire/01-wortschatz-informatik.md)                      | Les mots de la liste 26-27, avec quiz                         |
 
 ***

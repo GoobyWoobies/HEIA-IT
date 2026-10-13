@@ -420,5 +420,5 @@ La parenthèse reste la même : le 2e morceau **ne bouge pas** de la fin.
 &#x20;
 
 {% hint style="info" %}
-**Retour au sommaire** → [Allemand](../allemand.md)
+**Page suivante** → [2. Le comparatif (Komparativ)](02-komparativ.md) · **Retour au sommaire** → [Allemand](../allemand.md)
 {% endhint %}

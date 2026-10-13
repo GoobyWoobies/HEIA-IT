@@ -361,6 +361,38 @@ $$\color{#2F9E44} x \in \left]-\frac{\pi}{2} + k\pi \;;\; \frac{\pi}{3} + k\pi\r
 
 &#x20;
 
+### Et si l'énoncé demande la réponse dans $$[0 ; 2\pi[$$ ? (série 4, ex. 1 c)
+
+&#x20;
+
+**Exemple :** $$\tan x \leq 1$$ sur $$[0 ; 2\pi[$$.
+
+&#x20;
+
+L'intervalle $$[0 ; 2\pi[$$ contient **plusieurs branches** de la tangente, coupées par les asymptotes $$\frac{\pi}{2}$$ et $$\frac{3\pi}{2}$$. On regarde **chaque morceau séparément** :
+
+&#x20;
+
+<figure><img src="../../.gitbook/assets/alg05b-tan-0-2pi.png" alt="tan x ≤ 1 sur [0 ; 2π[" width="720"><figcaption><p>Sur [0 ; 2π[ on voit un bout de branche, une branche entière, puis encore un bout de branche.</p></figcaption></figure>
+
+&#x20;
+
+| Morceau de $$[0 ; 2\pi[$$          | tan y monte de…   | tan ≤ 1 pour…                              |
+| ---------------------------------- | ----------------- | ------------------------------------------ |
+| $$[0 ; \frac{\pi}{2}[$$            | 0 à $$+\infty$$   | $$[0 ; \frac{\pi}{4}]$$                    |
+| $$]\frac{\pi}{2} ; \frac{3\pi}{2}[$$ | $$-\infty$$ à $$+\infty$$ | $$]\frac{\pi}{2} ; \frac{5\pi}{4}]$$ (tan vaut 1 en $$\frac{\pi}{4} + \pi$$) |
+| $$]\frac{3\pi}{2} ; 2\pi[$$        | $$-\infty$$ à 0   | tout le morceau : $$]\frac{3\pi}{2} ; 2\pi[$$ |
+
+&#x20;
+
+$$\Large \color{#2F9E44} S = \left[0 ; \frac{\pi}{4}\right] \cup \left]\frac{\pi}{2} ; \frac{5\pi}{4}\right] \cup \left]\frac{3\pi}{2} ; 2\pi\right[$$
+
+&#x20;
+
+Les valeurs $$\frac{\pi}{2}$$ et $$\frac{3\pi}{2}$$ sont **exclues** (tangente non définie) ; $$\frac{\pi}{4}$$ et $$\frac{5\pi}{4}$$ sont **incluses** (inégalité large).
+
+&#x20;
+
 ***
 
 &#x20;
